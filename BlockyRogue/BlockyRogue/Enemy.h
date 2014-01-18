@@ -5,7 +5,7 @@
 class Enemy: public GameObject
 {
     public:
-        Enemy();
+        Enemy(sf::Vector2f v2f);
         void update();
 };
 

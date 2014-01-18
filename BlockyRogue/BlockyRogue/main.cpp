@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include <iostream>
+#include "EnemyManager.h"
 using namespace sf;
 
 int main()
@@ -16,7 +17,11 @@ int main()
     sf::Texture t;
 
     Player *p = new Player();
-    Enemy  *e = new Enemy();
+    
+    EnemyManager *enemies = new EnemyManager();
+    enemies->addEnemy(sf::Vector2f(300.f, 100.f));
+    enemies->addEnemy(sf::Vector2f(100.f, 300.f));
+    enemies->addEnemy(sf::Vector2f(50.f, 50.f));
 
 	sf::Clock clock;
 	window.setMouseCursorVisible(false);
@@ -33,10 +38,10 @@ int main()
 		if(sf::Keyboard::isKeyPressed((sf::Keyboard::Escape)))
 			window.close();
 
-		p->update(elapsed.asSeconds()); 
-        e->update();
+		p->update(elapsed.asSeconds());
+        enemies->update();
         p->draw(&window);
-        e->draw(&window);
+        enemies->draw(&window);
 
 		view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
 		window.setView(view);

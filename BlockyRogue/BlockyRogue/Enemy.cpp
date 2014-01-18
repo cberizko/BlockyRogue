@@ -1,11 +1,11 @@
 #include "Enemy.h"
 #include <iostream>
 
-Enemy::Enemy()
+Enemy::Enemy(sf::Vector2f v2f)
 {
     std::cout << "Enemy Created" << std::endl;
     initGraphics("Enemy.png");
-    setPosition(sf::Vector2f(300.f, 100.f));
+    setPosition(v2f);
 }
 
 void Enemy::update()
