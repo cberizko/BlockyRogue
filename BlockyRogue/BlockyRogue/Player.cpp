@@ -23,19 +23,19 @@ void Player::update(float elapsedTime)
 	std::cout << size.x << " " << size.y << std::endl;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(30 * elapsedTime, 0);
+		sprite.move(200 * elapsedTime, 0);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(-30 * elapsedTime, 0);
+		sprite.move(-200 * elapsedTime, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(0, -30 * elapsedTime);
+		sprite.move(0, -200 * elapsedTime);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(0, 30 * elapsedTime);
+		sprite.move(0, 200 * elapsedTime);
 	}
 }
