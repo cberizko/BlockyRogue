@@ -9,7 +9,7 @@ using namespace sf;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "BlockyRogue!");
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "BlockyRogue!", sf::Style::Fullscreen);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     
