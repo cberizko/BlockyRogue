@@ -6,7 +6,10 @@ using namespace sf;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "BlockyRogue!", sf::Style::Fullscreen);
+	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
+    sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
+	window.setView(view);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     
@@ -29,6 +32,9 @@ int main()
 
 		p->update(elapsed.asSeconds()); 
         p->draw(&window);
+
+		view.setCenter(p->getPosition());
+		window.setView(view);
         window.display();
         window.clear();
     }
