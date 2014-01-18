@@ -2,32 +2,39 @@
 #include "Player.h"
 #include <iostream>
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
-
 using namespace sf;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "BlockyRogue!", sf::Style::Fullscreen);
+	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
+    sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
+	window.setView(view);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     
     sf::Texture t;
 
     Player *p = new Player();
-
+	sf::Clock clock;
+	window.setMouseCursorVisible(false);
     while (window.isOpen())
     {
+		sf::Time elapsed = clock.restart();
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+			window.close();
 
-        p->update(); 
+		p->update(elapsed.asSeconds()); 
         p->draw(&window);
+
+		view.setCenter(sf::Vector2f(p->getPosition().x + p->getDimensions().x / 2, p->getPosition().y + p->getDimensions().y / 2));
+		window.setView(view);
         window.display();
         window.clear();
     }
