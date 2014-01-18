@@ -33,7 +33,7 @@ int main()
 		p->update(elapsed.asSeconds()); 
         p->draw(&window);
 
-		view.setCenter(p->getPosition());
+		view.setCenter(sf::Vector2f(p->getPosition().x + p->getDimensions().x / 2, p->getPosition().y + p->getDimensions().y / 2));
 		window.setView(view);
         window.display();
         window.clear();
