@@ -38,7 +38,7 @@ int main()
         p->draw(&window);
         e->draw(&window);
 
-		view.setCenter(sf::Vector2f(p->getPosition().x + p->getDimensions().width / 2, p->getPosition().y + p->getDimensions().height / 2));
+		view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
 		window.setView(view);
         window.display();
         window.clear(Color(255, 255, 255, 255));

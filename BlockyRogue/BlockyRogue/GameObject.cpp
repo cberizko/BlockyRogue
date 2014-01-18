@@ -56,7 +56,7 @@ void GameObject::setScale(sf::Vector2f scale)
 }
 
 //Gets the pixel dimensions of the object
-sf::FloatRect GameObject::getDimensions()
+sf::FloatRect GameObject::getBounds()
 {
 	return sprite.getGlobalBounds();
 }
