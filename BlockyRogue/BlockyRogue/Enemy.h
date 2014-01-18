@@ -1,3 +1,5 @@
+#ifndef _ENEMY_H
+#define _ENEMY_H
 #include "GameObject.h"
 
 class Enemy: public GameObject
@@ -6,3 +8,5 @@ class Enemy: public GameObject
         Enemy();
         void update();
 };
+
+#endif

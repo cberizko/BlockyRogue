@@ -2,15 +2,14 @@
 #include "Player.h"
 #include "Enemy.h"
 #include <iostream>
-
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
-
 using namespace sf;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "BlockyRogue!");
+	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
+    sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
+	window.setView(view);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     
@@ -19,8 +18,11 @@ int main()
     Player *p = new Player();
     Enemy  *e = new Enemy();
 
+	sf::Clock clock;
+	window.setMouseCursorVisible(false);
     while (window.isOpen())
     {
+		sf::Time elapsed = clock.restart();
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -28,11 +30,16 @@ int main()
                 window.close();
         }
 
-        p->update(); 
+		if(sf::Keyboard::isKeyPressed((sf::Keyboard::Escape)))
+			window.close();
+
+		p->update(elapsed.asSeconds()); 
         e->update();
         p->draw(&window);
         e->draw(&window);
 
+		view.setCenter(p->getPosition());
+		window.setView(view);
         window.display();
         window.clear();
     }
