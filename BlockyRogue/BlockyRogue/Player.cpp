@@ -1,6 +1,8 @@
 #include "Player.h"
 #include <iostream>
 
+#define PLAYER_SPEED 200
+
 Player::Player()
 {
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
@@ -23,19 +25,19 @@ void Player::update(float elapsedTime)
 	std::cout << size.x << " " << size.y << std::endl;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(200 * elapsedTime, 0);
+		sprite.move(PLAYER_SPEED * elapsedTime, 0);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(-200 * elapsedTime, 0);
+		sprite.move(-PLAYER_SPEED * elapsedTime, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(0, -200 * elapsedTime);
+		sprite.move(0, -PLAYER_SPEED * elapsedTime);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(0, 200 * elapsedTime);
+		sprite.move(0, PLAYER_SPEED * elapsedTime);
 	}
 }
