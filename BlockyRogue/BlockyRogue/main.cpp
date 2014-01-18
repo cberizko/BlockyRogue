@@ -16,9 +16,10 @@ int main()
     sf::Texture t;
 
     Player *p = new Player();
-
+	sf::Clock clock;
     while (window.isOpen())
     {
+		sf::Time elapsed = clock.restart();
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -26,7 +27,7 @@ int main()
                 window.close();
         }
 
-        p->update(); 
+		p->update(elapsed.asSeconds()); 
         p->draw(&window);
         window.display();
         window.clear();

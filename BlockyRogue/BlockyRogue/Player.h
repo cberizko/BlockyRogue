@@ -4,5 +4,5 @@ class Player: public GameObject
 {
     public:
         Player();
-        void update();
+        void update(float elapsedTime);
 };

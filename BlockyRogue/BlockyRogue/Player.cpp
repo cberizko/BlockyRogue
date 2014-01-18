@@ -17,25 +17,25 @@ Player::Player()
     }
 }
 
-void Player::update()
+void Player::update(float elapsedTime)
 {
 	sf::Vector2f size = sprite.getScale();
 	std::cout << size.x << " " << size.y << std::endl;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(.1, 0);
+		sprite.move(30 * elapsedTime, 0);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(-.1, 0);
+		sprite.move(-30 * elapsedTime, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(0, -.1);
+		sprite.move(0, -30 * elapsedTime);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(0, .1);
+		sprite.move(0, 30 * elapsedTime);
 	}
 }
