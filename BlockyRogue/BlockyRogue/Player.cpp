@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include "getResourcePath.h"
 
 #define PLAYER_SPEED 200
 
@@ -14,7 +15,6 @@ Player::Player()
 
 void Player::update(float elapsedTime)
 {
-	sf::Vector2f size = sprite.getScale();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		sprite.move(PLAYER_SPEED * elapsedTime, 0);
