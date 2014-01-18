@@ -2,8 +2,6 @@
 #include <iostream>
 #include "getResourcePath.h"
 
-#define PLAYER_SPEED 200
-
 Player::Player()
 {
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
@@ -17,19 +15,19 @@ void Player::update(float elapsedTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(PLAYER_SPEED * elapsedTime, 0);
+		sprite.move(PLAYER_MOVE_SPEED * elapsedTime, 0);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(-PLAYER_SPEED * elapsedTime, 0);
+		sprite.move(-PLAYER_MOVE_SPEED * elapsedTime, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(0, -PLAYER_SPEED * elapsedTime);
+		sprite.move(0, -PLAYER_MOVE_SPEED * elapsedTime);
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(0, PLAYER_SPEED * elapsedTime);
+		sprite.move(0, PLAYER_MOVE_SPEED * elapsedTime);
 	}
 }

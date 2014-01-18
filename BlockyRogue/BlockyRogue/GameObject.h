@@ -2,6 +2,7 @@
 #define _GAMEOBJECT_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Config.h"
 
 class GameObject
 {
