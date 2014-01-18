@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Enemy.h"
 #include <iostream>
 
 #define SCREEN_WIDTH 1280
@@ -16,6 +17,7 @@ int main()
     sf::Texture t;
 
     Player *p = new Player();
+    Enemy  *e = new Enemy();
 
     while (window.isOpen())
     {
@@ -27,7 +29,10 @@ int main()
         }
 
         p->update(); 
+        e->update();
         p->draw(&window);
+        e->draw(&window);
+
         window.display();
         window.clear();
     }

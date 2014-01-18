@@ -1,6 +1,7 @@
 #ifndef _GAMEOBJECT_H
 #define _GAMEOBJECT_H
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 class GameObject
 {
@@ -15,6 +16,8 @@ class GameObject
     protected:
         sf::Texture texture;
         sf::Sprite sprite;
+
+        void initGraphics(std::string path);
 };
 
 #endif

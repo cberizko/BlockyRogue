@@ -28,3 +28,16 @@ void GameObject::setPosition(sf::Vector2f position)
 {
     sprite.setPosition(position);
 }
+
+void GameObject::initGraphics(std::string path)
+{
+    if(!texture.loadFromFile(path))
+    {
+        std::cout<<"ERROR: texture " << path << "cannot be loaded!"<<std::endl;
+    }
+    else
+    {
+        sprite.setTexture(texture);
+        sprite.setPosition(100.f,100.f);
+    }
+}
