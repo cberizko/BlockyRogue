@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include <iostream>
+#include "getResourcePath.h"
 
 //Basic Constructor
 GameObject::GameObject()
@@ -31,7 +32,7 @@ void GameObject::setPosition(sf::Vector2f position)
 
 void GameObject::initGraphics(std::string path)
 {
-    if(!texture.loadFromFile(path))
+    if(!texture.loadFromFile(getResourcePath("Assets/Graphics/")+path))
     {
         std::cout<<"ERROR: texture " << path << "cannot be loaded!"<<std::endl;
     }

@@ -8,7 +8,7 @@ Player::Player()
 {
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     std::cout<<"Player Created"<<std::endl;
-    initGraphics("Assets/Graphics/Player.png");
+    initGraphics("Player.png");
     sprite.setPosition(100.f,100.f);
 	sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
 }

@@ -14,6 +14,8 @@
 		5B095C28188B21540058FB67 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B095C16188B21540058FB67 /* icon.png */; };
 		5B095C2C188B21540058FB67 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C1A188B21540058FB67 /* Player.cpp */; };
 		5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C31188B29410058FB67 /* getResourcePath.cpp */; };
+		5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C39188B33BB0058FB67 /* Enemy.cpp */; };
+		5B095C3D188B33C60058FB67 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B095C3C188B33C60058FB67 /* Enemy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		5B095C1D188B21540058FB67 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource.h; path = BlockyRogue/resource.h; sourceTree = "<group>"; };
 		5B095C31188B29410058FB67 /* getResourcePath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = getResourcePath.cpp; path = BlockyRogue/getResourcePath.cpp; sourceTree = "<group>"; };
 		5B095C32188B29410058FB67 /* getResourcePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = getResourcePath.h; path = BlockyRogue/getResourcePath.h; sourceTree = "<group>"; };
+		5B095C39188B33BB0058FB67 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = BlockyRogue/Enemy.cpp; sourceTree = "<group>"; };
+		5B095C3A188B33BB0058FB67 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = BlockyRogue/Enemy.h; sourceTree = "<group>"; };
+		5B095C3C188B33C60058FB67 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,7 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5B095C3C188B33C60058FB67 /* Enemy.png */,
 				5B095C0E188B21540058FB67 /* Player.png */,
 			);
 			path = Graphics;
@@ -97,6 +103,8 @@
 		5B095C30188B216C0058FB67 /* BlockyRogue */ = {
 			isa = PBXGroup;
 			children = (
+				5B095C39188B33BB0058FB67 /* Enemy.cpp */,
+				5B095C3A188B33BB0058FB67 /* Enemy.h */,
 				5B095C38188B2C140058FB67 /* ResourceCode */,
 				5B095BFB188B20E30058FB67 /* main.cpp */,
 				5B095C14188B21540058FB67 /* GameObject.cpp */,
@@ -174,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B095C3D188B33C60058FB67 /* Enemy.png in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);
@@ -202,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
 				5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */,

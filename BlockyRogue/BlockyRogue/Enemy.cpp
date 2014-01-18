@@ -4,7 +4,7 @@
 Enemy::Enemy()
 {
     std::cout << "Enemy Created" << std::endl;
-    initGraphics("Assets/Graphics/Enemy.png");
+    initGraphics("Enemy.png");
     setPosition(sf::Vector2f(300.f, 100.f));
 }
 
