@@ -1,5 +1,5 @@
 #include "GameObject.h"
-
+#include <iostream>
 
 //Basic Constructor
 GameObject::GameObject()
@@ -9,6 +9,12 @@ GameObject::GameObject()
 //Called once per clock cycle.
 void GameObject::update()
 {
+}
+
+//Draws sprite to the screen.
+void GameObject::draw(sf::RenderWindow*  window)
+{
+    window->draw(sprite);
 }
 
 //Gets the position data from the sprite

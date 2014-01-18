@@ -11,8 +11,8 @@ class GameObject
         //SFML's sprite class can handle position and boundingbox collision!
         sf::Vector2f getPosition();
         void setPosition(sf::Vector2f position);
-
-    private:
+        void draw(sf::RenderWindow* window);
+    protected:
         sf::Texture texture;
         sf::Sprite sprite;
 };

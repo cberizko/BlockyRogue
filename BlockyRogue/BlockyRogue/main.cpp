@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "GameObject.h"
+#include "Player.h"
+#include <iostream>
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
@@ -12,6 +13,10 @@ int main()
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     
+    sf::Texture t;
+
+    Player *p = new Player();
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,10 +25,11 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        
-        window.clear();
-        window.draw(shape);
+
+        p->update(); 
+        p->draw(&window);
         window.display();
+        window.clear();
     }
 
     return 0;
