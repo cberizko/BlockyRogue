@@ -22,7 +22,6 @@ Player::Player()
 void Player::update(float elapsedTime)
 {
 	sf::Vector2f size = sprite.getScale();
-	std::cout << size.x << " " << size.y << std::endl;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		sprite.move(PLAYER_SPEED * elapsedTime, 0);
