@@ -17,6 +17,7 @@ int main()
 
     Player *p = new Player();
 	sf::Clock clock;
+	window.setMouseCursorVisible(false);
     while (window.isOpen())
     {
 		sf::Time elapsed = clock.restart();
