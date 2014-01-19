@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include <iostream>
+
 using namespace sf;
 
 int main()
@@ -12,7 +13,7 @@ int main()
 	window.setView(view);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
-    
+
     sf::Texture t;
 
     Player *p = new Player();
