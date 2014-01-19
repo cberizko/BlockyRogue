@@ -4,10 +4,15 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
     p = new Player();
 
+    timeOut = 0.f;
     enemies = new EnemyManager();
     enemies->addEnemy(sf::Vector2f(300.f, 100.f));
     enemies->addEnemy(sf::Vector2f(100.f, 300.f));
     enemies->addEnemy(sf::Vector2f(50.f, 50.f));
+}
+
+MainGameScene::~MainGameScene()
+{
 }
 
 void MainGameScene::update(float elapsedTime)
@@ -68,7 +73,7 @@ void MainGameScene::update(float elapsedTime)
 		}
         
 		p->update(elapsedTime);
-        enemies->update();
+        enemies->update(elapsedTime);
 }
 
 void MainGameScene::draw(sf::RenderWindow* window, sf::View view)

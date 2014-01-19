@@ -15,10 +15,12 @@ class MainGameScene: Scene
 {
     public:
         MainGameScene();
+        ~MainGameScene();
         void update(float elapsedTime);
-        void draw(sf::RenderWindow* window, sf::View view;
+        void draw(sf::RenderWindow* window, sf::View view);
+
     private:
-        float timeOut = 0.f;
+        float timeOut;
         Player *p;
         std::list<Projectile*> projectiles;
         EnemyManager *enemies;

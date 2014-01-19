@@ -25,7 +25,7 @@ void Projectile::update(float elapsedTime)
 {
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);
 	sf::Vector2f moved = sprite.getPosition() - origin;
-	float distance = std::sqrtf(moved.x * moved.x + moved.y * moved.y);
+	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
 	if(distance >= 600)
 		dead = true;
 }

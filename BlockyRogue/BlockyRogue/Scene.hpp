@@ -7,8 +7,9 @@ class Scene
 {
 	public:
 		Scene(std::string name);
-		virtual void update(float elapsedTime);
-		virtual void draw(sf::RenderWindow* window, sf::View view);
+        virtual ~Scene();
+		virtual void update(float elapsedTime) = 0;
+		virtual void draw(sf::RenderWindow* window, sf::View view) = 0; 
 		std::string getName();
 	private:
 		std::string name;

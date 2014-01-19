@@ -51,6 +51,13 @@ int main()
     {
 		sf::Time elapsed = clock.restart();
         sf::Event event;
+
+
+        if(sf::Keyboard::isKeyPressed(Keyboard::Escape))
+        {
+            window.close();
+        }
+
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
