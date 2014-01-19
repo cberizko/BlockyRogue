@@ -4,6 +4,8 @@
 #include <iostream>
 #include "ConfigurationHandler.hpp"
 
+extern ConfigurationHandler config;
+
 class GameObject
 {
     public:
@@ -21,7 +23,6 @@ class GameObject
     protected:
         sf::Texture texture;
         sf::Sprite sprite;
-
         void initGraphics(std::string path);
 };
 

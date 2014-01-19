@@ -3,10 +3,12 @@
 #include "Enemy.h"
 #include "Projectile.h"
 #include <iostream>
-
+#include "ConfigurationHandler.hpp"
 #include <list>
 #include "EnemyManager.h"
 using namespace sf;
+
+ConfigurationHandler config;
 
 int main()
 {
