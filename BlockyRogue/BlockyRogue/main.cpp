@@ -3,9 +3,12 @@
 #include "Enemy.h"
 #include "Projectile.h"
 #include <iostream>
+#include "ConfigurationHandler.hpp"
 #include <list>
 #include "EnemyManager.h"
 using namespace sf;
+
+ConfigurationHandler config;
 
 int main()
 {
@@ -15,7 +18,7 @@ int main()
 	window.setView(view);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
-    
+
     sf::Texture t;
 	float timeOut = 0.f;
 

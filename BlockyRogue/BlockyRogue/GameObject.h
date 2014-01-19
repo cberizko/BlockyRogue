@@ -2,7 +2,9 @@
 #define _GAMEOBJECT_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Config.h"
+#include "ConfigurationHandler.hpp"
+
+extern ConfigurationHandler config;
 
 class GameObject
 {
@@ -16,10 +18,10 @@ class GameObject
 		void setScale(sf::Vector2f scale);
         void setPosition(sf::Vector2f position);
         void draw(sf::RenderWindow* window);
+
     protected:
         sf::Texture texture;
         sf::Sprite sprite;
-
         void initGraphics(std::string path);
 };
 
