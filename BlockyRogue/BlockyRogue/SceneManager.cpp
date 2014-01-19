@@ -1,4 +1,6 @@
 #include "SceneManager.h"
+Scene* SceneManager::currentScene;
+std::list<Scene*> SceneManager::scenes;
 
 void SceneManager::pushScene(Scene* scene)
 {
@@ -8,10 +10,10 @@ void SceneManager::pushScene(Scene* scene)
 
 void SceneManager::popScene()
 {
-	if(scenes.size <= 0)
+	if(scenes.size() <= 0)
 		return;
 	scenes.pop_back();
-	currentScene = scenes.back;
+	currentScene = scenes.back();
 }
 
 void SceneManager::removeScene(Scene* scene)
@@ -28,7 +30,7 @@ void SceneManager::removeScene(Scene* scene)
 			++it;
 		}
 	}
-	currentScene = scenes.back;
+	currentScene = scenes.back();
 }
 
 void SceneManager::draw(sf::RenderWindow* window)
