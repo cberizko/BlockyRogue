@@ -1,4 +1,6 @@
 #include "SceneManager.h"
+Scene* SceneManager::currentScene;
+std::list<Scene*> SceneManager::scenes;
 
 void SceneManager::pushScene(Scene* scene)
 {

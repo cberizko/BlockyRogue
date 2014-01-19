@@ -10,6 +10,6 @@ Enemy::Enemy(sf::Vector2f v2f)
     sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
 }
 
-void Enemy::update()
+void Enemy::update(float elapsed)
 {
 }

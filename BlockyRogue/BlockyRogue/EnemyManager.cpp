@@ -6,11 +6,11 @@ EnemyManager::EnemyManager()
 {
 }
 
-void EnemyManager::update()
+void EnemyManager::update(float elapsed)
 {
     for(int i = 0; i < enemies.size(); i++)
     {
-        enemies[i]->update();
+        enemies[i]->update(elapsed);
     }
 }
 

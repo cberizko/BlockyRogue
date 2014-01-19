@@ -8,7 +8,7 @@ GameObject::GameObject()
 }
 
 //Called once per clock cycle.
-void GameObject::update()
+void GameObject::update(float elapsed)
 {
 }
 

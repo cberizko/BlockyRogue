@@ -119,7 +119,7 @@ int main()
 		}
         
 		p->update(elapsed.asSeconds());
-        enemies->update();
+		enemies->update(elapsed.asSeconds());
 
 
         //==================================================================

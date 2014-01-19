@@ -10,7 +10,7 @@ private:
     std::vector<Enemy*> enemies;
 public:
     EnemyManager();
-    void update();
+    void update(float elapsed);
     void draw(sf::RenderWindow* window);
     
     void addEnemy(sf::Vector2f v2f);

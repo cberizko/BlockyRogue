@@ -6,7 +6,9 @@ class Enemy: public GameObject
 {
     public:
         Enemy(sf::Vector2f v2f);
-        void update();
+        void update(float elapsed);
+	private:
+		float health;
 };
 
 #endif
