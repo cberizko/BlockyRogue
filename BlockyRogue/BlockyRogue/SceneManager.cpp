@@ -8,10 +8,10 @@ void SceneManager::pushScene(Scene* scene)
 
 void SceneManager::popScene()
 {
-	if(scenes.size <= 0)
+	if(scenes.size() <= 0)
 		return;
 	scenes.pop_back();
-	currentScene = scenes.back;
+	currentScene = scenes.back();
 }
 
 void SceneManager::removeScene(Scene* scene)
@@ -28,12 +28,12 @@ void SceneManager::removeScene(Scene* scene)
 			++it;
 		}
 	}
-	currentScene = scenes.back;
+	currentScene = scenes.back();
 }
 
-void SceneManager::draw(sf::RenderWindow* window)
+void SceneManager::draw(sf::RenderWindow* window, sf::View view)
 {
-	currentScene->draw(window);
+	currentScene->draw(window, view);
 }
 
 void SceneManager::update(float elapsed)

@@ -1,6 +1,6 @@
 #ifndef _SCENEMANAGER_H
 #define _SCENEMANAGER_H
-#include "Scene.h"
+#include "Scene.hpp"
 #include <iostream>
 #include <list>
 
@@ -11,7 +11,8 @@ class SceneManager
 		static void popScene();
 		static void removeScene(Scene* scene);
 		static void update(float elapsed);
-		static void draw(sf::RenderWindow* window);
+		static void draw(sf::RenderWindow* window, sf::View view);
+
 	private:
 		static Scene* currentScene;
 		static std::list<Scene*> scenes;
