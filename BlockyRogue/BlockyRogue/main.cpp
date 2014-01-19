@@ -12,14 +12,15 @@ ConfigurationHandler config;
 
 int main()
 {
+    
+//==========================================================================
+// Primary Setup
+//
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
     sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
 
-    sf::Texture t;
 	float timeOut = 0.f;
 
     Player *p = new Player();
@@ -32,6 +33,12 @@ int main()
 
 	sf::Clock clock;
 	window.setMouseCursorVisible(false);
+
+    
+//==========================================================================
+// Main Game Loop
+//
+
     while (window.isOpen())
     {
 		sf::Time elapsed = clock.restart();
@@ -41,27 +48,38 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        
 
-		if(timeOut > 0)
-			timeOut -= elapsed.asSeconds();
-		else
+
+        //==================================================================
+        // Capture Input 
+        //
+ 
+		if(timeOut > 0) //If shot is still on cool down
+	    {
+            timeOut -= elapsed.asSeconds();
+        }
+		else //Else accept key input for shooting
 		{
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
 				projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 					p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(300, 0)));
 				timeOut = .5f;
-			} else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			} 
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
 				projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x, 
 					p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-300, 0)));
 				timeOut = .5f;
-			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			}
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 			{
 				projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
 					p->getPosition().y), sf::Vector2f(0, -300)));
 				timeOut = .5f;
-			} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			}
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			{
 				projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
 					p->getPosition().y + p->getBounds().height), sf::Vector2f(0, 300)));
@@ -72,6 +90,11 @@ int main()
 		if(sf::Keyboard::isKeyPressed((sf::Keyboard::Escape)))
 			window.close();
 
+
+        //==================================================================
+        // Update 
+        //
+        
 		for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();)
 		{
 			(*it)->update(elapsed.asSeconds());
@@ -85,16 +108,22 @@ int main()
 				++it;
 			}
 		}
-		p->update(elapsed.asSeconds()); 
+        
+		p->update(elapsed.asSeconds());
+        enemies->update();
 
-		for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();++it)
+
+        //==================================================================
+        // Draw 
+        //
+        
+        p->draw(&window);
+        enemies->draw(&window);
+       
+        for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();++it)
 		{
 			(*it)->draw(&window);
 		}
-		p->update(elapsed.asSeconds());
-        enemies->update();
-        p->draw(&window);
-        enemies->draw(&window);
 
 		view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
 		window.setView(view);
