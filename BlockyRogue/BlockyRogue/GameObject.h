@@ -8,7 +8,6 @@ class GameObject
 {
     public:
         GameObject();
-
         virtual void update();
         //SFML's sprite class can handle position and boundingbox collision!
         sf::Vector2f getPosition();
