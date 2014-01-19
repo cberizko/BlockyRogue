@@ -1,6 +1,6 @@
 #ifndef _PROJECTILE_H
 #define _PROJECTILE_H
-#include "GameObject.h"
+#include "GameObject.hpp"
 
 class Projectile: public GameObject
 {

@@ -1,5 +1,5 @@
-#ifndef _CONFIGURATIONHANDLER_H
-#define _CONFIGURATIONHANDLER_H
+#ifndef _CONFIGURATIONHANDLER_HPP
+#define _CONFIGURATIONHANDLER_HPP
 
 #include <iostream>
 #include <map>

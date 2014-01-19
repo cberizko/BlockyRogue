@@ -1,5 +1,5 @@
-#ifndef _SCENEMANAGER_H
-#define _SCENEMANAGER_H
+#ifndef _SCENEMANAGER_HPP
+#define _SCENEMANAGER_HPP
 #include "Scene.hpp"
 #include <iostream>
 #include <list>
