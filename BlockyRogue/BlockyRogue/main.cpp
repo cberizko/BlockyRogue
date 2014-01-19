@@ -4,6 +4,7 @@
 #include "Projectile.h"
 #include <iostream>
 #include <list>
+#include "EnemyManager.h"
 using namespace sf;
 
 int main()
@@ -19,8 +20,12 @@ int main()
 	float timeOut = 0.f;
 
     Player *p = new Player();
-    Enemy  *e = new Enemy();
 	std::list<Projectile*> projectiles;
+    
+    EnemyManager *enemies = new EnemyManager();
+    enemies->addEnemy(sf::Vector2f(300.f, 100.f));
+    enemies->addEnemy(sf::Vector2f(100.f, 300.f));
+    enemies->addEnemy(sf::Vector2f(50.f, 50.f));
 
 	sf::Clock clock;
 	window.setMouseCursorVisible(false);
@@ -78,14 +83,15 @@ int main()
 			}
 		}
 		p->update(elapsed.asSeconds()); 
-        e->update();
 
 		for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();++it)
 		{
 			(*it)->draw(&window);
 		}
+		p->update(elapsed.asSeconds());
+        enemies->update();
         p->draw(&window);
-        e->draw(&window);
+        enemies->draw(&window);
 
 		view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
 		window.setView(view);
