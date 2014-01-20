@@ -39,6 +39,7 @@
 		5B095C3C188B33C60058FB67 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
 		5B095C3F188B3F880058FB67 /* EnemyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyManager.cpp; sourceTree = "<group>"; };
 		5B095C40188B3F880058FB67 /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyManager.h; sourceTree = "<group>"; };
+		5B095C42188B43180058FB67 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = BlockyRogue/Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		5B095C30188B216C0058FB67 /* BlockyRogue */ = {
 			isa = PBXGroup;
 			children = (
+				5B095C42188B43180058FB67 /* Config.h */,
 				5B095C3E188B3F4C0058FB67 /* Enemy */,
 				5B095C38188B2C140058FB67 /* ResourceCode */,
 				5B095BFB188B20E30058FB67 /* main.cpp */,

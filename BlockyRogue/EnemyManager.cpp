@@ -6,19 +6,22 @@ EnemyManager::EnemyManager()
 {
 }
 
-void EnemyManager::update()
+void EnemyManager::update(sf::View view)
 {
-    for(int i = 0; i < enemies.size(); i++)
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
     {
-        enemies[i]->update();
+        (*it)->update();
     }
+    
+    //despawn(view);
+    spawn();
 }
 
 void EnemyManager::draw(sf::RenderWindow* window)
 {
-    for(int i = 0; i < enemies.size(); i++)
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
     {
-        enemies[i]->draw(window);
+        (*it)->draw(window);
     }
 }
 
@@ -26,4 +29,48 @@ void EnemyManager::draw(sf::RenderWindow* window)
 void EnemyManager::addEnemy(sf::Vector2f v2f)
 {
     enemies.push_back(new Enemy(v2f));
+}
+
+void EnemyManager::despawn(sf::View view)
+{
+    sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
+    int sWidth = currentResolution.width;
+    int sHeight = currentResolution.height;
+    int range = 1;
+    
+    int viewX = view.getCenter().x;
+    int viewY = view.getCenter().y;
+    
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
+    {
+        if((*it)->getPosition().x-viewX >= (sWidth/2)*range)
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
+        else if((*it)->getPosition().x-viewX <= (sWidth/2)*(-1*range))
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
+        else if((*it)->getPosition().y-viewY >= (sHeight/2)*range)
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
+        else if((*it)->getPosition().y-viewY <= (sHeight/2)*(-1*range))
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+
+void EnemyManager::spawn()
+{
+    
 }

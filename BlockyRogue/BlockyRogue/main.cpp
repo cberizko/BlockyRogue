@@ -39,7 +39,7 @@ int main()
 			window.close();
 
 		p->update(elapsed.asSeconds());
-        enemies->update();
+        enemies->update(view);
         p->draw(&window);
         enemies->draw(&window);
 
