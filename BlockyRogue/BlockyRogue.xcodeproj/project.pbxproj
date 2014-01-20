@@ -16,7 +16,14 @@
 		5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C31188B29410058FB67 /* getResourcePath.cpp */; };
 		5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C39188B33BB0058FB67 /* Enemy.cpp */; };
 		5B095C3D188B33C60058FB67 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B095C3C188B33C60058FB67 /* Enemy.png */; };
-		5B095C41188B3F880058FB67 /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C3F188B3F880058FB67 /* EnemyManager.cpp */; };
+		5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5B12BDDE188CFBAB006D8C8E /* config.ini */; };
+		5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */; };
+		5B12BDF1188CFBAB006D8C8E /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDE2188CFBAB006D8C8E /* EnemyManager.cpp */; };
+		5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */; };
+		5B12BDF3188CFBAB006D8C8E /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDE9188CFBAB006D8C8E /* Projectile.cpp */; };
+		5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDEB188CFBAB006D8C8E /* Scene.cpp */; };
+		5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */; };
+		5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B12BDF8188CFC76006D8C8E /* Projectile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,19 +34,30 @@
 		5B095BFB188B20E30058FB67 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = BlockyRogue/main.cpp; sourceTree = "<group>"; };
 		5B095C0E188B21540058FB67 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		5B095C14188B21540058FB67 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = BlockyRogue/GameObject.cpp; sourceTree = "<group>"; };
-		5B095C15188B21540058FB67 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = BlockyRogue/GameObject.h; sourceTree = "<group>"; };
 		5B095C16188B21540058FB67 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = BlockyRogue/icon.png; sourceTree = "<group>"; };
 		5B095C1A188B21540058FB67 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = BlockyRogue/Player.cpp; sourceTree = "<group>"; };
-		5B095C1B188B21540058FB67 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = BlockyRogue/Player.h; sourceTree = "<group>"; };
 		5B095C1D188B21540058FB67 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource.h; path = BlockyRogue/resource.h; sourceTree = "<group>"; };
 		5B095C31188B29410058FB67 /* getResourcePath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = getResourcePath.cpp; path = BlockyRogue/getResourcePath.cpp; sourceTree = "<group>"; };
-		5B095C32188B29410058FB67 /* getResourcePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = getResourcePath.h; path = BlockyRogue/getResourcePath.h; sourceTree = "<group>"; };
 		5B095C39188B33BB0058FB67 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = BlockyRogue/Enemy.cpp; sourceTree = "<group>"; };
-		5B095C3A188B33BB0058FB67 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enemy.h; path = BlockyRogue/Enemy.h; sourceTree = "<group>"; };
 		5B095C3C188B33C60058FB67 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
-		5B095C3F188B3F880058FB67 /* EnemyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyManager.cpp; sourceTree = "<group>"; };
-		5B095C40188B3F880058FB67 /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyManager.h; sourceTree = "<group>"; };
-		5B095C42188B43180058FB67 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = BlockyRogue/Config.h; sourceTree = "<group>"; };
+		5B12BDDE188CFBAB006D8C8E /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
+		5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConfigurationHandler.cpp; path = BlockyRogue/ConfigurationHandler.cpp; sourceTree = "<group>"; };
+		5B12BDE0188CFBAB006D8C8E /* ConfigurationHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConfigurationHandler.hpp; path = BlockyRogue/ConfigurationHandler.hpp; sourceTree = "<group>"; };
+		5B12BDE1188CFBAB006D8C8E /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Enemy.hpp; path = BlockyRogue/Enemy.hpp; sourceTree = "<group>"; };
+		5B12BDE2188CFBAB006D8C8E /* EnemyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyManager.cpp; path = BlockyRogue/EnemyManager.cpp; sourceTree = "<group>"; };
+		5B12BDE3188CFBAB006D8C8E /* EnemyManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemyManager.hpp; path = BlockyRogue/EnemyManager.hpp; sourceTree = "<group>"; };
+		5B12BDE4188CFBAB006D8C8E /* GameObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameObject.hpp; path = BlockyRogue/GameObject.hpp; sourceTree = "<group>"; };
+		5B12BDE5188CFBAB006D8C8E /* getResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = getResourcePath.hpp; path = BlockyRogue/getResourcePath.hpp; sourceTree = "<group>"; };
+		5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainGameScene.cpp; path = BlockyRogue/MainGameScene.cpp; sourceTree = "<group>"; };
+		5B12BDE7188CFBAB006D8C8E /* MainGameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MainGameScene.hpp; path = BlockyRogue/MainGameScene.hpp; sourceTree = "<group>"; };
+		5B12BDE8188CFBAB006D8C8E /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Player.hpp; path = BlockyRogue/Player.hpp; sourceTree = "<group>"; };
+		5B12BDE9188CFBAB006D8C8E /* Projectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Projectile.cpp; path = BlockyRogue/Projectile.cpp; sourceTree = "<group>"; };
+		5B12BDEA188CFBAB006D8C8E /* Projectile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Projectile.hpp; path = BlockyRogue/Projectile.hpp; sourceTree = "<group>"; };
+		5B12BDEB188CFBAB006D8C8E /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = BlockyRogue/Scene.cpp; sourceTree = "<group>"; };
+		5B12BDEC188CFBAB006D8C8E /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Scene.hpp; path = BlockyRogue/Scene.hpp; sourceTree = "<group>"; };
+		5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = BlockyRogue/SceneManager.cpp; sourceTree = "<group>"; };
+		5B12BDEE188CFBAB006D8C8E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SceneManager.hpp; path = BlockyRogue/SceneManager.hpp; sourceTree = "<group>"; };
+		5B12BDF8188CFC76006D8C8E /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +99,7 @@
 		5B095BFD188B20E30058FB67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B12BDDE188CFBAB006D8C8E /* config.ini */,
 				5B095C0C188B21540058FB67 /* Assets */,
 			);
 			name = Resources;
@@ -98,6 +117,7 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5B12BDF8188CFC76006D8C8E /* Projectile.png */,
 				5B095C3C188B33C60058FB67 /* Enemy.png */,
 				5B095C0E188B21540058FB67 /* Player.png */,
 			);
@@ -107,15 +127,13 @@
 		5B095C30188B216C0058FB67 /* BlockyRogue */ = {
 			isa = PBXGroup;
 			children = (
-				5B095C42188B43180058FB67 /* Config.h */,
-				5B095C3E188B3F4C0058FB67 /* Enemy */,
-				5B095C38188B2C140058FB67 /* ResourceCode */,
 				5B095BFB188B20E30058FB67 /* main.cpp */,
-				5B095C14188B21540058FB67 /* GameObject.cpp */,
-				5B095C15188B21540058FB67 /* GameObject.h */,
+				5B12BDF6188CFBFB006D8C8E /* Objects */,
+				5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */,
+				5B12BDE0188CFBAB006D8C8E /* ConfigurationHandler.hpp */,
+				5B12BDF7188CFC3C006D8C8E /* Scenes */,
+				5B095C38188B2C140058FB67 /* ResourceCode */,
 				5B095C16188B21540058FB67 /* icon.png */,
-				5B095C1A188B21540058FB67 /* Player.cpp */,
-				5B095C1B188B21540058FB67 /* Player.h */,
 				5B095C1D188B21540058FB67 /* resource.h */,
 				5B095BFD188B20E30058FB67 /* Resources */,
 				5B095BF6188B20E30058FB67 /* Supporting Files */,
@@ -127,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				5B095C31188B29410058FB67 /* getResourcePath.cpp */,
-				5B095C32188B29410058FB67 /* getResourcePath.h */,
+				5B12BDE5188CFBAB006D8C8E /* getResourcePath.hpp */,
 				5B095BF8188B20E30058FB67 /* ResourcePath.mm */,
 				5B095BFA188B20E30058FB67 /* ResourcePath.hpp */,
 			);
@@ -137,12 +155,39 @@
 		5B095C3E188B3F4C0058FB67 /* Enemy */ = {
 			isa = PBXGroup;
 			children = (
-				5B095C3F188B3F880058FB67 /* EnemyManager.cpp */,
-				5B095C40188B3F880058FB67 /* EnemyManager.h */,
+				5B095C14188B21540058FB67 /* GameObject.cpp */,
+				5B12BDE4188CFBAB006D8C8E /* GameObject.hpp */,
 				5B095C39188B33BB0058FB67 /* Enemy.cpp */,
-				5B095C3A188B33BB0058FB67 /* Enemy.h */,
+				5B12BDE1188CFBAB006D8C8E /* Enemy.hpp */,
+				5B12BDE2188CFBAB006D8C8E /* EnemyManager.cpp */,
+				5B12BDE3188CFBAB006D8C8E /* EnemyManager.hpp */,
 			);
 			name = Enemy;
+			sourceTree = "<group>";
+		};
+		5B12BDF6188CFBFB006D8C8E /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5B095C1A188B21540058FB67 /* Player.cpp */,
+				5B12BDE8188CFBAB006D8C8E /* Player.hpp */,
+				5B12BDE9188CFBAB006D8C8E /* Projectile.cpp */,
+				5B12BDEA188CFBAB006D8C8E /* Projectile.hpp */,
+				5B095C3E188B3F4C0058FB67 /* Enemy */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		5B12BDF7188CFC3C006D8C8E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */,
+				5B12BDE7188CFBAB006D8C8E /* MainGameScene.hpp */,
+				5B12BDEB188CFBAB006D8C8E /* Scene.cpp */,
+				5B12BDEC188CFBAB006D8C8E /* Scene.hpp */,
+				5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */,
+				5B12BDEE188CFBAB006D8C8E /* SceneManager.hpp */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +244,8 @@
 			files = (
 				5B095C3D188B33C60058FB67 /* Enemy.png in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
+				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
+				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,11 +275,16 @@
 			files = (
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
+				5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */,
+				5B12BDF3188CFBAB006D8C8E /* Projectile.cpp in Sources */,
+				5B12BDF1188CFBAB006D8C8E /* EnemyManager.cpp in Sources */,
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
+				5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */,
+				5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */,
 				5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */,
+				5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */,
 				5B095C2C188B21540058FB67 /* Player.cpp in Sources */,
 				5B095C27188B21540058FB67 /* GameObject.cpp in Sources */,
-				5B095C41188B3F880058FB67 /* EnemyManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +430,7 @@
 				5B095C0A188B20E30058FB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

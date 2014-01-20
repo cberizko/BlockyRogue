@@ -2,7 +2,8 @@
 #define _ENEMYMANAGER_HPP
 #include <SFML/Graphics.hpp>
 #include <list>
-#include "Enemy.h"
+#include "Enemy.hpp"
+#include "Player.hpp"
 
 class EnemyManager
 {
@@ -11,11 +12,11 @@ private:
     int maxEnemies;
 public:
     EnemyManager();
-    void update(sf::View view);
+    void update(Player player, float elapsedTime);
     void draw(sf::RenderWindow* window);
     
     void addEnemy(sf::Vector2f v2f);
-    void despawn(sf::View view);
+    void despawn(Player player);
     void spawn();
 };
 

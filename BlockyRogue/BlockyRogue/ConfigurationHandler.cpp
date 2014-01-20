@@ -1,8 +1,9 @@
 #include "ConfigurationHandler.hpp"
+#include "getResourcePath.hpp"
 
 ConfigurationHandler::ConfigurationHandler()
 {
-    std::ifstream configFile("config.ini");
+    std::ifstream configFile(getResourcePath("")+"config.ini");
     parseFile(&configFile);
 }
 

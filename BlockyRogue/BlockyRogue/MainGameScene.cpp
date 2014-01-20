@@ -75,7 +75,7 @@ void MainGameScene::update(float elapsedTime)
 		}
         
 		p->update(elapsedTime);
-        enemies->update(elapsedTime);
+        enemies->update(*p, elapsedTime);
 }
 
 void MainGameScene::draw(sf::RenderWindow* window, sf::View view)

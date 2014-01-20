@@ -44,19 +44,9 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-		if(sf::Keyboard::isKeyPressed((sf::Keyboard::Escape)))
-			window.close();
-
-		p->update(elapsed.asSeconds());
-        enemies->update(view);
-        p->draw(&window);
-        enemies->draw(&window);
-
-		view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
-		window.setView(view);
-        window.display();
-        window.clear(Color(255, 255, 255, 255));
+        
+        sceneManager.update(elapsed.asSeconds());
+        sceneManager.draw(&window, view);
     }
 
     return 0;

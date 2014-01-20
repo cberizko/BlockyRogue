@@ -5,20 +5,21 @@ EnemyManager::EnemyManager()
 {
 }
 
-void EnemyManager::update(sf::View view)
+void EnemyManager::update(Player player, float elapsedTime)
 {
-    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
+    std::cout << enemies.size() << std::endl;
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
-        (*it)->update();
+        (*it)->update(elapsedTime);
     }
     
-    //despawn(view);
+    despawn(player);
     spawn();
 }
 
 void EnemyManager::draw(sf::RenderWindow* window)
 {
-    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
         (*it)->draw(window);
     }
@@ -30,15 +31,15 @@ void EnemyManager::addEnemy(sf::Vector2f v2f)
     enemies.push_back(new Enemy(v2f));
 }
 
-void EnemyManager::despawn(sf::View view)
+void EnemyManager::despawn(Player player)
 {
     sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     int sWidth = currentResolution.width;
     int sHeight = currentResolution.height;
     int range = 1;
     
-    int viewX = view.getCenter().x;
-    int viewY = view.getCenter().y;
+    int viewX = player.getPosition().x;
+    int viewY = player.getPosition().y;
     
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
     {
