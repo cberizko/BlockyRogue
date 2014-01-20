@@ -2,14 +2,15 @@
 #define _GAMEOBJECT_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Config.h"
+#include "ConfigurationHandler.hpp"
+
+extern ConfigurationHandler config;
 
 class GameObject
 {
     public:
         GameObject();
-
-        virtual void update();
+        virtual void update(float elapsed);
         //SFML's sprite class can handle position and boundingbox collision!
         sf::Vector2f getPosition();
 		sf::Vector2f getScale();
@@ -17,10 +18,10 @@ class GameObject
 		void setScale(sf::Vector2f scale);
         void setPosition(sf::Vector2f position);
         void draw(sf::RenderWindow* window);
+
     protected:
         sf::Texture texture;
         sf::Sprite sprite;
-
         void initGraphics(std::string path);
 };
 

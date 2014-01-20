@@ -1,12 +1,15 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
-#include "GameObject.h"
+#include "GameObject.hpp"
 
 class Player: public GameObject
 {
     public:
         Player();
         void update(float elapsedTime);
+	private:
+		double health;
+        double moveSpeed;
 };
 
 #endif

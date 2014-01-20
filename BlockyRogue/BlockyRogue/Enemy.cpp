@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Enemy.hpp"
 #include <iostream>
 
 Enemy::Enemy(sf::Vector2f v2f)
@@ -8,8 +8,11 @@ Enemy::Enemy(sf::Vector2f v2f)
     initGraphics("Enemy.png");
     setPosition(v2f);
     sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
+
+    health = config["ENEMY_MAX_HEALTH"];
+    moveSpeed = config["ENEMY_MOVE_SPEED"];
 }
 
-void Enemy::update()
+void Enemy::update(float elapsed)
 {
 }

@@ -1,5 +1,5 @@
-#ifndef _ENEMYMANAGER_H
-#define _ENEMYMANAGER_H
+#ifndef _ENEMYMANAGER_HPP
+#define _ENEMYMANAGER_HPP
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "Enemy.h"

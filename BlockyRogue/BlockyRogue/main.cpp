@@ -1,34 +1,44 @@
 #include <SFML/Graphics.hpp>
-#include "Player.h"
-#include "Enemy.h"
 #include <iostream>
-#include "EnemyManager.h"
+#include <list>
+#include "ConfigurationHandler.hpp"
+#include "SceneManager.hpp"
+#include "MainGameScene.hpp"
+
 using namespace sf;
+
+ConfigurationHandler config;
 
 int main()
 {
+
+//==========================================================================
+// Primary Setup
+//
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
     sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-    
-    sf::Texture t;
 
-    Player *p = new Player();
-    
-    EnemyManager *enemies = new EnemyManager();
-    enemies->addEnemy(sf::Vector2f(300.f, 100.f));
-    enemies->addEnemy(sf::Vector2f(100.f, 300.f));
-    enemies->addEnemy(sf::Vector2f(50.f, 50.f));
-
+    SceneManager sceneManager;
+    sceneManager.pushScene((Scene*)(new MainGameScene()));
+   
 	sf::Clock clock;
-	window.setMouseCursorVisible(false);
+
+//==========================================================================
+// Main Game Loop
+//
+
     while (window.isOpen())
     {
 		sf::Time elapsed = clock.restart();
         sf::Event event;
+
+        if(sf::Keyboard::isKeyPressed(Keyboard::Escape))
+        {
+            window.close();
+        }
+
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)

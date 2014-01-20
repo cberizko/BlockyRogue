@@ -1,6 +1,6 @@
-#include "GameObject.h"
+#include "GameObject.hpp"
 #include <iostream>
-#include "getResourcePath.h"
+#include "getResourcePath.hpp"
 
 //Basic Constructor
 GameObject::GameObject()
@@ -8,7 +8,7 @@ GameObject::GameObject()
 }
 
 //Called once per clock cycle.
-void GameObject::update()
+void GameObject::update(float elapsed)
 {
 }
 

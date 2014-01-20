@@ -1,5 +1,4 @@
-
-#include "EnemyManager.h"
+#include "EnemyManager.hpp"
 #include <iostream>
 
 EnemyManager::EnemyManager()
