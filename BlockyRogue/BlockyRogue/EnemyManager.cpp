@@ -17,7 +17,7 @@ void EnemyManager::draw(sf::RenderWindow* window)
 {
     for(int i = 0; i < enemies.size(); i++)
     {
-        enemies[i]->draw(window)t;
+        enemies[i]->draw(window);
     }
 }
 
