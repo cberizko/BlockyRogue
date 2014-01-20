@@ -1,6 +1,6 @@
-#include "GameObject.h"
+#include "GameObject.hpp"
 #include <iostream>
-#include "getResourcePath.h"
+#include "getResourcePath.hpp"
 
 //Basic Constructor
 GameObject::GameObject()

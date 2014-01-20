@@ -3,13 +3,13 @@
 
 #include "Scene.hpp"
 #include <SFML/Graphics.hpp>
-#include "Player.h"
-#include "Enemy.h"
-#include "Projectile.h"
+#include "Player.hpp"
+#include "Enemy.hpp"
+#include "Projectile.hpp"
 #include <iostream>
 #include "ConfigurationHandler.hpp"
 #include <list>
-#include "EnemyManager.h"
+#include "EnemyManager.hpp"
 
 class MainGameScene: Scene
 {

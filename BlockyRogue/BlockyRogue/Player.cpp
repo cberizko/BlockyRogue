@@ -1,6 +1,6 @@
-#include "Player.h"
+#include "Player.hpp"
 #include <iostream>
-#include "getResourcePath.h"
+#include "getResourcePath.hpp"
 
 Player::Player()
 {

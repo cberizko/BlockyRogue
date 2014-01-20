@@ -1,12 +1,8 @@
 #include <SFML/Graphics.hpp>
-#include "Player.h"
-#include "Enemy.h"
-#include "Projectile.h"
 #include <iostream>
-#include "ConfigurationHandler.hpp"
 #include <list>
-#include "EnemyManager.h"
-#include "SceneManager.h"
+#include "ConfigurationHandler.hpp"
+#include "SceneManager.hpp"
 #include "MainGameScene.hpp"
 
 using namespace sf;

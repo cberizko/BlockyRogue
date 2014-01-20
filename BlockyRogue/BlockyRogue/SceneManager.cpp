@@ -1,4 +1,4 @@
-#include "SceneManager.h"
+#include "SceneManager.hpp"
 Scene* SceneManager::currentScene;
 std::list<Scene*> SceneManager::scenes;
 

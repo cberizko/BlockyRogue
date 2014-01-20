@@ -1,6 +1,6 @@
-#include "Projectile.h"
+#include "Projectile.hpp"
 #include <iostream>
-#include "getResourcePath.h"
+#include "getResourcePath.hpp"
 #include <cmath>
 
 #define PLAYER_SPEED 200

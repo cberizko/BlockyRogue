@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 VGDC. All rights reserved.
 //
 
-#include "getResourcePath.h"
+#include "getResourcePath.hpp"
 
 
 std::string getResourcePath(std::string path)

@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Enemy.hpp"
 #include <iostream>
 
 Enemy::Enemy(sf::Vector2f v2f)
