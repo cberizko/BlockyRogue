@@ -3,7 +3,8 @@
 
 ConfigurationHandler::ConfigurationHandler()
 {
-    std::ifstream configFile(getResourcePath("")+"config.ini");
+    std::string path = getResourcePath("")+"config.ini";
+    std::ifstream configFile(path.c_str());
     parseFile(&configFile);
 }
 

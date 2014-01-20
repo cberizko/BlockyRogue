@@ -16,7 +16,7 @@ Player::Player()
 
 void Player::update(float elapsedTime)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		sprite.move(moveSpeed * elapsedTime, 0);
 	}

@@ -7,7 +7,6 @@ EnemyManager::EnemyManager()
 
 void EnemyManager::update(Player player, float elapsedTime)
 {
-    std::cout << enemies.size() << std::endl;
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
         (*it)->update(elapsedTime);
