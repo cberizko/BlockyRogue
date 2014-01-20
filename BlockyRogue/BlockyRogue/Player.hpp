@@ -8,7 +8,8 @@ class Player: public GameObject
         Player();
         void update(float elapsedTime);
 	private:
-		float health;
+		double health;
+        double moveSpeed;
 };
 
 #endif

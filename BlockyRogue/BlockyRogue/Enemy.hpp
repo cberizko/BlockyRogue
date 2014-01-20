@@ -1,5 +1,5 @@
-#ifndef _ENEMY_H
-#define _ENEMY_H
+#ifndef _ENEMY_HPP
+#define _ENEMY_HPP
 
 #include "GameObject.hpp"
 
@@ -9,7 +9,8 @@ class Enemy: public GameObject
         Enemy(sf::Vector2f v2f);
         void update(float elapsed);
 	private:
-		float health;
+		double health;
+        double moveSpeed;
 };
 
 #endif

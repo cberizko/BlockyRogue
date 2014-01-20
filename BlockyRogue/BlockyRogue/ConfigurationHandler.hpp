@@ -7,8 +7,6 @@
 #include <fstream>
 #include <sstream>
 
-#define PLAYER_MOVE_SPEED 200
-
 class ConfigurationHandler
 {
     public:
