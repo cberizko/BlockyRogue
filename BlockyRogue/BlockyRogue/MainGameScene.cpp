@@ -2,9 +2,10 @@
 
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
+    timeOut = 0.f;
+
     p = new Player();
 
-    timeOut = 0.f;
     enemies = new EnemyManager();
     enemies->addEnemy(sf::Vector2f(300.f, 100.f));
     enemies->addEnemy(sf::Vector2f(100.f, 300.f));
@@ -61,6 +62,7 @@ void MainGameScene::update(float elapsedTime)
 		for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();)
 		{
 			(*it)->update(elapsedTime);
+            
 			if((*it)->dead)
 			{
 				delete *it;
