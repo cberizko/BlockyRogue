@@ -6,6 +6,7 @@ class Player: public GameObject
 {
     public:
         Player();
+        ~Player();
         void update(float elapsedTime);
 	private:
 		double health;
