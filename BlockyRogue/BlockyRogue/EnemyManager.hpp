@@ -4,12 +4,15 @@
 #include <list>
 #include "Enemy.hpp"
 #include "Player.hpp"
+#include <stdlib.h>
+#include <time.h>
 
 class EnemyManager
 {
 private:
     std::list<Enemy*> enemies;
-    int maxEnemies;
+    double maxEnemies;
+    double despawnRange;
 public:
     EnemyManager();
     void update(Player player, float elapsedTime);
@@ -17,7 +20,7 @@ public:
     
     void addEnemy(sf::Vector2f v2f);
     void despawn(Player player);
-    void spawn();
+    void spawn(Player player);
 };
 
 #endif
