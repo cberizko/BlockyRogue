@@ -60,3 +60,9 @@ sf::FloatRect GameObject::getBounds()
 {
 	return sprite.getGlobalBounds();
 }
+
+//Gets the sprite of the object (used mostly for collision checking)
+sf::Sprite GameObject::getSprite()
+{
+    return sprite;
+}

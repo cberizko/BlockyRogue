@@ -61,7 +61,7 @@ void MainGameScene::update(float elapsedTime)
     
     for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();)
     {
-        (*it)->update(elapsedTime);
+        (*it)->update(elapsedTime, enemies);
         
         if((*it)->dead)
         {
