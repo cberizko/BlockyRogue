@@ -22,6 +22,7 @@ int main()
 	window.setView(view);
     SceneManager sceneManager;
     sceneManager.pushScene((Scene*)(new MainGameScene()));
+    sceneManager.pushScene((Scene*)(new TitleScreenScene()));
 
 	sf::Clock clock;
 

@@ -3,6 +3,7 @@
 
 #include "Scene.hpp"
 #include <SFML/Graphics.hpp>
+#include "getResourcePath.hpp"
 
 class TitleScreenScene: Scene
 {
@@ -13,7 +14,9 @@ class TitleScreenScene: Scene
         void draw(sf::RenderWindow* window, sf::View view);
 
     private:
-        
+        sf::Font titleFont;
+        sf::Text titleText;
+        sf::Text subText;
 };
 
 #endif
