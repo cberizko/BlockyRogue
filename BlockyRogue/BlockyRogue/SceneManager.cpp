@@ -14,6 +14,7 @@ void SceneManager::popScene()
 		return;
 	scenes.pop_back();
 	currentScene = scenes.back();
+    //TODO: Shouldn't there be clean up for the removed scene?
 }
 
 void SceneManager::removeScene(Scene* scene)
@@ -40,5 +41,12 @@ void SceneManager::draw(sf::RenderWindow* window, sf::View view)
 
 void SceneManager::update(float elapsed)
 {
-	currentScene->update(elapsed);
+    if(currentScene->hasEnded())
+    {
+        popScene();
+    }
+    else
+    {
+	    currentScene->update(elapsed);
+    }
 }

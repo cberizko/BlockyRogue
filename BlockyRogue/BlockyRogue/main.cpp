@@ -4,6 +4,7 @@
 #include "ConfigurationHandler.hpp"
 #include "SceneManager.hpp"
 #include "MainGameScene.hpp"
+#include "TitleScreenScene.hpp"
 
 using namespace sf;
 
@@ -19,16 +20,14 @@ int main()
     sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
-
     SceneManager sceneManager;
     sceneManager.pushScene((Scene*)(new MainGameScene()));
-   
+
 	sf::Clock clock;
 
 //==========================================================================
 // Main Game Loop
 //
-
     while (window.isOpen())
     {
 		sf::Time elapsed = clock.restart();
