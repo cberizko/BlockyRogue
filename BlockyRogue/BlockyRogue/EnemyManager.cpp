@@ -100,3 +100,8 @@ void EnemyManager::spawn(Player player)
     }
     
 }
+
+std::list<Enemy*> EnemyManager::getEnemyList()
+{
+    return enemies;
+}

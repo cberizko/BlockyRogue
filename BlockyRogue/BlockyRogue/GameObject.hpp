@@ -18,6 +18,7 @@ class GameObject
 		void setScale(sf::Vector2f scale);
         void setPosition(sf::Vector2f position);
         void draw(sf::RenderWindow* window);
+        sf::Sprite getSprite();
 
     protected:
         sf::Texture texture;

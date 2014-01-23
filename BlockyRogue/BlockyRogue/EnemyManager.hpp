@@ -21,6 +21,7 @@ public:
     void addEnemy(sf::Vector2f v2f);
     void despawn(Player player);
     void spawn(Player player);
+    std::list<Enemy*> getEnemyList();
 };
 
 #endif

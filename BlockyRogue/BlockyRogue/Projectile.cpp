@@ -21,8 +21,20 @@ void Projectile::setVelocity(sf::Vector2f _velocity)
 	velocity = _velocity;
 }
 
-void Projectile::update(float elapsedTime)
+void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 {
+    //TODO: Add collision check code for enemies.
+    std::list<Enemy*> enemies = enemyManager->getEnemyList();
+
+    //Collision check code
+    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
+    {
+        if((*it)->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds()))
+        {
+            std::cout << "Collision between projectile and Enemy detected!" << std::endl;
+        }
+    }
+
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
