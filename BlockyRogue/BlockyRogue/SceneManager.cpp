@@ -12,7 +12,9 @@ void SceneManager::popScene()
 {
 	if(scenes.size() <= 0)
 		return;
+	Scene *removed = scenes.back();
 	scenes.pop_back();
+	delete removed;
 	currentScene = scenes.back();
     //TODO: Shouldn't there be clean up for the removed scene?
 }
