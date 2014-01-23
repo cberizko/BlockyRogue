@@ -31,25 +31,25 @@ void MainGameScene::update(float elapsedTime)
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
-                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(300, 0)));
+				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(300, 0) + *p->getVelocity()));
             timeOut = .5f;
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x, 
-                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-300, 0)));
+			projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x, 
+                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-300, 0) + *p->getVelocity()));
             timeOut = .5f;
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y), sf::Vector2f(0, -300)));
+                p->getPosition().y), sf::Vector2f(0, -300) + *p->getVelocity()));
             timeOut = .5f;
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y + p->getBounds().height), sf::Vector2f(0, 300)));
+                p->getPosition().y + p->getBounds().height), sf::Vector2f(0, 300) + *p->getVelocity()));
             timeOut = .5f;
         }
     }

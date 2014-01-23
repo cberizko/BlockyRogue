@@ -96,22 +96,26 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="getResourcePath.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainGameScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="TitleScreenScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConfigurationHandler.hpp" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyManager.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="getResourcePath.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Projectile.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Enemy.hpp" />
+    <ClInclude Include="EnemyManager.hpp" />
+    <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="getResourcePath.hpp" />
+    <ClInclude Include="MainGameScene.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Projectile.hpp" />
+    <ClInclude Include="ResourcePath.hpp" />
+    <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="SceneManager.hpp" />
+    <ClInclude Include="TitleScreenScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlockyRogue.rc" />
