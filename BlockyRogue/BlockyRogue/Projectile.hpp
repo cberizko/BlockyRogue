@@ -2,6 +2,9 @@
 #define _PROJECTILE_H
 #include "GameObject.hpp"
 #include "EnemyManager.hpp"
+#include <iostream>
+#include "getResourcePath.hpp"
+#include <cmath>
 #include "Enemy.hpp"
 
 class Projectile: public GameObject

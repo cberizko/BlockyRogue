@@ -13,6 +13,12 @@ void EnemyManager::update(Player player, float elapsedTime)
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
         (*it)->update(elapsedTime);
+
+        if((*it)->getHealth() <= 0)
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
     }
     
     despawn(player);

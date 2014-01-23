@@ -9,6 +9,9 @@ class Enemy: public GameObject
         Enemy(sf::Vector2f v2f);
         ~Enemy();
         void update(float elapsed);
+        void setHealth(double health);
+        double getHealth();
+
 	private:
 		double health;
         double moveSpeed;

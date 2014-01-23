@@ -1,8 +1,4 @@
 #include "Projectile.hpp"
-#include <iostream>
-#include "getResourcePath.hpp"
-#include <cmath>
-
 #define PLAYER_SPEED 200
 
 Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity)
@@ -31,7 +27,9 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
     {
         if((*it)->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds()))
         {
-            std::cout << "Collision between projectile and Enemy detected!" << std::endl;
+            //Damage enemy by one damage
+            (*it)->setHealth((*it)->getHealth()-1);            
+            dead = true;
         }
     }
 
