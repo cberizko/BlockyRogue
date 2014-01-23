@@ -1,6 +1,7 @@
 #include "SceneManager.hpp"
 Scene* SceneManager::currentScene;
 std::list<Scene*> SceneManager::scenes;
+std::list<Scene*> SceneManager::scenesToRemove;
 
 void SceneManager::pushScene(Scene* scene)
 {
@@ -12,43 +13,38 @@ void SceneManager::popScene()
 {
 	if(scenes.size() <= 0)
 		return;
-	Scene *removed = scenes.back();
+	scenesToRemove.push_back(scenes.back());
 	scenes.pop_back();
-	delete removed;
-	currentScene = scenes.back();
+	if(!scenes.empty())
+		currentScene = scenes.back();
     //TODO: Shouldn't there be clean up for the removed scene?
 }
 
 void SceneManager::removeScene(Scene* scene)
 {
-	for (std::list<Scene*>::iterator it = scenes.begin(); it != scenes.end();)
-	{
-		if((*it)->getName().compare(scene->getName()) == 0)
-		{
-			delete *it;
-			it = scenes.erase(it);
-		}
-		else
-		{
-			++it;
-		}
-	}
+	scenesToRemove.push_back(scenes.back());
 	currentScene = scenes.back();
 }
 
 void SceneManager::draw(sf::RenderWindow* window, sf::View view)
 {
+	if(scenes.empty())
+	{
+		window->close();
+		return;
+	}
 	currentScene->draw(window, view);
 }
 
 void SceneManager::update(float elapsed)
 {
-    if(currentScene->hasEnded())
-    {
-        popScene();
-    }
-    else
-    {
-	    currentScene->update(elapsed);
-    }
+	if(!scenes.empty())
+		currentScene->update(elapsed);
+
+	//Delete removed scenes after update
+	for (std::list<Scene*>::iterator it = scenesToRemove.begin(); !scenesToRemove.empty();)
+	{
+		delete *it;
+		it = scenesToRemove.erase(it);
+	}
 }

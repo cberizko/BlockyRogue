@@ -16,6 +16,7 @@ class SceneManager
 	private:
 		static Scene* currentScene;
 		static std::list<Scene*> scenes;
+		static std::list<Scene*> scenesToRemove;
 };
 
 #endif

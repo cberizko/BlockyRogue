@@ -17,11 +17,10 @@ int main()
 // Primary Setup
 //
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
-    sf::RenderWindow window(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+    sf::RenderWindow window(desktopResolution, "BlockyRogue!");
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
     SceneManager sceneManager;
-    sceneManager.pushScene((Scene*)(new MainGameScene()));
     sceneManager.pushScene((Scene*)(new TitleScreenScene()));
 
 	sf::Clock clock;
@@ -34,15 +33,17 @@ int main()
 		sf::Time elapsed = clock.restart();
         sf::Event event;
 
-        if(sf::Keyboard::isKeyPressed(Keyboard::Escape))
-        {
-            window.close();
-        }
-
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+			if (event.type == sf::Event::KeyPressed)
+			{
+				if (event.key.code == sf::Keyboard::Escape)
+				{
+					SceneManager::popScene();
+				}
+			}
         }
         
         sceneManager.update(elapsed.asSeconds());
