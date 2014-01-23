@@ -16,7 +16,6 @@ Player::Player()
 
 Player::~Player()
 {
-	delete velocity;
 }
 
 void Player::update(float elapsedTime)
