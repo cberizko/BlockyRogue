@@ -19,7 +19,6 @@ void Projectile::setVelocity(sf::Vector2f _velocity)
 
 void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 {
-    //TODO: Add collision check code for enemies.
     std::list<Enemy*> enemies = enemyManager->getEnemyList();
 
     //Collision check code

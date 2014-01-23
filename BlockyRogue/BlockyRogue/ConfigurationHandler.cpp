@@ -51,6 +51,19 @@ void ConfigurationHandler::parseLine(std::string line)
 
 double ConfigurationHandler::operator[](std::string s) const
 {
-    return configData.at(s);
+    //checks to see if the key is in the map, if not, returns zero
+    std::map<std::string, double>::const_iterator it = configData.find(s);
+   
+    //Returns the value if it is found, else returns zero
+    if(it != configData.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        std::cout << "ERROR: Could not find KEY \"" << s << "\" in config.ini" << std::endl;
+
+        return 0;
+    }
 }
 

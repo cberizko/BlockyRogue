@@ -8,7 +8,7 @@ TitleScreenScene::TitleScreenScene(): Scene("Title Screen")
     {
         std::cout << "ERROR unable to load font blocks.ttf in TitleScreenScene."<< std::endl;
     }
-	std::cout << "LOADED TITLE SCREEN";
+    
     titleText.setFont(titleFont);
     subText.setFont(titleFont);
 

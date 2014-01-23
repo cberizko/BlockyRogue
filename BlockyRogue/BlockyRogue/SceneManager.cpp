@@ -1,4 +1,5 @@
 #include "SceneManager.hpp"
+
 Scene* SceneManager::currentScene;
 std::list<Scene*> SceneManager::scenes;
 std::list<Scene*> SceneManager::scenesToRemove;

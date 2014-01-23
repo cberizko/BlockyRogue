@@ -17,7 +17,16 @@ int main()
 // Primary Setup
 //
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
-    sf::RenderWindow window(desktopResolution, "BlockyRogue!");
+    sf::RenderWindow window; 
+
+    if(config["FULLSCREEN_MODE"] == 1)
+    {
+         window.create(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+    }
+    else
+    {
+         window.create(desktopResolution, "BlockyRogue!");
+    }
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
     SceneManager sceneManager;
