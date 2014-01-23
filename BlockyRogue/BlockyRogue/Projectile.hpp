@@ -10,7 +10,8 @@
 class Projectile: public GameObject
 {
     public:
-        Projectile(sf::Vector2f position, sf::Vector2f velocity);
+		enum Direction {LEFT, RIGHT, UP, DOWN};
+		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction);
         void update(float elapsedTime, EnemyManager* EnemyManager);
 		void setVelocity(sf::Vector2f _velocity);
 		bool dead;

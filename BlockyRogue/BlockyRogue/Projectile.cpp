@@ -1,13 +1,31 @@
 #include "Projectile.hpp"
 #define PLAYER_SPEED 200
 
-Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity)
+Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction)
 {
+	sf::Vector2f offset;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     initGraphics("Projectile.png");
-    sprite.setPosition(position);
-	origin = position;
 	sprite.setScale(currentResolution.width / 1920.0f, currentResolution.height / 1080.0f);
+
+	//Set offset of the projectile based on which side of the player it's spawning on
+	switch(direction)
+	{
+	case Projectile::Direction::LEFT:
+		offset = sf::Vector2f(-getBounds().width, -getBounds().height / 2);
+		break;
+	case Projectile::Direction::RIGHT:
+		offset = sf::Vector2f(0, -getBounds().height / 2);
+		break;
+	case Projectile::Direction::UP:
+		offset = sf::Vector2f(-getBounds().width / 2, -getBounds().height);
+		break;
+	case Projectile::Direction::DOWN:
+		offset = sf::Vector2f(-getBounds().width / 2, 0);
+	};
+	sprite.setPosition(position + offset);
+	origin = position;
+
 	setVelocity(velocity);
 	dead = false;
 }
