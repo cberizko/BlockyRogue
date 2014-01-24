@@ -11,16 +11,16 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	//Set offset of the projectile based on which side of the player it's spawning on
 	switch(direction)
 	{
-	case Projectile::Direction::LEFT:
+	case Projectile::LEFT:
 		offset = sf::Vector2f(-getBounds().width, -getBounds().height / 2);
 		break;
-	case Projectile::Direction::RIGHT:
+	case Projectile::RIGHT:
 		offset = sf::Vector2f(0, -getBounds().height / 2);
 		break;
-	case Projectile::Direction::UP:
+	case Projectile::UP:
 		offset = sf::Vector2f(-getBounds().width / 2, -getBounds().height);
 		break;
-	case Projectile::Direction::DOWN:
+	case Projectile::DOWN:
 		offset = sf::Vector2f(-getBounds().width / 2, 0);
 	};
 	sprite.setPosition(position + offset);
