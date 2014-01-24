@@ -2,14 +2,20 @@
 
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
+	if(!blockyFont.loadFromFile(getResourcePath("Assets/Fonts/")+"blocks.ttf"))
+    {
+        std::cout << "ERROR unable to load font blocks.ttf in MainGameScene."<< std::endl;
+    }
+
+	enemyKillCounterText.setFont(blockyFont);
+	enemyKillCounterText.setCharacterSize(20);
+
     timeOut = 0.f;
 
     p = new Player();
 
     enemies = new EnemyManager();
-    enemies->addEnemy(sf::Vector2f(300.f, 100.f));
-    enemies->addEnemy(sf::Vector2f(100.f, 300.f));
-    enemies->addEnemy(sf::Vector2f(50.f, 50.f));
+	enemyKillsToLevel = 15;
 }
 
 MainGameScene::~MainGameScene()
@@ -80,6 +86,14 @@ void MainGameScene::update(float elapsedTime)
     
     p->update(elapsedTime);
     enemies->update(*p, elapsedTime);
+	if(enemies->getEnemiesKilled() >= enemyKillsToLevel)
+	{
+		enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
+		enemyKillsToLevel *= 2;
+	}
+	std::ostringstream enemiesKillCounterString;
+	enemiesKillCounterString << "Enemies until level: " << enemies->getEnemiesKilled() << "/" << enemyKillsToLevel;
+	enemyKillCounterText.setString(enemiesKillCounterString.str());
 }
 
 void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
@@ -97,6 +111,11 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
     }
 
     view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
+
+	enemyKillCounterText.setPosition(sf::Vector2f(view.getCenter().x + view.getSize().x / 2 - enemyKillCounterText.getGlobalBounds().width,
+		view.getCenter().y - view.getSize().y / 2));
+
+	window->draw(enemyKillCounterText);
     window->setView(view);
     window->display();
     window->clear(sf::Color(0, 0, 0, 255));

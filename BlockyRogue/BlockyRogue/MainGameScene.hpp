@@ -20,6 +20,9 @@ class MainGameScene: Scene
         void draw(sf::RenderWindow* window, sf::View view);
 
     private:
+		sf::Font blockyFont;
+		sf::Text enemyKillCounterText;
+		int enemyKillsToLevel;
         float timeOut;
         Player *p;
         std::list<Projectile*> projectiles;

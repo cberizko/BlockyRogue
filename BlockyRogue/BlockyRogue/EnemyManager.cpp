@@ -5,6 +5,7 @@ EnemyManager::EnemyManager()
 {
     maxEnemies = config["ENEMYMANAGER_MAX_ENEMIES"];
     despawnRange = config["ENEMYMANAGER_DESPAWN_RANGE"];
+	numEnemiesKilled = 0;
     srand(time(NULL));
 }
 
@@ -18,6 +19,7 @@ void EnemyManager::update(Player player, float elapsedTime)
         {
             delete *it;
             it = enemies.erase(it);
+			numEnemiesKilled++;
         }
     }
     
@@ -110,4 +112,14 @@ void EnemyManager::spawn(Player player)
 std::list<Enemy*> EnemyManager::getEnemyList()
 {
     return enemies;
+}
+
+int EnemyManager::getEnemiesKilled()
+{
+	return numEnemiesKilled;
+}
+
+void EnemyManager::setEnemiesKilled(int enemiesKilled)
+{
+	numEnemiesKilled = enemiesKilled;
 }

@@ -1,5 +1,4 @@
 #include "Projectile.hpp"
-#define PLAYER_SPEED 200
 
 Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction)
 {
@@ -22,6 +21,7 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 		break;
 	case Projectile::Direction::DOWN:
 		offset = sf::Vector2f(-getBounds().width / 2, 0);
+		break;
 	};
 	sprite.setPosition(position + offset);
 	origin = position;
@@ -45,7 +45,7 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
         if((*it)->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds()))
         {
             //Damage enemy by one damage
-            (*it)->setHealth((*it)->getHealth()-1);            
+            (*it)->setHealth((*it)->getHealth()-1);
             dead = true;
         }
     }

@@ -13,8 +13,11 @@ private:
     std::list<Enemy*> enemies;
     double maxEnemies;
     double despawnRange;
+	int numEnemiesKilled;
 public:
     EnemyManager();
+	int getEnemiesKilled();
+	void setEnemiesKilled(int enemiesKilled);
     void update(Player player, float elapsedTime);
     void draw(sf::RenderWindow* window);
     
