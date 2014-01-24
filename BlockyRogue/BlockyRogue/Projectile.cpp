@@ -10,16 +10,16 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	//Set offset of the projectile based on which side of the player it's spawning on
 	switch(direction)
 	{
-	case Projectile::Direction::LEFT:
+	case Projectile::LEFT:
 		offset = sf::Vector2f(-getBounds().width, -getBounds().height / 2);
 		break;
-	case Projectile::Direction::RIGHT:
+	case Projectile::RIGHT:
 		offset = sf::Vector2f(0, -getBounds().height / 2);
 		break;
-	case Projectile::Direction::UP:
+	case Projectile::UP:
 		offset = sf::Vector2f(-getBounds().width / 2, -getBounds().height);
 		break;
-	case Projectile::Direction::DOWN:
+	case Projectile::DOWN:
 		offset = sf::Vector2f(-getBounds().width / 2, 0);
 		break;
 	};
@@ -53,6 +53,6 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
-	if(distance >= 600)
+	if(distance >= config["PROJECTILE_RANGE"])
 		dead = true;
 }

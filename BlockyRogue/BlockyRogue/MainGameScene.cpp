@@ -37,30 +37,30 @@ void MainGameScene::update(float elapsedTime)
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
-				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(300, 0) + *p->getVelocity(),
-				Projectile::Direction::RIGHT));
-            timeOut = .5f;
+				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
+				Projectile::RIGHT));
+            timeOut = config["PROJECTILE_DELAY"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
 			projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x, 
-                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-300, 0) + *p->getVelocity(),
-				Projectile::Direction::LEFT));
-            timeOut = .5f;
+                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
+				Projectile::LEFT));
+            timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y), sf::Vector2f(0, -300) + *p->getVelocity(),
-				Projectile::Direction::UP));
-            timeOut = .5f;
+                p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
+				Projectile::UP));
+            timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y + p->getBounds().height), sf::Vector2f(0, 300) + *p->getVelocity(),
-				Projectile::Direction::DOWN));
-            timeOut = .5f;
+                projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+                p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
+				Projectile::DOWN));
+            timeOut = config["PROJECTILE_DELAY"];
         }
     }
 
