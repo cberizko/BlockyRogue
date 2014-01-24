@@ -1,5 +1,4 @@
 #include "Projectile.hpp"
-#define PLAYER_SPEED 200
 
 Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction)
 {
@@ -53,6 +52,6 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
-	if(distance >= 600)
+	if(distance >= config["PROJECTILE_RANGE"])
 		dead = true;
 }
