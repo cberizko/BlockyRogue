@@ -20,6 +20,11 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 
 MainGameScene::~MainGameScene()
 {
+    delete p;
+    delete enemies;
+   
+    //Clean up all the projectiles!
+    while(!projectiles.empty()) delete projectiles.front(), projectiles.pop_front();
 }
 
 void MainGameScene::update(float elapsedTime)
@@ -57,9 +62,9 @@ void MainGameScene::update(float elapsedTime)
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-                projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
-				Projectile::DOWN));
+            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+            p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
+                Projectile::DOWN));
             timeOut = config["PROJECTILE_DELAY"];
         }
     }

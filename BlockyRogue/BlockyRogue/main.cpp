@@ -59,5 +59,7 @@ int main()
         sceneManager.draw(&window, view);
     }
 
+    window.close();
+
     return 0;
 }

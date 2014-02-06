@@ -4,6 +4,12 @@ Scene* SceneManager::currentScene;
 std::list<Scene*> SceneManager::scenes;
 std::list<Scene*> SceneManager::scenesToRemove;
 
+SceneManager::~SceneManager()
+{
+    //Clean-up all scenes 
+    while(!scenes.empty()) delete scenes.front(), scenes.pop_front();
+}
+
 void SceneManager::pushScene(Scene* scene)
 {
 	scenes.push_back(scene);

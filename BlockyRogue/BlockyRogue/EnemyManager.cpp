@@ -9,6 +9,11 @@ EnemyManager::EnemyManager()
     srand(time(NULL));
 }
 
+EnemyManager::~EnemyManager()
+{
+    while(!enemies.empty()) delete enemies.front(), enemies.pop_front();
+}
+
 void EnemyManager::update(Player player, float elapsedTime)
 {
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)

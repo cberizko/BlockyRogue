@@ -7,6 +7,7 @@
 class SceneManager
 {
 	public:
+        ~SceneManager();
 		static void pushScene(Scene* scene);
 		static void popScene();
 		static void removeScene(Scene* scene);

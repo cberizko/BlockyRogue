@@ -16,6 +16,7 @@ private:
 	int numEnemiesKilled;
 public:
     EnemyManager();
+    ~EnemyManager();
 	int getEnemiesKilled();
 	void setEnemiesKilled(int enemiesKilled);
     void update(Player player, float elapsedTime);
