@@ -11,7 +11,7 @@ class Enemy: public GameObject
         ~Enemy();
         void update(float elapsed);
         void draw(sf::RenderWindow* window);
-        
+        sf::Vector2f getPosition();
         void setHealth(double health);
         void initShape(int verts, int radius, int variance);
         double getHealth();

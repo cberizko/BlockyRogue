@@ -19,6 +19,7 @@ class GameObject
         void setPosition(sf::Vector2f position);
         void draw(sf::RenderWindow* window);
         sf::Sprite getSprite();
+		sf::RectangleShape boundingBox;
 
     protected:
         sf::Texture texture;

@@ -39,10 +39,28 @@ void Enemy::initShape(int verts, int radius, int variance)
 
         shape[i].color = sf::Color::Green;
     }
+	float top, bottom, left, right;
+	top = bottom = shape[0].position.y;
+	left = right = shape[0].position.x;
+	for(int i = 1; i < shape.getVertexCount(); i++)
+	{
+		sf::Vector2f position = shape[i].position;
+		if(position.x > right)
+			right = position.x;
+		else if(position.x < left)
+			left = position.x;
+		if(position.y < top)
+			top = position.y;
+		else if(position.y > bottom)
+			bottom = position.y;
+	}
+	boundingBox.setPosition(sf::Vector2f(left, top));
+	boundingBox.setSize(sf::Vector2f(right - left, bottom - top));
 }
 
 void Enemy::draw(sf::RenderWindow* window)
 {
+	window->draw(boundingBox);
     window->draw(shape);
 }
 
@@ -58,4 +76,9 @@ void Enemy::setHealth(double h)
 double Enemy::getHealth()
 {
     return health;
+}
+
+sf::Vector2f Enemy::getPosition()
+{
+	return boundingBox.getPosition();
 }
