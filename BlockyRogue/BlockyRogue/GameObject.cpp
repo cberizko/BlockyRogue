@@ -5,6 +5,9 @@
 //Basic Constructor
 GameObject::GameObject()
 {
+	boundingBox.setFillColor(sf::Color::Transparent);
+	boundingBox.setOutlineColor(sf::Color::White);
+	boundingBox.setOutlineThickness(3);
 }
 
 //Called once per clock cycle.

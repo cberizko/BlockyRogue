@@ -2,7 +2,7 @@
 #include <iostream>
 #include "getResourcePath.hpp"
 
-Player::Player()
+Player::Player():GameObject()
 {
 	velocity = new sf::Vector2f();
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
@@ -29,7 +29,7 @@ void Player::update(float elapsedTime)
 	velocity->y = 0.f;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(moveSpeed * elapsedTime, 0);
+		sprite.move(sf::Vector2f(moveSpeed*elapsedTime, 0));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(moveSpeed*elapsedTime, 0);
@@ -38,7 +38,7 @@ void Player::update(float elapsedTime)
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(-moveSpeed * elapsedTime, 0);
+		sprite.move(sf::Vector2f(-moveSpeed*elapsedTime, 0));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(-moveSpeed*elapsedTime, 0);
@@ -48,7 +48,7 @@ void Player::update(float elapsedTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(0, -moveSpeed * elapsedTime);
+		sprite.move(sf::Vector2f(0, -moveSpeed*elapsedTime));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(0, -moveSpeed*elapsedTime);
@@ -57,17 +57,35 @@ void Player::update(float elapsedTime)
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(0, moveSpeed * elapsedTime);
+		sprite.move(sf::Vector2f(0, moveSpeed*elapsedTime));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(0, moveSpeed*elapsedTime);
         }
 		velocity->y = moveSpeed;
 	}
+	float top, bottom, left, right;
+	top = bottom = shape[0].position.y;
+	left = right = shape[0].position.x;
+	for(int i = 1; i < shape.getVertexCount(); i++)
+	{
+		sf::Vector2f position = shape[i].position;
+		if(position.x > right)
+			right = position.x;
+		else if(position.x < left)
+			left = position.x;
+		if(position.y < top)
+			top = position.y;
+		else if(position.y > bottom)
+			bottom = position.y;
+	}
+	boundingBox.setPosition(sf::Vector2f(left, top));
+	boundingBox.setSize(sf::Vector2f(right - left, bottom - top));
 }
 
 void Player::draw(sf::RenderWindow* window)
 {
+	window->draw(boundingBox);
     window->draw(shape);
 }
 
