@@ -12,13 +12,13 @@ TitleScreenScene::TitleScreenScene(): Scene("Title Screen")
     titleText.setFont(titleFont);
     subText.setFont(titleFont);
 
-    titleText.setPosition(-150,100);
+    titleText.setPosition(-250,100);
     subText.setPosition(0, 300);
 
     titleText.setCharacterSize(160);
     subText.setCharacterSize(60);
 
-    titleText.setString("Blocky Rogue");
+    titleText.setString("Shape the World");
     subText.setString("Press Space to play!");
 }
 
