@@ -42,7 +42,7 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
     //Collision check code
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
-        if((*it)->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds()))
+        if((*it)->getBounds().intersects(this->getBounds()))
         {
             //Damage enemy by one damage
             (*it)->setHealth((*it)->getHealth()-1);
