@@ -41,9 +41,9 @@ void MainGameScene::update(float elapsedTime)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
+			projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
-				Projectile::RIGHT));
+					Projectile::RIGHT));
             timeOut = config["PROJECTILE_DELAY"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -80,6 +80,13 @@ void MainGameScene::update(float elapsedTime)
         
         if((*it)->dead)
         {
+			//Spawns the explosion of the bullet, hard coded to half of the spire size, should be improved in the future.
+			//There is some weird stuff with these not being spawned sometimes, I have a feeling it has to do with sprite drawing priority
+			//if there is an overlap between the bullet and the enemy.
+			if((*it)->explosion)
+			{
+				projectiles.push_back(new Projectile(sf::Vector2f((*it)->getPosition().x+10, (*it)->getPosition().y+10)));
+			}
             delete *it;
             it = projectiles.erase(it);
         }
