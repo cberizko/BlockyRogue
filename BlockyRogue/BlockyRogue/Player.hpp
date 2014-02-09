@@ -14,7 +14,7 @@ class Player: public GameObject
         void draw(sf::RenderWindow* window);
         void initShape(int verts, int radius, int variance);
 		sf::Vector2f* getVelocity();
-
+        
 	private:
 		double health;
         double moveSpeed;
