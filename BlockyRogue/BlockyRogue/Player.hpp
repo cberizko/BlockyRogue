@@ -12,6 +12,7 @@ class Player: public GameObject
         ~Player();
         void update(float elapsedTime);
         void draw(sf::RenderWindow* window);
+		sf::Vector2f getPosition();
         void initShape(int verts, int radius, int variance);
 		sf::Vector2f* getVelocity();
 

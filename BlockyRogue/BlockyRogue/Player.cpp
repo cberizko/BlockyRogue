@@ -29,7 +29,6 @@ void Player::update(float elapsedTime)
 	velocity->y = 0.f;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		sprite.move(sf::Vector2f(moveSpeed*elapsedTime, 0));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(moveSpeed*elapsedTime, 0);
@@ -38,7 +37,6 @@ void Player::update(float elapsedTime)
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		sprite.move(sf::Vector2f(-moveSpeed*elapsedTime, 0));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(-moveSpeed*elapsedTime, 0);
@@ -48,7 +46,6 @@ void Player::update(float elapsedTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		sprite.move(sf::Vector2f(0, -moveSpeed*elapsedTime));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(0, -moveSpeed*elapsedTime);
@@ -57,7 +54,6 @@ void Player::update(float elapsedTime)
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		sprite.move(sf::Vector2f(0, moveSpeed*elapsedTime));
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
             shape[i].position += sf::Vector2f(0, moveSpeed*elapsedTime);
@@ -114,4 +110,9 @@ void Player::initShape(int verts, int radius, int variance)
 sf::Vector2f* Player::getVelocity()
 {
 	return velocity;
+}
+
+sf::Vector2f Player::getPosition()
+{
+	return boundingBox.getPosition();
 }
