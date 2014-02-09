@@ -10,8 +10,10 @@ Player::Player()
     //sprite.setPosition(100.f,100.f);
 	//sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
 
-    std::srand(std::time(NULL));
-    initShape(6, 20, 60);
+    //Creates the players dynamic shape
+    initShape(config["PLAYER_SHAPE_STARTING_VERTICES"], 
+              config["PLAYER_SHAPE_BASE_RADIUS"], 
+              config["PLAYER_SHAPE_VARIANCE"]);
 
     health = config["PLAYER_MAX_HEALTH"];
     moveSpeed = config["PLAYER_MOVE_SPEED"];
@@ -71,6 +73,9 @@ void Player::draw(sf::RenderWindow* window)
 
 void Player::initShape(int verts, int radius, int variance)
 {
+    //Required Random Seed for the player shape generation
+    std::srand(std::time(NULL));
+
     shape = sf::VertexArray(sf::TrianglesFan, verts+1);
 
     for(int i = 0; i < verts+1; i++)
