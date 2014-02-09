@@ -11,6 +11,7 @@
 #include <list>
 #include "EnemyManager.hpp"
 
+
 class MainGameScene: Scene
 {
     public:
@@ -18,6 +19,8 @@ class MainGameScene: Scene
         ~MainGameScene();
         void update(float elapsedTime);
         void draw(sf::RenderWindow* window, sf::View view);
+
+        sf::VertexArray testShape;
 
     private:
 		sf::Font blockyFont;

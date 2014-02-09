@@ -6,9 +6,12 @@ Player::Player()
 {
 	velocity = new sf::Vector2f();
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
-    initGraphics("Player.png");
-    sprite.setPosition(100.f,100.f);
-	sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
+    //initGraphics("Player.png");
+    //sprite.setPosition(100.f,100.f);
+	//sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
+
+    std::srand(std::time(NULL));
+    initShape(6, 20, 60);
 
     health = config["PLAYER_MAX_HEALTH"];
     moveSpeed = config["PLAYER_MOVE_SPEED"];
@@ -25,24 +28,64 @@ void Player::update(float elapsedTime)
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		sprite.move(moveSpeed * elapsedTime, 0);
+        for(int i = 0; i < shape.getVertexCount(); i++)
+        {
+            shape[i].position += sf::Vector2f(moveSpeed*elapsedTime, 0);
+        }
 		velocity->x = moveSpeed;
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		sprite.move(-moveSpeed * elapsedTime, 0);
+        for(int i = 0; i < shape.getVertexCount(); i++)
+        {
+            shape[i].position += sf::Vector2f(-moveSpeed*elapsedTime, 0);
+        }
 		velocity->x = -moveSpeed;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		sprite.move(0, -moveSpeed * elapsedTime);
+        for(int i = 0; i < shape.getVertexCount(); i++)
+        {
+            shape[i].position += sf::Vector2f(0, -moveSpeed*elapsedTime);
+        }
 		velocity->y = -moveSpeed;
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		sprite.move(0, moveSpeed * elapsedTime);
+        for(int i = 0; i < shape.getVertexCount(); i++)
+        {
+            shape[i].position += sf::Vector2f(0, moveSpeed*elapsedTime);
+        }
 		velocity->y = moveSpeed;
 	}
+}
+
+void Player::draw(sf::RenderWindow* window)
+{
+    window->draw(shape);
+}
+
+void Player::initShape(int verts, int radius, int variance)
+{
+    shape = sf::VertexArray(sf::TrianglesFan, verts+1);
+
+    for(int i = 0; i < verts+1; i++)
+    {
+        //Equation of a Circle: (parametric coordinates)
+        //for a circle with origin (j, k) and radius r:
+        //x(t) = r cos(t) + j       y(t) = r sin(t) + k
+
+        int radius_offset = std::rand()%variance; 
+        double location = i*((2*PI)/verts);
+
+        shape[i].position = sf::Vector2f((radius+radius_offset)*std::cos(location), (radius+radius_offset)*std::sin(location));
+
+        shape[i].color = sf::Color::Red;
+    }
 }
 
 sf::Vector2f* Player::getVelocity()
