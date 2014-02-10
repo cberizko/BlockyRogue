@@ -81,16 +81,20 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 {
     std::list<Enemy*> enemies = enemyManager->getEnemyList();
 
-    //Collision check code
-    for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
-    {
-        if((*it)->getBounds().intersects(this->getBounds()))
-        {
-            //Damage enemy by one damage
-            (*it)->setHealth((*it)->getHealth()-1);
-            dead = true;
-        }
-    }
+	//Only check for moving shots, not for the explosions
+	if (explosion == true)
+	{
+		//Collision check code
+		for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
+		{
+			if((*it)->getBounds().intersects(this->getBounds()))
+			{
+				//Damage enemy by one damage
+				(*it)->setHealth((*it)->getHealth()-1);
+				dead = true;
+			}
+		}
+	}
 
 	//Keeps the bullet explosion on screen for some amount of frames
 	if (explosion == false)
