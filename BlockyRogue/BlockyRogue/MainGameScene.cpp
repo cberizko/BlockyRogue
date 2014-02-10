@@ -97,7 +97,7 @@ void MainGameScene::update(float elapsedTime)
     }
     
     p->update(elapsedTime);
-    enemies->update(*p, elapsedTime);
+    enemies->update(p, elapsedTime);
 	if(enemies->getEnemiesKilled() >= enemyKillsToLevel)
 	{
 		enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
