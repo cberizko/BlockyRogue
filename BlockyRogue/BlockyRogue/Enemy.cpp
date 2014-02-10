@@ -3,8 +3,9 @@
 
 #define PI 3.14159265
 
-Enemy::Enemy(sf::Vector2f v2f):Character()
+Enemy::Enemy(sf::Vector2f v2f, Player* p):Character()
 {
+	player = p;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     initGraphics("Enemy.png");
     setPosition(v2f);

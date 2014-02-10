@@ -14,7 +14,7 @@ EnemyManager::~EnemyManager()
     while(!enemies.empty()) delete enemies.front(), enemies.pop_front();
 }
 
-void EnemyManager::update(Player player, float elapsedTime)
+void EnemyManager::update(Player *player, float elapsedTime)
 {
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
@@ -41,19 +41,19 @@ void EnemyManager::draw(sf::RenderWindow* window)
 }
 
 
-void EnemyManager::addEnemy(sf::Vector2f v2f)
+void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
-    enemies.push_back(new Enemy(v2f));
+    enemies.push_back(new EnemySquare(v2f, p));
 }
 
-void EnemyManager::despawn(Player player)
+void EnemyManager::despawn(Player *player)
 {
     sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     int sWidth = currentResolution.width;
     int sHeight = currentResolution.height;
     
-    int viewX = player.getPosition().x;
-    int viewY = player.getPosition().y;
+    int viewX = player->getPosition().x;
+    int viewY = player->getPosition().y;
     
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
     {
@@ -84,7 +84,7 @@ void EnemyManager::despawn(Player player)
     }
 }
 
-void EnemyManager::spawn(Player player)
+void EnemyManager::spawn(Player *player)
 {
     if(enemies.size() < maxEnemies)
     {
@@ -92,8 +92,8 @@ void EnemyManager::spawn(Player player)
         int sWidth = currentResolution.width;
         int sHeight = currentResolution.height;
     
-        int viewX = player.getPosition().x;
-        int viewY = player.getPosition().y;
+        int viewX = player->getPosition().x;
+        int viewY = player->getPosition().y;
     
         int spawnX = viewX;
         int spawnY = viewY;
@@ -109,7 +109,7 @@ void EnemyManager::spawn(Player player)
             spawnY = ((rand() % y)+viewY)-(x/2);
         }
 
-        enemies.push_back(new Enemy(sf::Vector2f(spawnX, spawnY)));
+        enemies.push_back(new EnemySquare(sf::Vector2f(spawnX, spawnY), player));
     }
     
 }
