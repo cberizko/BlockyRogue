@@ -91,6 +91,7 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 			{
 				//Damage enemy by one damage
 				(*it)->setHealth((*it)->getHealth()-1);
+				(*it)->setBump();
 				dead = true;
 			}
 		}

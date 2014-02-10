@@ -14,6 +14,8 @@ class Enemy: public Character
         void setHealth(double health);
         void initShape(int verts, int radius, int variance);
         double getHealth();
+		bool bump;
+		void setBump();
 	protected:
 		Player* player;
 };

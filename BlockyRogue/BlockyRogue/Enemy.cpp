@@ -17,6 +17,8 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p):Character()
 
     health = config["ENEMY_MAX_HEALTH"];
     moveSpeed = config["ENEMY_MOVE_SPEED"];
+
+	bump = false;
 }
 
 Enemy::~Enemy()
@@ -55,4 +57,9 @@ void Enemy::setHealth(double h)
 double Enemy::getHealth()
 {
     return health;
+}
+
+void Enemy::setBump()
+{
+	bump = true;
 }

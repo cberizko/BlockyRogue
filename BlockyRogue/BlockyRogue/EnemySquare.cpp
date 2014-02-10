@@ -2,6 +2,7 @@
 
 EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p):Enemy(v2f, p)
 {
+	knockFrame = 0;
 }
 EnemySquare::~EnemySquare()
 {
@@ -22,10 +23,26 @@ void EnemySquare::update(float elapsed)
 		float magnitude = distanceToPlayer;
 		direction.x /= magnitude;
 		direction.y /= magnitude;
+	
 		for(int i = 0; i < shape.getVertexCount(); i++)
 		{
-			shape[i].position += sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed);
+			if (bump == true)
+			{	shape[i].position += sf::Vector2f(-direction.x * moveSpeed*elapsed, -direction.y * moveSpeed * elapsed);}
+			else
+			{	shape[i].position += sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed);}
 		}
+
+		if (bump == true && knockFrame == 0)
+		{	//How many frames the knockback should last.
+			knockFrame = 100;}
+
+		if (knockFrame == 0)
+		{		}
+		else if (knockFrame != 1)
+		{   knockFrame--;}
+		else
+		{	knockFrame--;
+			bump = false;}
 	}
 	Enemy::update(elapsed);
 }
