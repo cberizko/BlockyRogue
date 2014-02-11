@@ -40,13 +40,14 @@ void Enemy::initShape(int verts, int radius, int variance)
 
         shape[i].position = sf::Vector2f((radius+radius_offset)*std::cos(location)+sprite.getPosition().x, (radius+radius_offset)*std::sin(location)+sprite.getPosition().y);
 
-        shape[i].color = sf::Color::Green;
+		//Uncomment to make the enemy an solid color.
+		//shape[i].color = sf::Color::Green;
     }
 }
 
 void Enemy::update(float elapsed)
 {
-	Character::update(elapsed);
+	Character::update(elapsed, bump);
 }
 
 void Enemy::setHealth(double h)

@@ -10,6 +10,7 @@ class Character: public GameObject
         Character();
         ~Character();
         virtual void update(float elapsed);
+		virtual void update(float elapsed, bool bump);
         void draw(sf::RenderWindow* window);
         sf::Vector2f getPosition();
         void setHealth(double health);
