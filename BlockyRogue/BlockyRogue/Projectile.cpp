@@ -101,7 +101,7 @@ void Projectile::update(float elapsedTime, EnemyManager* enemyManager)
 	if (explosion == false)
 	{
 		frameCount++;
-		if (frameCount == 15)
+		if (frameCount == 100)
 		{dead=true;}
 	}
 
