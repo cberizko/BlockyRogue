@@ -13,4 +13,8 @@ EnemyProjectile::~EnemyProjectile()
 
 void EnemyProjectile::update(float elapsed)
 {
+	if(getBounds().intersects(player->getBounds()))
+	{
+		//Do something with collision
+	}
 }
