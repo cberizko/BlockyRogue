@@ -90,9 +90,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="ConfigurationHandler.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
+    <ClCompile Include="EnemySquare.cpp" />
+    <ClCompile Include="EnemyTriangle.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="getResourcePath.cpp" />
     <ClCompile Include="main.cpp" />
@@ -104,9 +107,12 @@
     <ClCompile Include="TitleScreenScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.hpp" />
     <ClInclude Include="ConfigurationHandler.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="EnemyManager.hpp" />
+    <ClInclude Include="EnemySquare.hpp" />
+    <ClInclude Include="EnemyTriangle.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="getResourcePath.hpp" />
     <ClInclude Include="MainGameScene.hpp" />

@@ -3,7 +3,7 @@
 
 #define PI 3.14159265
 
-Enemy::Enemy(sf::Vector2f v2f, Player* p):Character()
+Enemy::Enemy(sf::Vector2f v2f, Player* p, float range):Character()
 {
 	player = p;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
@@ -19,6 +19,7 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p):Character()
     moveSpeed = config["ENEMY_MOVE_SPEED"];
 
 	bump = false;
+	aggroRange = range;
 }
 
 Enemy::~Enemy()

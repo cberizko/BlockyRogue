@@ -8,7 +8,7 @@
 class Enemy: public Character
 {
     public:
-        Enemy(sf::Vector2f v2f, Player* p);
+        Enemy(sf::Vector2f v2f, Player* p, float range);
         ~Enemy();
         void update(float elapsed);
         void setHealth(double health);
@@ -16,6 +16,7 @@ class Enemy: public Character
         double getHealth();
 		bool bump;
 		void setBump();
+		float aggroRange;
 	protected:
 		Player* player;
 };
