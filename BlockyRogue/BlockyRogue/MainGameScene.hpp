@@ -5,7 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "Player.hpp"
 #include "Enemy.hpp"
-#include "Projectile.hpp"
+#include "PlayerProjectile.hpp"
+#include "EnemyProjectile.hpp"
 #include <iostream>
 #include "ConfigurationHandler.hpp"
 #include <list>

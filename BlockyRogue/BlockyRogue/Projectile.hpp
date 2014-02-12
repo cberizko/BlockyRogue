@@ -1,11 +1,9 @@
 #ifndef _PROJECTILE_H
 #define _PROJECTILE_H
 #include "GameObject.hpp"
-#include "EnemyManager.hpp"
 #include <iostream>
 #include "getResourcePath.hpp"
 #include <cmath>
-#include "Enemy.hpp"
 
 class Projectile: public GameObject
 {
@@ -13,7 +11,7 @@ class Projectile: public GameObject
 		enum Direction {LEFT, RIGHT, UP, DOWN};
 		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction);
 		Projectile(sf::Vector2f position);
-        void update(float elapsedTime, EnemyManager* EnemyManager);
+        virtual void update(float elapsedTime);
 		void setVelocity(sf::Vector2f _velocity);
 		bool dead;
 		bool explosion;

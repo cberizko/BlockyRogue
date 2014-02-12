@@ -41,30 +41,30 @@ void MainGameScene::update(float elapsedTime)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-			projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
+			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
-					Projectile::RIGHT));
+				Projectile::RIGHT, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-			projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x, 
+			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x, 
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
-				Projectile::LEFT));
+				Projectile::LEFT, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+            projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
-				Projectile::UP));
+				Projectile::UP, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            projectiles.push_back(new Projectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+            projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
-                Projectile::DOWN));
+                Projectile::DOWN, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         }
     }
@@ -76,7 +76,7 @@ void MainGameScene::update(float elapsedTime)
     
     for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();)
     {
-        (*it)->update(elapsedTime, enemies);
+        (*it)->update(elapsedTime);
         
         if((*it)->dead)
         {

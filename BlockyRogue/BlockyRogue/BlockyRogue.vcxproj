@@ -94,6 +94,7 @@
     <ClCompile Include="ConfigurationHandler.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
+    <ClCompile Include="EnemyProjectile.cpp" />
     <ClCompile Include="EnemySquare.cpp" />
     <ClCompile Include="EnemyTriangle.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGameScene.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerProjectile.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -111,12 +113,14 @@
     <ClInclude Include="ConfigurationHandler.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="EnemyManager.hpp" />
+    <ClInclude Include="EnemyProjectile.hpp" />
     <ClInclude Include="EnemySquare.hpp" />
     <ClInclude Include="EnemyTriangle.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="getResourcePath.hpp" />
     <ClInclude Include="MainGameScene.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="PlayerProjectile.hpp" />
     <ClInclude Include="Projectile.hpp" />
     <ClInclude Include="ResourcePath.hpp" />
     <ClInclude Include="Scene.hpp" />
