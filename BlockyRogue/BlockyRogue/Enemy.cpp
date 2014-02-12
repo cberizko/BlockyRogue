@@ -49,6 +49,10 @@ void Enemy::initShape(int verts, int radius, int variance)
 void Enemy::update(float elapsed)
 {
 	Character::update(elapsed, bump);
+	if(player->getBounds().intersects(getBounds()))
+	{
+		//Do Something with collision
+	}
 }
 
 void Enemy::setHealth(double h)
