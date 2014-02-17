@@ -29,6 +29,11 @@
 		5B928AA218A9145000DF7566 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B928AA018A9145000DF7566 /* Character.cpp */; };
 		5B928AA518A9147300DF7566 /* EnemySquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B928AA318A9147300DF7566 /* EnemySquare.cpp */; };
 		5B928AA818A9148800DF7566 /* TitleScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B928AA618A9148800DF7566 /* TitleScreenScene.cpp */; };
+		5BB7E11A18B2946F00680237 /* PlayerProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E11818B2946F00680237 /* PlayerProjectile.cpp */; };
+		5BB7E11D18B2948400680237 /* EnemyTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E11B18B2948400680237 /* EnemyTriangle.cpp */; };
+		5BB7E12018B2949000680237 /* EnemyProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E11E18B2949000680237 /* EnemyProjectile.cpp */; };
+		5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12218B2956F00680237 /* UpgradeManager.cpp */; };
+		5BB7E12718B296A800680237 /* Upgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12518B296A800680237 /* Upgrade.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,16 @@
 		5B928AA418A9147300DF7566 /* EnemySquare.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemySquare.hpp; path = BlockyRogue/EnemySquare.hpp; sourceTree = "<group>"; };
 		5B928AA618A9148800DF7566 /* TitleScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScreenScene.cpp; path = BlockyRogue/TitleScreenScene.cpp; sourceTree = "<group>"; };
 		5B928AA718A9148800DF7566 /* TitleScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TitleScreenScene.hpp; path = BlockyRogue/TitleScreenScene.hpp; sourceTree = "<group>"; };
+		5BB7E11818B2946F00680237 /* PlayerProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerProjectile.cpp; path = BlockyRogue/PlayerProjectile.cpp; sourceTree = "<group>"; };
+		5BB7E11918B2946F00680237 /* PlayerProjectile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PlayerProjectile.hpp; path = BlockyRogue/PlayerProjectile.hpp; sourceTree = "<group>"; };
+		5BB7E11B18B2948400680237 /* EnemyTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyTriangle.cpp; path = BlockyRogue/EnemyTriangle.cpp; sourceTree = "<group>"; };
+		5BB7E11C18B2948400680237 /* EnemyTriangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemyTriangle.hpp; path = BlockyRogue/EnemyTriangle.hpp; sourceTree = "<group>"; };
+		5BB7E11E18B2949000680237 /* EnemyProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyProjectile.cpp; path = BlockyRogue/EnemyProjectile.cpp; sourceTree = "<group>"; };
+		5BB7E11F18B2949000680237 /* EnemyProjectile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemyProjectile.hpp; path = BlockyRogue/EnemyProjectile.hpp; sourceTree = "<group>"; };
+		5BB7E12218B2956F00680237 /* UpgradeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UpgradeManager.cpp; path = BlockyRogue/UpgradeManager.cpp; sourceTree = "<group>"; };
+		5BB7E12318B2956F00680237 /* UpgradeManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UpgradeManager.hpp; path = BlockyRogue/UpgradeManager.hpp; sourceTree = "<group>"; };
+		5BB7E12518B296A800680237 /* Upgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Upgrade.cpp; path = BlockyRogue/Upgrade.cpp; sourceTree = "<group>"; };
+		5BB7E12618B296A800680237 /* Upgrade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Upgrade.hpp; path = BlockyRogue/Upgrade.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				5B095BFB188B20E30058FB67 /* main.cpp */,
+				5BB7E12818B296D600680237 /* Upgrades */,
 				5B12BDF6188CFBFB006D8C8E /* Objects */,
 				5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */,
 				5B12BDE0188CFBAB006D8C8E /* ConfigurationHandler.hpp */,
@@ -170,6 +186,8 @@
 		5B095C3E188B3F4C0058FB67 /* Enemy */ = {
 			isa = PBXGroup;
 			children = (
+				5BB7E11B18B2948400680237 /* EnemyTriangle.cpp */,
+				5BB7E11C18B2948400680237 /* EnemyTriangle.hpp */,
 				5B095C14188B21540058FB67 /* GameObject.cpp */,
 				5B12BDE4188CFBAB006D8C8E /* GameObject.hpp */,
 				5B095C39188B33BB0058FB67 /* Enemy.cpp */,
@@ -185,12 +203,11 @@
 		5B12BDF6188CFBFB006D8C8E /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				5BB7E12118B294E500680237 /* Projectiles */,
 				5B928AA018A9145000DF7566 /* Character.cpp */,
 				5B928AA118A9145000DF7566 /* Character.hpp */,
 				5B095C1A188B21540058FB67 /* Player.cpp */,
 				5B12BDE8188CFBAB006D8C8E /* Player.hpp */,
-				5B12BDE9188CFBAB006D8C8E /* Projectile.cpp */,
-				5B12BDEA188CFBAB006D8C8E /* Projectile.hpp */,
 				5B095C3E188B3F4C0058FB67 /* Enemy */,
 			);
 			name = Objects;
@@ -217,6 +234,30 @@
 				5B928A9E18A9144300DF7566 /* blocks.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5BB7E12118B294E500680237 /* Projectiles */ = {
+			isa = PBXGroup;
+			children = (
+				5B12BDE9188CFBAB006D8C8E /* Projectile.cpp */,
+				5B12BDEA188CFBAB006D8C8E /* Projectile.hpp */,
+				5BB7E11818B2946F00680237 /* PlayerProjectile.cpp */,
+				5BB7E11918B2946F00680237 /* PlayerProjectile.hpp */,
+				5BB7E11E18B2949000680237 /* EnemyProjectile.cpp */,
+				5BB7E11F18B2949000680237 /* EnemyProjectile.hpp */,
+			);
+			name = Projectiles;
+			sourceTree = "<group>";
+		};
+		5BB7E12818B296D600680237 /* Upgrades */ = {
+			isa = PBXGroup;
+			children = (
+				5BB7E12218B2956F00680237 /* UpgradeManager.cpp */,
+				5BB7E12318B2956F00680237 /* UpgradeManager.hpp */,
+				5BB7E12518B296A800680237 /* Upgrade.cpp */,
+				5BB7E12618B296A800680237 /* Upgrade.hpp */,
+			);
+			name = Upgrades;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,11 +346,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
+				5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
 				5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */,
+				5BB7E11A18B2946F00680237 /* PlayerProjectile.cpp in Sources */,
 				5B12BDF3188CFBAB006D8C8E /* Projectile.cpp in Sources */,
 				5B12BDF1188CFBAB006D8C8E /* EnemyManager.cpp in Sources */,
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
+				5BB7E11D18B2948400680237 /* EnemyTriangle.cpp in Sources */,
 				5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */,
 				5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */,
 				5B928AA818A9148800DF7566 /* TitleScreenScene.cpp in Sources */,
@@ -317,8 +361,10 @@
 				5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */,
 				5B095C2C188B21540058FB67 /* Player.cpp in Sources */,
 				5B095C27188B21540058FB67 /* GameObject.cpp in Sources */,
+				5BB7E12718B296A800680237 /* Upgrade.cpp in Sources */,
 				5B928AA218A9145000DF7566 /* Character.cpp in Sources */,
 				5B928AA518A9147300DF7566 /* EnemySquare.cpp in Sources */,
+				5BB7E12018B2949000680237 /* EnemyProjectile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

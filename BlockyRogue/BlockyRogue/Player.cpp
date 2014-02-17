@@ -5,7 +5,7 @@
 Player::Player():Character()
 {
 	velocity = new sf::Vector2f();
-	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
+	//sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     //initGraphics("Player.png");
     //sprite.setPosition(100.f,100.f);
 	//sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
