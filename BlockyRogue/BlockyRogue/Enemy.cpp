@@ -20,6 +20,7 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, float range):Character()
 
 	bump = false;
 	aggroRange = range;
+	Character::initBoundingBox();
 }
 
 Enemy::~Enemy()

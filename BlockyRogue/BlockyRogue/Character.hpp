@@ -18,6 +18,7 @@ class Character: public GameObject
         double getHealth();
 		sf::Vector2f* getVelocity();
 		sf::FloatRect getBounds();
+		void initBoundingBox();
 
 	protected:
 		double health;

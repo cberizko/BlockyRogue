@@ -17,6 +17,7 @@ Player::Player():Character()
 
     health = config["PLAYER_MAX_HEALTH"];
     moveSpeed = config["PLAYER_MOVE_SPEED"];
+	Character::initBoundingBox();
 }
 
 Player::~Player()
@@ -60,6 +61,7 @@ void Player::update(float elapsedTime)
         }
 		velocity->y = moveSpeed;
 	}
+	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsedTime);
 	Character::update(elapsedTime);
 }
 

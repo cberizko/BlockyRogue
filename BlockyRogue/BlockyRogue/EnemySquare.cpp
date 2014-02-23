@@ -3,6 +3,7 @@
 EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p, float range) : Enemy(v2f, p, range)
 {
 	knockFrame = 0;
+	velocity = new sf::Vector2f();
 }
 EnemySquare::~EnemySquare()
 {
@@ -10,7 +11,8 @@ EnemySquare::~EnemySquare()
 }
 void EnemySquare::update(float elapsed)
 {
-	
+	velocity->x = 0;
+	velocity->y = 0;
 	sf::Vector2f direction = player->getPosition() - getPosition();
 
 	float distanceToPlayer = sqrt(direction.x * direction.x + direction.y * direction.y);
@@ -25,9 +27,17 @@ void EnemySquare::update(float elapsed)
 		for(int i = 0; i < shape.getVertexCount(); i++)
 		{
 			if (bump == true)
-			{	shape[i].position += sf::Vector2f(-direction.x * moveSpeed*elapsed, -direction.y * moveSpeed * elapsed);}
+			{	
+				shape[i].position += sf::Vector2f(-direction.x * moveSpeed*elapsed, -direction.y * moveSpeed * elapsed);
+				velocity->x = -direction.x * moveSpeed;
+				velocity->y = -direction.y * moveSpeed;
+			}
 			else
-			{	shape[i].position += sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed);}
+			{	
+				shape[i].position += sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed);
+				velocity->x = direction.x * moveSpeed;
+				velocity->y = direction.y * moveSpeed;
+			}
 		}
 
 		if (bump == true && knockFrame == 0)
@@ -42,5 +52,6 @@ void EnemySquare::update(float elapsed)
 		{	knockFrame--;
 			bump = false;}
 	}
+	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsed);
 	Enemy::update(elapsed);
 }
