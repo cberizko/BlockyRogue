@@ -15,8 +15,8 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, float range):Character()
               config["ENEMY_SHAPE_BASE_RADIUS"], 
               config["ENEMY_SHAPE_VARIANCE"]);
 
-    health = config["ENEMY_MAX_HEALTH"];
-    moveSpeed = config["ENEMY_MOVE_SPEED"];
+    stats["health"] = config["ENEMY_MAX_HEALTH"];
+    stats["moveSpeed"] = config["ENEMY_MOVE_SPEED"];
 
 	bump = false;
 	aggroRange = range;
@@ -58,12 +58,12 @@ void Enemy::update(float elapsed)
 
 void Enemy::setHealth(double h)
 {
-    health = h;
+    stats["health"] = h;
 }
 
 double Enemy::getHealth()
 {
-    return health;
+    return stats["health"];
 }
 
 void Enemy::setBump()

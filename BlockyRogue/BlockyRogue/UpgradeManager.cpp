@@ -56,7 +56,7 @@ void UpgradeManager::applyPlayerUpgrades(Player *p)
     while(!playerUpgradesToApply.empty())
     {
         //Upgrade code goes here
-        //player->upgrade(playerUpgradesToApply->front());
+        p->applyUpgrade(*playerUpgradesToApply.front());
         appliedPlayerUpgrades.push_back(playerUpgradesToApply.front());
         playerUpgradesToApply.pop_front();
     }
@@ -68,7 +68,7 @@ void UpgradeManager::applyEnemyUpgrades(EnemyManager *em)
         for (std::list<Enemy*>::iterator it = ((std::list<Enemy*>)em->getEnemyList()).begin(); it != ((std::list<Enemy*>)em->getEnemyList()).end();++it)
         {
             //Upgrade code goes here
-            //(*it)->upgrade(enemyUpgradesToApply->front());
+            (*it)->applyUpgrade(*enemyUpgradesToApply.front());
         }
         appliedEnemyUpgrades.push_back(enemyUpgradesToApply.front());
         enemyUpgradesToApply.pop_front();

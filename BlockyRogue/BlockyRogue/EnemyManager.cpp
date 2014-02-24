@@ -109,7 +109,7 @@ void EnemyManager::spawn(Player *player)
             spawnY = ((rand() % y)+viewY)-(x/2);
         }
 
-        enemies.push_back(new EnemySquare(sf::Vector2f(spawnX, spawnY), player, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+        addEnemy(sf::Vector2f(spawnX, spawnY), player);
     }
     
 }

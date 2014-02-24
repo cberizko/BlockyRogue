@@ -28,15 +28,15 @@ void EnemySquare::update(float elapsed)
 		{
 			if (bump == true)
 			{	
-				shape[i].position += sf::Vector2f(-direction.x * moveSpeed*elapsed, -direction.y * moveSpeed * elapsed);
-				velocity->x = -direction.x * moveSpeed;
-				velocity->y = -direction.y * moveSpeed;
+				shape[i].position += sf::Vector2f(-direction.x * stats["moveSpeed"]*elapsed, -direction.y * stats["moveSpeed"] * elapsed);
+				velocity->x = -direction.x * stats["moveSpeed"];
+				velocity->y = -direction.y * stats["moveSpeed"];
 			}
 			else
 			{	
-				shape[i].position += sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed);
-				velocity->x = direction.x * moveSpeed;
-				velocity->y = direction.y * moveSpeed;
+				shape[i].position += sf::Vector2f(direction.x * stats["moveSpeed"]*elapsed, direction.y * stats["moveSpeed"] * elapsed);
+				velocity->x = direction.x * stats["moveSpeed"];
+				velocity->y = direction.y * stats["moveSpeed"];
 			}
 		}
 

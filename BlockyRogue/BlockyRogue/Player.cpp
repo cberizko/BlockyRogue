@@ -15,8 +15,8 @@ Player::Player():Character()
               config["PLAYER_SHAPE_BASE_RADIUS"], 
               config["PLAYER_SHAPE_VARIANCE"]);
 
-    health = config["PLAYER_MAX_HEALTH"];
-    moveSpeed = config["PLAYER_MOVE_SPEED"];
+    stats["health"] = config["PLAYER_MAX_HEALTH"];
+    stats["moveSpeed"] = config["PLAYER_MOVE_SPEED"];
 	Character::initBoundingBox();
 }
 
@@ -32,34 +32,34 @@ void Player::update(float elapsedTime)
 	{
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
-            shape[i].position += sf::Vector2f(moveSpeed*elapsedTime, 0);
+            shape[i].position += sf::Vector2f(stats["moveSpeed"]*elapsedTime, 0);
         }
-		velocity->x = moveSpeed;
+		velocity->x = stats["moveSpeed"];
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
-            shape[i].position += sf::Vector2f(-moveSpeed*elapsedTime, 0);
+            shape[i].position += sf::Vector2f(-stats["moveSpeed"]*elapsedTime, 0);
         }
-		velocity->x = -moveSpeed;
+		velocity->x = -stats["moveSpeed"];
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
-            shape[i].position += sf::Vector2f(0, -moveSpeed*elapsedTime);
+            shape[i].position += sf::Vector2f(0, -stats["moveSpeed"]*elapsedTime);
         }
-		velocity->y = -moveSpeed;
+		velocity->y = -stats["moveSpeed"];
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
         for(int i = 0; i < shape.getVertexCount(); i++)
         {
-            shape[i].position += sf::Vector2f(0, moveSpeed*elapsedTime);
+            shape[i].position += sf::Vector2f(0, stats["moveSpeed"]*elapsedTime);
         }
-		velocity->y = moveSpeed;
+		velocity->y = stats["moveSpeed"];
 	}
 	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsedTime);
 	Character::update(elapsedTime);
