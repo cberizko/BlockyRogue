@@ -9,13 +9,13 @@ PlayerProjectile::PlayerProjectile(sf::Vector2f position,
 
 void PlayerProjectile::update(float elapsedTime)
 {
-	std::list<Enemy*> enemies = enemyManager->getEnemyList();
+	std::list<Enemy*>* enemies = enemyManager->getEnemyList();
 
 	//Only check for moving shots, not for the explosions
 	if (explosion == true)
 	{
 		//Collision check code
-		for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
+		for (std::list<Enemy*>::iterator it = enemies->begin(); it != enemies->end();++it)
 		{
 			if((*it)->getBounds().intersects(this->getBounds()))
 			{

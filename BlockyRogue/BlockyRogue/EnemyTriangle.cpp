@@ -1,6 +1,6 @@
 #include "EnemyTriangle.hpp"
-
-EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, float range) : Enemy(v2f, p, range)
+#include "EnemyManager.hpp"
+EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float range) : Enemy(v2f, p, e, range)
 {
     initShape(3, 50, 1);
 }

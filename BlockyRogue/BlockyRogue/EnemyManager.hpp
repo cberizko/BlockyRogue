@@ -2,7 +2,7 @@
 #define _ENEMYMANAGER_HPP
 #include <SFML/Graphics.hpp>
 #include <list>
-#include "EnemySquare.hpp"
+#include "Enemy.hpp"
 #include "Player.hpp"
 #include <stdlib.h>
 #include <time.h>
@@ -25,7 +25,7 @@ public:
     void addEnemy(sf::Vector2f v2f, Player *p);
     void despawn(Player *player);
     void spawn(Player *player);
-    std::list<Enemy*> getEnemyList();
+    std::list<Enemy*>* getEnemyList();
 };
 
 #endif

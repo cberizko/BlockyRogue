@@ -4,11 +4,11 @@
 #include "Enemy.hpp"
 #include <iostream>
 #include <cmath>
-
+class EnemyManager;
 class EnemySquare : public Enemy
 {
 public:
-	EnemySquare(sf::Vector2f v2f, Player* p, float range);
+	EnemySquare(sf::Vector2f v2f, Player* p, EnemyManager* e, float range);
 	~EnemySquare();
 	void update(float elapsed);
 	int knockFrame;

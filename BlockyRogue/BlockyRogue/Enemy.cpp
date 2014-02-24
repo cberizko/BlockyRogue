@@ -1,11 +1,14 @@
 #include "Enemy.hpp"
+#include "EnemyManager.hpp"
 #include <iostream>
 
 #define PI 3.14159265
 
-Enemy::Enemy(sf::Vector2f v2f, Player* p, float range):Character()
+Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Character()
 {
+	velocity = new sf::Vector2f();
 	player = p;
+	manager = e;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     initGraphics("Enemy.png");
     setPosition(v2f);

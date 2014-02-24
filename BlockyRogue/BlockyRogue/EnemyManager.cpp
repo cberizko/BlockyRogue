@@ -1,4 +1,5 @@
 #include "EnemyManager.hpp"
+#include "EnemySquare.hpp"
 #include <iostream>
 
 EnemyManager::EnemyManager()
@@ -43,7 +44,7 @@ void EnemyManager::draw(sf::RenderWindow* window)
 
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
-    enemies.push_back(new EnemySquare(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+    enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
 }
 
 void EnemyManager::despawn(Player *player)
@@ -109,14 +110,14 @@ void EnemyManager::spawn(Player *player)
             spawnY = ((rand() % y)+viewY)-(x/2);
         }
 
-        enemies.push_back(new EnemySquare(sf::Vector2f(spawnX, spawnY), player, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+        enemies.push_back(new EnemySquare(sf::Vector2f(spawnX, spawnY), player, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     }
     
 }
 
-std::list<Enemy*> EnemyManager::getEnemyList()
+std::list<Enemy*>* EnemyManager::getEnemyList()
 {
-    return enemies;
+    return &enemies;
 }
 
 int EnemyManager::getEnemiesKilled()
