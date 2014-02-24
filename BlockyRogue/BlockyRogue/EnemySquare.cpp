@@ -43,20 +43,19 @@ void EnemySquare::update(float elapsed)
 		sf::FloatRect intersection;
 		for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
 		{
-			if((*it)->getBounds().intersects(getBounds(), intersection) && !collided && (*it) != this)
+			if((*it)->getBounds().intersects(getBounds(), intersection) && (*it) != this)
 			{
-				collided = true;
 				if(intersection.width < intersection.height)
 				{
 					if(velocity->x > 0)
 					{
-						boundingBox.move(sf::Vector2f(intersection.width, 0));
-						movement.x += intersection.width;
+						boundingBox.move(sf::Vector2f(-intersection.width, 0));
+						movement.x -= intersection.width;
 					}
 					else
 					{
-						boundingBox.move(sf::Vector2f(-intersection.width, 0));
-						movement.x -= intersection.width;
+						boundingBox.move(sf::Vector2f(intersection.width, 0));
+						movement.x += intersection.width;
 					}
 					velocity->x = 0;
 				}
@@ -64,13 +63,13 @@ void EnemySquare::update(float elapsed)
 				{
 					if(velocity->y > 0)
 					{
-						boundingBox.move(sf::Vector2f(0, intersection.height));
-						movement.y += intersection.height;
+						boundingBox.move(sf::Vector2f(0, -intersection.height));
+						movement.y -= intersection.height;
 					}
 					else
 					{
-						boundingBox.move(sf::Vector2f(0, -intersection.height));
-						movement.y -= intersection.height;
+						boundingBox.move(sf::Vector2f(0, intersection.height));
+						movement.y += intersection.height;
 					}
 					velocity->y = 0;
 				}
