@@ -7,6 +7,9 @@
 #include "Upgrade.hpp"
 #include "Player.hpp"
 #include "EnemyManager.hpp"
+#include "getResourcePath.hpp"
+#include <fstream>
+#include <sstream>
 
 class UpgradeManager
 {
@@ -45,6 +48,8 @@ public:
     void cancelUpgrade();
     
     //Todo: Add function to generate upgrades and to create upgrades from a list/ini
+    void generateRandomUpgrade();
+    void loadUpgrades();
 };
 
 #endif 
