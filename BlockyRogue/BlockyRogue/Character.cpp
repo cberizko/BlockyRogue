@@ -3,7 +3,6 @@
 
 Character::Character()
 {
-
 }
 
 void Character::initBoundingBox()
@@ -73,4 +72,10 @@ sf::Vector2f Character::getPosition()
 sf::Vector2f* Character::getVelocity()
 {
 	return velocity;
+}
+
+
+void Character::applyUpgrade(Upgrade upgrade)
+{
+    stats[upgrade.getType()] = upgrade.getAmount();
 }

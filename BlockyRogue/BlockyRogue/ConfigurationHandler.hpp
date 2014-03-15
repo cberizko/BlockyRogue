@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include "getResourcePath.hpp"
 
 class ConfigurationHandler
 {

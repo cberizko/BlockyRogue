@@ -24,6 +24,7 @@
 		5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDEB188CFBAB006D8C8E /* Scene.cpp */; };
 		5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */; };
 		5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B12BDF8188CFC76006D8C8E /* Projectile.png */; };
+		5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D359018C4A9F7004B02FD /* upgrades.ini */; };
 		5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */; };
 		5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B928A9E18A9144300DF7566 /* blocks.ttf */; };
 		5B928AA218A9145000DF7566 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B928AA018A9145000DF7566 /* Character.cpp */; };
@@ -68,6 +69,7 @@
 		5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = BlockyRogue/SceneManager.cpp; sourceTree = "<group>"; };
 		5B12BDEE188CFBAB006D8C8E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SceneManager.hpp; path = BlockyRogue/SceneManager.hpp; sourceTree = "<group>"; };
 		5B12BDF8188CFC76006D8C8E /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		5B5D359018C4A9F7004B02FD /* upgrades.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upgrades.ini; sourceTree = "<group>"; };
 		5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileDeath.png; sourceTree = "<group>"; };
 		5B928A9E18A9144300DF7566 /* blocks.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blocks.ttf; sourceTree = "<group>"; };
 		5B928AA018A9145000DF7566 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = BlockyRogue/Character.cpp; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		5B095BFD188B20E30058FB67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B5D359018C4A9F7004B02FD /* upgrades.ini */,
 				5B12BDDE188CFBAB006D8C8E /* config.ini */,
 				5B095C0C188B21540058FB67 /* Assets */,
 			);
@@ -317,6 +320,7 @@
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
+				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
 				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);

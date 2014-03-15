@@ -9,6 +9,11 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 
 	enemyKillCounterText.setFont(blockyFont);
 	enemyKillCounterText.setCharacterSize(20);
+    
+    enemyUpgradeText.setFont(blockyFont);
+	enemyUpgradeText.setCharacterSize(90);
+    playerUpgradeText.setFont(blockyFont);
+	playerUpgradeText.setCharacterSize(90);
 
     timeOut = 0.f;
 
@@ -16,6 +21,8 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 
     enemies = new EnemyManager();
 	enemyKillsToLevel = 15;
+    
+    upgradeManager = new UpgradeManager();
 }
 
 MainGameScene::~MainGameScene()
@@ -100,12 +107,52 @@ void MainGameScene::update(float elapsedTime)
     enemies->update(p, elapsedTime);
 	if(enemies->getEnemiesKilled() >= enemyKillsToLevel)
 	{
-		enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
-		enemyKillsToLevel *= 2;
+        enemies->setEnemiesKilled(enemyKillsToLevel);
+        
+        std::list<Upgrade*> uta = upgradeManager->getPlayerUpgradesToApply();
+        if(uta.size() == 0)
+            upgradeManager->readyRandomUpgrade();
+        
+        //Apply Upgrade
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+        {
+            enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
+            enemyKillsToLevel *= 2;
+            upgradeManager->applyUpgrades(p, enemies);
+        }
+        //Reject Upgrade
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+        {
+            enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
+            upgradeManager->cancelUpgrade();
+        }
 	}
 	std::ostringstream enemiesKillCounterString;
 	enemiesKillCounterString << "Enemies until level: " << enemies->getEnemiesKilled() << "/" << enemyKillsToLevel;
 	enemyKillCounterText.setString(enemiesKillCounterString.str());
+    
+    
+    std::ostringstream playerUpgradeString;
+    std::list<Upgrade*> puta = upgradeManager->getPlayerUpgradesToApply();
+    if(puta.size() > 0)
+    {
+	playerUpgradeString << "Player Upgrade: " << ((Upgrade*)puta.front())->getType() << " " << ((Upgrade*)puta.front())->getAmount();
+    }else
+    {
+        playerUpgradeString << "";
+    }
+	playerUpgradeText.setString(playerUpgradeString.str());
+    
+    std::ostringstream enemyUpgradeString;
+    std::list<Upgrade*> euta = upgradeManager->getEnemyUpgradesToApply();
+    if(euta.size() > 0)
+    {
+	enemyUpgradeString << "Enemy Upgrade: " << ((Upgrade*)euta.front())->getType() << " " << ((Upgrade*)euta.front())->getAmount();
+    }else
+    {
+        enemyUpgradeString << "";
+    }
+	enemyUpgradeText.setString(enemyUpgradeString.str());
 }
 
 void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
@@ -126,8 +173,17 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
 
 	enemyKillCounterText.setPosition(sf::Vector2f(view.getCenter().x + view.getSize().x / 2 - enemyKillCounterText.getGlobalBounds().width,
 		view.getCenter().y - view.getSize().y / 2));
+    
+    
+    //TODO - Pretty up display
+    playerUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - playerUpgradeText.getGlobalBounds().width/2,
+        view.getCenter().y-90));
+    enemyUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - enemyUpgradeText.getGlobalBounds().width/2,
+        view.getCenter().y+90));
 
 	window->draw(enemyKillCounterText);
+    window->draw(playerUpgradeText);
+    window->draw(enemyUpgradeText);
     window->setView(view);
     window->display();
     window->clear(sf::Color(0, 0, 0, 255));

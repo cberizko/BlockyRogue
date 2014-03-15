@@ -11,6 +11,7 @@
 #include "ConfigurationHandler.hpp"
 #include <list>
 #include "EnemyManager.hpp"
+#include "UpgradeManager.hpp"
 
 
 class MainGameScene: Scene
@@ -26,11 +27,14 @@ class MainGameScene: Scene
     private:
 		sf::Font blockyFont;
 		sf::Text enemyKillCounterText;
+        sf::Text playerUpgradeText;
+        sf::Text enemyUpgradeText;
 		int enemyKillsToLevel;
         float timeOut;
         Player *p;
         std::list<Projectile*> projectiles;
         EnemyManager *enemies;
+        UpgradeManager *upgradeManager;
         sf::Clock clock;
 };
 

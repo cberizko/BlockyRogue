@@ -3,6 +3,7 @@
 UpgradeManager::UpgradeManager()
 {
     srand(time(NULL));
+    loadUpgrades();
 }
 
 UpgradeManager::~UpgradeManager()
@@ -55,20 +56,19 @@ void UpgradeManager::applyPlayerUpgrades(Player *p)
 {
     while(!playerUpgradesToApply.empty())
     {
-        //Upgrade code goes here
-        //player->upgrade(playerUpgradesToApply->front());
+        p->applyUpgrade(*playerUpgradesToApply.front());
         appliedPlayerUpgrades.push_back(playerUpgradesToApply.front());
         playerUpgradesToApply.pop_front();
     }
 }
 void UpgradeManager::applyEnemyUpgrades(EnemyManager *em)
 {
+    std::list<Enemy*> *elist = em->getEnemyList();
     while(!enemyUpgradesToApply.empty())
     {
-        for (std::list<Enemy*>::iterator it = ((std::list<Enemy*>)*em->getEnemyList()).begin(); it != ((std::list<Enemy*>)*em->getEnemyList()).end();++it)
+        for (std::list<Enemy*>::iterator it = elist->begin(); it != elist->end(); ++it)
         {
-            //Upgrade code goes here
-            //(*it)->upgrade(enemyUpgradesToApply->front());
+            (*it)->applyUpgrade(*enemyUpgradesToApply.front());
         }
         appliedEnemyUpgrades.push_back(enemyUpgradesToApply.front());
         enemyUpgradesToApply.pop_front();
@@ -78,6 +78,13 @@ void UpgradeManager::applyEnemyUpgrades(EnemyManager *em)
 //Readies a random upgrade for both the player and enemies to be applied
 void UpgradeManager::readyRandomUpgrade()
 {
+    if(availablePlayerUpgrades.size() <= 1 || availableEnemyUpgrades.size() <= 1)
+    {
+        for(int i = 0 ; i < rand()%20; i++)
+        {
+            generateRandomUpgrade();
+        }
+    }
     int enemyUpgrade = (rand() % availableEnemyUpgrades.size());
     int playerUpgrade = (rand() % availablePlayerUpgrades.size());
     
@@ -127,6 +134,43 @@ void UpgradeManager::cancelUpgrade()
         enemyUpgradesToApply.pop_front();
     }
 
+}
+
+void UpgradeManager::generateRandomUpgrade()
+{
+    if(rand()%2 == 0)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100));
+        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100));
+    }else
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("health", (rand()%200)-100));
+        availableEnemyUpgrades.push_back(new Upgrade("health", (rand()%200)-100));
+    }
+}
+
+void UpgradeManager::loadUpgrades()
+{
+    std::string path = getResourcePath("")+"upgrades.ini";
+    std::ifstream configFile(path.c_str());
+    std::string currentLine;
+    
+    if(configFile.is_open())
+    {
+        while(std::getline(configFile, currentLine))
+        {
+            std::stringstream stream(currentLine);
+            char pore;
+            std::string type;
+            double amount;
+            stream >> pore >> type >> amount;
+            if(pore == 'p')
+                availablePlayerUpgrades.push_back(new Upgrade(type, amount));
+            if(pore == 'e')
+                availableEnemyUpgrades.push_back(new Upgrade(type, amount));
+        }
+    }
+    configFile.close();
 }
 
 

@@ -16,45 +16,44 @@ void EnemySquare::update(float elapsed)
 	velocity->y = 0;
 	sf::Vector2f direction = player->getPosition() - getPosition();
 	float distanceToPlayer = sqrt(direction.x * direction.x + direction.y * direction.y);
-
+	sf::FloatRect initalIntersection;
+	for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
+	{
+		if((*it)->getBounds().intersects(getBounds(), initalIntersection) && (*it) != this)
+		{
+			float moveX, moveY;
+			if(initalIntersection.left == getBounds().left)
+				moveX = initalIntersection.width;
+			else
+				moveX = -initalIntersection.width;
+			if(initalIntersection.top == getBounds().top)
+				moveY = initalIntersection.height;
+			else
+				moveY = -initalIntersection.height;
+			boundingBox.move(moveX, moveY);
+			std::cout << "STUCK BEFORE MOVE " << "X " << initalIntersection.width << "Y " << initalIntersection.height << std::endl;
+			for(int i = 0; i < shape.getVertexCount(); i++)
+			{
+				shape[i].position += sf::Vector2f(moveX, moveY);
+			}
+		}
+	}
 	//If inside aggro range.
 	if (abs(distanceToPlayer) < aggroRange)
 	{
-		sf::FloatRect initalIntersection;
-		for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
-		{
-			if((*it)->getBounds().intersects(getBounds(), initalIntersection) && (*it) != this)
-			{
-				float moveX, moveY;
-				if(initalIntersection.left == getBounds().left)
-					moveX = -initalIntersection.width;
-				else
-					moveX = initalIntersection.width;
-				if(initalIntersection.top == getBounds().top)
-					moveY = -initalIntersection.height;
-				else
-					moveY = initalIntersection.height;
-				boundingBox.move(moveX, moveY);
-				std::cout << "STUCK BEFORE MOVE " << "X " << initalIntersection.width << "Y " << initalIntersection.height << std::endl;
-				for(int i = 0; i < shape.getVertexCount(); i++)
-				{
-					shape[i].position += sf::Vector2f(moveX, moveY);
-				}
-			}
-		}
 		float magnitude = distanceToPlayer;
 		direction.x /= magnitude;
 		direction.y /= magnitude;
 
 		if (bump)
 		{
-			velocity->x = -direction.x * moveSpeed;
-			velocity->y = -direction.y * moveSpeed;
+			velocity->x = -direction.x * stats["moveSpeed"];
+			velocity->y = -direction.y * stats["moveSpeed"];
 		}
 		else
 		{
-			velocity->x = direction.x * moveSpeed;
-			velocity->y = direction.y * moveSpeed;
+			velocity->x = direction.x * stats["moveSpeed"];
+			velocity->y = direction.y * stats["moveSpeed"];
 		}
 
 		boundingBox.move(*velocity * elapsed);
@@ -76,7 +75,7 @@ void EnemySquare::update(float elapsed)
 					{
 						if((*it2)->getBounds().intersects(getBounds(), intersection) && (*it2) != this)
 						{
-							std::cout << "STUCK ON Y " << intersection.width << std::endl;
+							//std::cout << "STUCK ON Y " << intersection.width << std::endl;
 							boundingBox.move(sf::Vector2f(0, -movement.y));
 							movement.y -= movement.y;
 							velocity->y = 0;
@@ -93,7 +92,7 @@ void EnemySquare::update(float elapsed)
 					{
 						if((*it2)->getBounds().intersects(getBounds(), intersection) && (*it2) != this)
 						{
-							std::cout << "STUCK ON X " << intersection.height << std::endl;
+							//std::cout << "STUCK ON X " << intersection.height << std::endl;
 							boundingBox.move(sf::Vector2f(-movement.x, 0));
 							movement.x -= movement.x;
 							velocity->x = 0;

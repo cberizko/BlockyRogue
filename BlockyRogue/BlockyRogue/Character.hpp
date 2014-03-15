@@ -2,7 +2,9 @@
 #define _CHARACTER_HPP
 
 #include "GameObject.hpp"
+#include "Upgrade.hpp"
 #include <cmath>
+#include <string>
 
 class Character: public GameObject
 {
@@ -19,10 +21,12 @@ class Character: public GameObject
 		sf::Vector2f* getVelocity();
 		sf::FloatRect getBounds();
 		void initBoundingBox();
+        void applyUpgrade(Upgrade upgrade);
 
 	protected:
-		double health;
-        double moveSpeed;
+        std::map<std::string, double> stats;
+		//double health;
+        //double moveSpeed;
         sf::VertexArray shape;
 		sf::Vector2f* velocity;
 		sf::RectangleShape boundingBox;
