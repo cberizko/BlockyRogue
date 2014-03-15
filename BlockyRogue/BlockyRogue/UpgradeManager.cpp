@@ -65,7 +65,7 @@ void UpgradeManager::applyEnemyUpgrades(EnemyManager *em)
 {
     while(!enemyUpgradesToApply.empty())
     {
-        for (std::list<Enemy*>::iterator it = ((std::list<Enemy*>)em->getEnemyList()).begin(); it != ((std::list<Enemy*>)em->getEnemyList()).end();++it)
+        for (std::list<Enemy*>::iterator it = ((std::list<Enemy*>)*em->getEnemyList()).begin(); it != ((std::list<Enemy*>)*em->getEnemyList()).end();++it)
         {
             //Upgrade code goes here
             //(*it)->upgrade(enemyUpgradesToApply->front());
