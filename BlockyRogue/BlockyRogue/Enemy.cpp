@@ -41,7 +41,7 @@ void Enemy::update(float elapsed)
 void Enemy::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color::Green));
+    window->draw(shape->getShape(sf::Color(0,255*(stats["health"]/config["ENEMY_MAX_HEALTH"]),0)));
 }
 
 void Enemy::setHealth(double h)

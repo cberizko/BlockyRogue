@@ -26,7 +26,7 @@ Player::Player():Character()
 void Player::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color::Red));
+    window->draw(shape->getShape(sf::Color(255*(stats["health"]/config["PLAYER_MAX_HEALTH"]),0,0)));
     
 	Character::initBoundingBox();
 }
@@ -62,7 +62,7 @@ void Player::update(float elapsedTime)
     		shape[i].position += *hitDirection * (float)stats["moveSpeed"] * elapsedTime;
 		}
         */
-		*velocity += *hitDirection * (float)stats["moveSpeed"]*elapsedTime;
+		shape->update(*hitDirection * (float)stats["moveSpeed"]*elapsedTime);
 	}
 	else
 	{
@@ -88,7 +88,7 @@ void Player::update(float elapsedTime)
         shape->update(moveBy);
 	}
 	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsedTime);
-    //shape->update(moveBy);
+    shape->update(moveBy);
     
 }
 

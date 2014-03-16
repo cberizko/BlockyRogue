@@ -42,6 +42,8 @@ void EnemyTriangle::update(float elapsed)
 			coolDownTimer = stats["projectileDelay"];
 		}
 	}
+    
+    shape->update(sf::Vector2f(0,0));
 	
 }
 
