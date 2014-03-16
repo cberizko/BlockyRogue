@@ -16,6 +16,7 @@ class SmartPoint
         sf::Vector2f velocity;
 
         void update(sf::Vector2f moveBy);
+        void addPoint();
 
     private:
         

@@ -5,6 +5,12 @@ Character::Character()
 {
 }
 
+Character::~Character()
+{
+    delete shape;
+    delete velocity;
+}
+
 void Character::initShape(int verts, int radius, int variance)
 {
    shape = new SmartShape(verts, radius, variance); 
@@ -43,11 +49,6 @@ void Character::initBoundingBox()
 std::map<std::string, double> Character::getStats()
 {
     return stats;
-}
-
-Character::~Character()
-{
-	delete velocity;
 }
 
 sf::FloatRect Character::getBounds()
