@@ -19,6 +19,7 @@ public:
     sf::SoundBuffer triangleHurtSound;
     sf::SoundBuffer playerHurtSound;
     sf::SoundBuffer playerDeadSound;
+    sf::SoundBuffer enemyShootSound;
     sf::Music music;
 
 protected:

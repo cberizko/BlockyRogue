@@ -16,7 +16,6 @@ class EnemyProjectile : public Projectile
 	private:
 		Player *player;
 		sf::Sound fire;
-		sf::SoundBuffer buffer;
         double range;
         double damage;
 };

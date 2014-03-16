@@ -179,41 +179,41 @@ void UpgradeManager::generateRandomUpgrade()
     int uType = rand()%6;
     if(uType == 0)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
-        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%200)/100), "*"));
-        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%200)/100), "*"));
+        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%50), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%50), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%50)/100)+1, "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%50)/100)+1, "*"));
     }
     if(uType == 1)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", (rand()%10)-5, "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", (rand()%10)-5, "+"));
-        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%150)/100), "*"));
-        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%150)/100), "*"));
+        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", (rand()%5), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", (rand()%5), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%50)/100)+1, "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%50)/100)+1, "*"));
     }
     if(uType == 2)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%20)-10), "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%20)-10), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%5)), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%5)), "+"));
     }
     if(uType == 3)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%100)/100)-0.5, "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%100)/100)-0.5, "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%5000)/10000)*-1, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%5000)/10000)*-1, "+"));
     }
     if(uType == 4)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
-        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
-        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%5)), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%5)), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%50)/100)+1, "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%50)/100)+1, "*"));
     }
     if(uType == 5)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
-        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
-        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%5)), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%5)), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%50)/100)+1, "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%50)/100)+1, "*"));
     }
 }
 

@@ -54,6 +54,7 @@
 		5BD1662D18D5B6710035C7B7 /* Trance - Candy Dance.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */; };
 		5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662E18D5B6CF0035C7B7 /* config.ini */; };
 		5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */; };
+		5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1663318D5CE180035C7B7 /* TriProjectile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		5BD1662E18D5B6CF0035C7B7 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
 		5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
+		5BD1663318D5CE180035C7B7 /* TriProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TriProjectile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1663318D5CE180035C7B7 /* TriProjectile.png */,
 				5BD1660F18D599C50035C7B7 /* GameOverBackground.png */,
 				5BD1660D18D597360035C7B7 /* TitleBackground.png */,
 				5BD1660218D53EF50035C7B7 /* Background.png */,
@@ -392,6 +395,7 @@
 				5BD1661E18D59A170035C7B7 /* Enemy shoot.wav in Resources */,
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
+				5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */,
 				5BD1662918D5A6F70035C7B7 /* Enemy Circle hurt.wav in Resources */,
 				5BD1661D18D59A170035C7B7 /* Enemy death.wav in Resources */,
 				5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */,

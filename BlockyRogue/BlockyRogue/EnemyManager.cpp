@@ -23,6 +23,11 @@ EnemyManager::~EnemyManager()
     while(!enemies.empty()) delete enemies.front(), enemies.pop_front();
 }
 
+void EnemyManager::upgradeMaxEnemies()
+{
+    maxEnemies += 10;
+}
+
 void EnemyManager::update(Player *player, float elapsedTime)
 {
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
@@ -124,7 +129,7 @@ void EnemyManager::spawn(Player *player)
             x = (int)((sWidth/2)*despawnRange)*2;
             y = (int)((sHeight/2)*despawnRange)*2;
             spawnX = ((rand() % x)+viewX)-(x/2);
-            spawnY = ((rand() % y)+viewY)-(x/2);
+            spawnY = ((rand() % y)+viewY)-(y/2);
         }
 
         addEnemy(sf::Vector2f(spawnX, spawnY), player);

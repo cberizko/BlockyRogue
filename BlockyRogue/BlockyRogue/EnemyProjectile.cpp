@@ -2,11 +2,8 @@
 EnemyProjectile::EnemyProjectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Player *p, Character *own) : Projectile(position, velocity, direction, own, "TriProjectile.png")
 {
 	player = p;
-	if(!buffer.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy shoot.wav"))
-	{
-        std::cout << "ERROR unable to load sound Enemy shoot.wav in EnemyProjectile.cpp."<< std::endl;
-    }
-	fire.setBuffer(buffer);
+	
+	fire.setBuffer(*soundManager.getSoundBuffer("enemyShoot"));
 	fire.play();
     range = own->stats["projectileRange"];
     damage = own->stats["projectileDamage"];

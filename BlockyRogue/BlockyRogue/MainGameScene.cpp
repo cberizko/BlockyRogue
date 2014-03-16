@@ -155,7 +155,7 @@ void MainGameScene::update(float elapsedTime)
             upgradeSound.play();
             selectUpgrade = false;
             p->shape->removePoint();
-
+            enemies->upgradeMaxEnemies();
         }
         //Reject Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
