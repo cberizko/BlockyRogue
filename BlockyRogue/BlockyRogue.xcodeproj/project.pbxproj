@@ -56,6 +56,7 @@
 		5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1663318D5CE180035C7B7 /* TriProjectile.png */; };
 		5BD1663A18D5DF310035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663818D5DF310035C7B7 /* EnemyCircle.cpp */; };
 		5BD1663D18D5DF380035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */; };
+		5BD1664018D5E67F0035C7B7 /* WinScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663E18D5E67F0035C7B7 /* WinScreenScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +136,8 @@
 		5BD1663918D5DF310035C7B7 /* EnemyCircle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemyCircle.hpp; path = BlockyRogue/EnemyCircle.hpp; sourceTree = "<group>"; };
 		5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoundManager.cpp; path = BlockyRogue/SoundManager.cpp; sourceTree = "<group>"; };
 		5BD1663C18D5DF380035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SoundManager.hpp; path = BlockyRogue/SoundManager.hpp; sourceTree = "<group>"; };
+		5BD1663E18D5E67F0035C7B7 /* WinScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScreenScene.cpp; path = BlockyRogue/WinScreenScene.cpp; sourceTree = "<group>"; };
+		5BD1663F18D5E67F0035C7B7 /* WinScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = WinScreenScene.hpp; path = BlockyRogue/WinScreenScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +283,8 @@
 		5B12BDF7188CFC3C006D8C8E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1663E18D5E67F0035C7B7 /* WinScreenScene.cpp */,
+				5BD1663F18D5E67F0035C7B7 /* WinScreenScene.hpp */,
 				5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */,
 				5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */,
 				5B928AA618A9148800DF7566 /* TitleScreenScene.cpp */,
@@ -451,6 +456,7 @@
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
+				5BD1664018D5E67F0035C7B7 /* WinScreenScene.cpp in Sources */,
 				5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */,
 				5BB7E11A18B2946F00680237 /* PlayerProjectile.cpp in Sources */,
 				5BD1660C18D57C190035C7B7 /* SmartShape.cpp in Sources */,

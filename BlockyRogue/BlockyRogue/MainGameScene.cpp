@@ -1,6 +1,7 @@
 #include "MainGameScene.hpp"
 #include "SceneManager.hpp"
 #include "GameOverScreenScene.hpp"
+#include "WinScreenScene.hpp"
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
     soundManager.music.play();
@@ -181,6 +182,11 @@ void MainGameScene::update(float elapsedTime)
     p->update(elapsedTime);
     
     enemies->update(p, elapsedTime);
+    if(enemies->getEnemiesKilled() >= config["ENEMY_KILLS_TO_WIN"])
+    {
+        SceneManager::popScene();
+        SceneManager::pushScene((Scene*)new WinScreenScene());
+    }
 	if(!selectUpgrade && (enemies->getEnemiesKilled() >= enemyKillsToLevel || sf::Keyboard::isKeyPressed(sf::Keyboard::F)))
 	{
         enemies->setEnemiesKilled(enemyKillsToLevel);
