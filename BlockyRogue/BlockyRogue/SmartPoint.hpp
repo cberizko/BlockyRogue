@@ -7,7 +7,7 @@
 class SmartPoint
 {
     public:
-        SmartPoint(sf::Vector2f p, int v);
+        SmartPoint(sf::Vector2f p, int v, sf::Vector2f o);
         
         sf::Vector2f position;
         int variance;
@@ -19,6 +19,7 @@ class SmartPoint
         void addPoint();
 
     private:
+        sf::Vector2f origin;
         
 };
 

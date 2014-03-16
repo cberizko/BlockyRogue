@@ -22,6 +22,7 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
 
 	bump = false;
 	aggroRange = range;
+    color = sf::Color::Green;
 }
 
 Enemy::~Enemy()
@@ -44,8 +45,11 @@ void Enemy::update(float elapsed)
 
 void Enemy::draw(sf::RenderWindow* window)
 {
-	//window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color(0,255*(stats["health"]/stats["maxHealth"]),0)));
+    sf::Color drawColor = color;
+    drawColor.r = color.r * stats["health"]/stats["maxHealth"];
+    drawColor.g = color.g * stats["health"]/stats["maxHealth"];
+    drawColor.b = color.b * stats["health"]/stats["maxHealth"];
+    window->draw(shape->getShape(drawColor));
 }
 
 void Enemy::setHealth(double h)

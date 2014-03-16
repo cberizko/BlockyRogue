@@ -17,7 +17,7 @@ SmartShape::SmartShape(int verts, int radius, int variance)
         sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location)
                                             ,(radius+radius_offset)*std::sin(location));
 
-        points.push_back(new SmartPoint(pointOffset, radius_offset)); 
+        points.push_back(new SmartPoint(pointOffset, radius_offset, position)); 
     }
 }
 
@@ -38,7 +38,7 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
         sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location) 
                                             ,(radius+radius_offset)*std::sin(location));
 
-        points.push_back(new SmartPoint(pointOffset+position, radius_offset)); 
+        points.push_back(new SmartPoint(pointOffset+position, radius_offset, position)); 
     }
 }
 
@@ -59,7 +59,7 @@ void SmartShape::addPoint()
     std::cout<<"New point from seed: " << seedPoint << std::endl;
     position += sf::Vector2f(rand()%60, rand()%60);
     
-    points.push_back(new SmartPoint(position,10));
+    points.push_back(new SmartPoint(position,10, position));
 
     std::sort(points.begin(), points.end(), SmartShape::sortPoints);
 }
