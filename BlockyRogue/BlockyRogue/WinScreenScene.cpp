@@ -18,7 +18,8 @@ WinScreenScene::WinScreenScene(): Scene("Win Screen")
     else
     {
 		background.setTexture(backgroundTexture);
-		background.setScale(.75f,.90f);
+        sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+		background.setScale((float)desktop.width/1920.0f,(float)desktop.height/1080.0f);
         
     }
     
