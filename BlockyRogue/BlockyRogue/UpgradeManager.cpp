@@ -174,7 +174,7 @@ void UpgradeManager::generateRandomUpgrade()
      */
     
     
-    int uType = rand()%5;
+    int uType = rand()%6;
     if(uType == 0)
     {
         availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
@@ -205,6 +205,13 @@ void UpgradeManager::generateRandomUpgrade()
         availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
         availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
         availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
+    }
+    if(uType == 5)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
     }
 }
 

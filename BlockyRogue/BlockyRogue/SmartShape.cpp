@@ -81,12 +81,13 @@ sf::VertexArray SmartShape::getShape(sf::Color c)
 {
     vertArray.clear();
     vertArray = sf::VertexArray(sf::TrianglesFan, points.size());
-
+    
     for(int i = 0; i < points.size(); i++)
     {
         vertArray[i].position = points[i]->positionOffset;
         vertArray[i].color = c;
     }
+    vertArray[0].color = sf::Color::White;
 
     return vertArray;
 }
