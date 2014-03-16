@@ -34,7 +34,8 @@ Player::Player():Character()
 void Player::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color(255*(stats["health"]/stats["maxHealth"]),0,0)));
+
+        window->draw(shape->getShape(sf::Color(255*(stats["health"]/stats["maxHealth"]),255*(knockBackTimer/knockBackTime), 255*(knockBackTimer/knockBackTime))));
     
 	Character::initBoundingBox();
 }
@@ -80,6 +81,7 @@ void Player::update(float elapsedTime)
 	}
 	else
 	{
+        knockBackTimer = 0;
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			velocity->x = stats["moveSpeed"];
