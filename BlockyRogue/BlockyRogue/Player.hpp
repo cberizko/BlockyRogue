@@ -20,8 +20,6 @@ class Player: public Character
 		float knockBackTime;
 		float knockBackTimer;
 		sf::Sound sound;
-		sf::SoundBuffer hurtSound;
-		sf::SoundBuffer deadSound;
 };
 
 #endif

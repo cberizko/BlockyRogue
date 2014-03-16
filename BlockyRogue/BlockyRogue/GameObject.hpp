@@ -3,8 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "ConfigurationHandler.hpp"
+#include "SoundManager.hpp"
 
 extern ConfigurationHandler config;
+extern SoundManager soundManager;
 
 class GameObject
 {

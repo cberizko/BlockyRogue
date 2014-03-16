@@ -2,6 +2,7 @@
 #include <iostream>
 #include <list>
 #include "ConfigurationHandler.hpp"
+#include "SoundManager.hpp"
 #include "SceneManager.hpp"
 #include "MainGameScene.hpp"
 #include "TitleScreenScene.hpp"
@@ -9,6 +10,7 @@
 using namespace sf;
 
 ConfigurationHandler config;
+SoundManager soundManager;
 
 int main()
 {
@@ -21,11 +23,11 @@ int main()
 
     if(config["FULLSCREEN_MODE"] == 1)
     {
-         window.create(desktopResolution, "BlockyRogue!", sf::Style::Fullscreen);
+         window.create(desktopResolution, "Shape The World!", sf::Style::Fullscreen);
     }
     else
     {
-         window.create(desktopResolution, "BlockyRogue!");
+         window.create(desktopResolution, "Shape The World!");
     }
 
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));

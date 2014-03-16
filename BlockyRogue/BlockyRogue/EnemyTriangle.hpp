@@ -19,7 +19,6 @@ class EnemyTriangle : public Enemy
 		float coolDownTime;
 		std::list<Projectile*> *projectiles;
 		sf::Sound sound;
-		sf::SoundBuffer hurtSound;
 };
 
 #endif

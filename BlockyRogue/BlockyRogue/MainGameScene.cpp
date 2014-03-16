@@ -3,6 +3,8 @@
 #include "GameOverScreenScene.hpp"
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
+    soundManager.music.play();
+    soundManager.music.setLoop(true);
 	if(!blockyFont.loadFromFile(getResourcePath("Assets/Fonts/")+"blocks.ttf"))
     {
         std::cout << "ERROR unable to load font blocks.ttf in MainGameScene."<< std::endl;
@@ -15,19 +17,6 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
     {
 		background.setTexture(backgroundTexture);
 		background.setScale(.25f,.25f);
-    }
-	if(!music.openFromFile(getResourcePath("Assets/Sounds/") + "Trance - Candy Dance.wav"))
-	{
-		std::cout << "ERROR unable to load music Trance - Candy Dance.wav in MainGameScene.cpp." << std::endl;
-	}
-	music.play();
-	if(!playerShootSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player shoot.wav"))
-	{
-        std::cout << "ERROR unable to load sound Player shoot.wav in MainGameScene.cpp."<< std::endl;
-    }
-    if(!upgradeSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Upgrade.wav"))
-	{
-        std::cout << "ERROR unable to load sound Upgrade.wav in MainGameScene.cpp."<< std::endl;
     }
 
 	enemyKillCounterText.setFont(blockyFont);
@@ -52,6 +41,7 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 
 MainGameScene::~MainGameScene()
 {
+    soundManager.music.stop();
     delete p;
     delete enemies;
    
@@ -77,8 +67,8 @@ void MainGameScene::update(float elapsedTime)
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::RIGHT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
-			sound.setBuffer(playerShootSound);
-			sound.play();
+            shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
+            shootSound.play();
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
@@ -86,8 +76,8 @@ void MainGameScene::update(float elapsedTime)
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::LEFT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
-			sound.setBuffer(playerShootSound);
-			sound.play();
+            shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
+            shootSound.play();
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
@@ -95,8 +85,8 @@ void MainGameScene::update(float elapsedTime)
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]),
 				Projectile::UP, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
-			sound.setBuffer(playerShootSound);
-			sound.play();
+            shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
+            shootSound.play();
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
@@ -104,8 +94,8 @@ void MainGameScene::update(float elapsedTime)
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]),
                 Projectile::DOWN, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
-			sound.setBuffer(playerShootSound);
-			sound.play();
+			shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
+            shootSound.play();
         }
     }
 
@@ -146,8 +136,8 @@ void MainGameScene::update(float elapsedTime)
         std::list<Upgrade*> uta = upgradeManager->getPlayerUpgradesToApply();
         if(uta.size() == 0)
             upgradeManager->readyRandomUpgrade();
-        sUpgrade.setBuffer(upgradeSound);
-        sUpgrade.play();
+        upgradeSound.setBuffer(*soundManager.getSoundBuffer("upgrade"));
+        upgradeSound.play();
         selectUpgrade = true;
     }
     if(selectUpgrade)
@@ -161,8 +151,8 @@ void MainGameScene::update(float elapsedTime)
             enemyKillsToLevel *= 2;
             upgradeManager->applyUpgrades(p, enemies);
             p->stats["health"] = p->stats["maxHealth"];
-            sound.setBuffer(upgradeSound);
-            sound.play();
+            upgradeSound.setBuffer(*soundManager.getSoundBuffer("upgrade"));
+            upgradeSound.play();
             selectUpgrade = false;
         }
         //Reject Upgrade

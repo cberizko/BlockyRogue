@@ -10,10 +10,7 @@ EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p, EnemyManager* e, float ran
               config["ENEMY_SHAPE_VARIANCE"],
               v2f);
 	initBoundingBox();
-	if(!hurtSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy Square hurt.wav"))
-	{
-        std::cout << "ERROR unable to load sound Enemy Square hurt.mp3 in EnemySquare.cpp."<< std::endl;
-    }
+	
 }
 
 EnemySquare::~EnemySquare()
@@ -22,7 +19,7 @@ EnemySquare::~EnemySquare()
 
 void EnemySquare::hit()
 {
-	sound.setBuffer(hurtSound);
+	sound.setBuffer(*soundManager.getSoundBuffer("squareHurt"));
 	sound.play();
 }
 

@@ -6,17 +6,13 @@ EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float
 	coolDownTimer = 0;
     initShape(3, 50, 1, v2f);
 	Character::initBoundingBox();
-	if(!hurtSound.loadFromFile(getResourcePath("Assets/Sounds/")+"EnemyTriangle hurt.wav"))
-	{
-        std::cout << "ERROR unable to load sound EnemyTriangle hurt.mp3 in EnemyTriangle.wav."<< std::endl;
-    }
-
+	
     color = sf::Color::Blue;
 }
 
 void EnemyTriangle::hit()
 {
-	sound.setBuffer(hurtSound);
+	sound.setBuffer(*soundManager.getSoundBuffer("triangleHurt"));
 	sound.play();
 }
 

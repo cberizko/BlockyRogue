@@ -13,14 +13,7 @@ Player::Player():Character()
               config["PLAYER_SHAPE_VARIANCE"]);
 
 	initBoundingBox();
-    if(!hurtSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player Hurt.wav"))
-	{
-        std::cout << "ERROR unable to load sound Player Hurt.wav in Player.cpp."<< std::endl;
-    }
-	if(!deadSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player Death.wav"))
-	{
-        std::cout << "ERROR unable to load sound Player Death.wav in Player.cpp."<< std::endl;
-    }
+    
     //Stat Stuff
     stats["maxHealth"] = config["PLAYER_MAX_HEALTH"];
     stats["health"] = config["PLAYER_MAX_HEALTH"]; //Actually current health
@@ -51,9 +44,9 @@ void Player::hit(sf::Vector2f direction, float damage)
 	{
         shape->bouncePoints();
 		if(stats["health"] > 0)
-			sound.setBuffer(hurtSound);
+			sound.setBuffer(*soundManager.getSoundBuffer("playerHurt"));
 		else
-			sound.setBuffer(deadSound);
+			sound.setBuffer(*soundManager.getSoundBuffer("playerDead"));
 		sound.play();
 		knockBackTimer = knockBackTime;
 		hitDirection->x = direction.x;
