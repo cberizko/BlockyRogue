@@ -9,7 +9,7 @@ class EnemyProjectile : public Projectile
 	public:
 		EnemyProjectile(sf::Vector2f position, 
 								   sf::Vector2f velocity, Projectile::Direction direction, 
-								   Player *p);
+								   Player *p, Character *own);
 		~EnemyProjectile();
 		void update(float elapsed);
 	private:

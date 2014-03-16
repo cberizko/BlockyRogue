@@ -29,6 +29,11 @@ void Character::initBoundingBox()
 	boundingBox.setSize(sf::Vector2f(right - left, bottom - top));
 }
 
+std::map<std::string, double> Character::getStats()
+{
+    return stats;
+}
+
 Character::~Character()
 {
 	delete velocity;
@@ -78,5 +83,13 @@ sf::Vector2f* Character::getVelocity()
 
 void Character::applyUpgrade(Upgrade upgrade)
 {
-    stats[upgrade.getType()] = upgrade.getAmount();
+    if(upgrade.getMod().compare("+") == 0)
+        stats[upgrade.getType()] += upgrade.getAmount();
+    if(upgrade.getMod().compare("*") == 0)
+        stats[upgrade.getType()] *= upgrade.getAmount();
+    if(upgrade.getMod().compare("=") == 0)
+        stats[upgrade.getType()] = upgrade.getAmount();
+    
+    if(stats[upgrade.getType()] <= 0)
+        stats[upgrade.getType()] = 0.0001;
 }

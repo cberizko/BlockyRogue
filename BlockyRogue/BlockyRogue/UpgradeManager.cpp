@@ -75,6 +75,15 @@ void UpgradeManager::applyEnemyUpgrades(EnemyManager *em)
     }
 }
 
+void UpgradeManager::applyEnemyUpgrade(Enemy *e)
+{
+    for (std::list<Upgrade*>::iterator et = appliedEnemyUpgrades.begin(); et != appliedEnemyUpgrades.end();)
+    {
+        e->applyUpgrade(*(*et));
+        ++et;
+    }
+}
+
 //Readies a random upgrade for both the player and enemies to be applied
 void UpgradeManager::readyRandomUpgrade()
 {
@@ -85,8 +94,8 @@ void UpgradeManager::readyRandomUpgrade()
             generateRandomUpgrade();
         }
     }
-    int enemyUpgrade = (rand() % availableEnemyUpgrades.size());
-    int playerUpgrade = (rand() % availablePlayerUpgrades.size());
+    int enemyUpgrade = (rand() % availableEnemyUpgrades.size()-1);
+    int playerUpgrade = (rand() % availablePlayerUpgrades.size()-1);
     
     int i = 0;
     for (std::list<Upgrade*>::iterator et = availableEnemyUpgrades.begin(); et != availableEnemyUpgrades.end();)
@@ -133,19 +142,59 @@ void UpgradeManager::cancelUpgrade()
         availableEnemyUpgrades.push_back(enemyUpgradesToApply.front());
         enemyUpgradesToApply.pop_front();
     }
+    
+
+        for(int i = 0 ; i < rand()%20; i++)
+        {
+            generateRandomUpgrade();
+        }
 
 }
 
 void UpgradeManager::generateRandomUpgrade()
 {
-    if(rand()%2 == 0)
+    /*
+     Double/Decimal Template
+     if(uType == #)
+     {
+     availablePlayerUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%100)/100)));
+     availableEnemyUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%100)/100)));
+     }
+     
+     int Template
+     if(uType == #)
+     {
+     availablePlayerUpgrades.push_back(new Upgrade("projectileRange", (rand()%(max-min))+min);
+     availableEnemyUpgrades.push_back(new Upgrade("projectileRange", (rand()%(max-min))+min);
+     }
+     */
+    
+    
+    int uType = rand()%5;
+    if(uType == 0)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100));
-        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100));
-    }else
+        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
+    }
+    if(uType == 1)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("health", (rand()%200)-100));
-        availableEnemyUpgrades.push_back(new Upgrade("health", (rand()%200)-100));
+        availablePlayerUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
+    }
+    if(uType == 2)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%20)-10), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileRange", ((double)(rand()%20)-10), "+"));
+    }
+    if(uType == 3)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%100)/100)-0.5, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%100)/100)-0.5, "+"));
+    }
+    if(uType == 4)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
     }
 }
 
@@ -163,11 +212,12 @@ void UpgradeManager::loadUpgrades()
             char pore;
             std::string type;
             double amount;
-            stream >> pore >> type >> amount;
+            std::string mod;
+            stream >> pore >> type >> mod >> amount;
             if(pore == 'p')
-                availablePlayerUpgrades.push_back(new Upgrade(type, amount));
+                availablePlayerUpgrades.push_back(new Upgrade(type, amount, mod));
             if(pore == 'e')
-                availableEnemyUpgrades.push_back(new Upgrade(type, amount));
+                availableEnemyUpgrades.push_back(new Upgrade(type, amount, mod));
         }
     }
     configFile.close();

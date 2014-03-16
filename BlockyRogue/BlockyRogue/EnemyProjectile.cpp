@@ -2,7 +2,7 @@
 
 EnemyProjectile::EnemyProjectile(sf::Vector2f position, 
 								   sf::Vector2f velocity, Projectile::Direction direction, 
-								   Player *p) : Projectile(position, velocity, direction)
+								   Player *p, Character *own) : Projectile(position, velocity, direction, own)
 {
 	player = p;
 }

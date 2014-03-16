@@ -35,6 +35,8 @@
 		5BB7E12018B2949000680237 /* EnemyProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E11E18B2949000680237 /* EnemyProjectile.cpp */; };
 		5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12218B2956F00680237 /* UpgradeManager.cpp */; };
 		5BB7E12718B296A800680237 /* Upgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12518B296A800680237 /* Upgrade.cpp */; };
+		5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */; };
+		5BD1660318D53EF50035C7B7 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660218D53EF50035C7B7 /* Background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		5BB7E12318B2956F00680237 /* UpgradeManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UpgradeManager.hpp; path = BlockyRogue/UpgradeManager.hpp; sourceTree = "<group>"; };
 		5BB7E12518B296A800680237 /* Upgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Upgrade.cpp; path = BlockyRogue/Upgrade.cpp; sourceTree = "<group>"; };
 		5BB7E12618B296A800680237 /* Upgrade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Upgrade.hpp; path = BlockyRogue/Upgrade.hpp; sourceTree = "<group>"; };
+		5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundNoStuff.png; sourceTree = "<group>"; };
+		5BD1660218D53EF50035C7B7 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660218D53EF50035C7B7 /* Background.png */,
+				5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */,
 				5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */,
 				5B12BDF8188CFC76006D8C8E /* Projectile.png */,
 				5B095C3C188B33C60058FB67 /* Enemy.png */,
@@ -319,8 +325,10 @@
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
+				5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
 				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
+				5BD1660318D53EF50035C7B7 /* Background.png in Resources */,
 				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);

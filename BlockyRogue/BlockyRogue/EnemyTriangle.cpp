@@ -46,7 +46,7 @@ void EnemyTriangle::update(float elapsed)
 		if(distanceToPlayer < aggroRange)
 		{
 			projectiles->push_back(new EnemyProjectile(boundingBox.getPosition() + sf::Vector2f(boundingBox.getSize().x / 2, boundingBox.getSize().y / 2), 
-				normalizedDir * (float)config["PROJECTILE_BASE_VELOCITY"], Projectile::NONE, player));
+				normalizedDir * (float)config["PROJECTILE_BASE_VELOCITY"], Projectile::NONE, player, this));
 			coolDownTimer = coolDownTime;
 		}
 	}

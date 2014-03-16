@@ -42,6 +42,7 @@ public:
     void applyUpgrades(Player *p, EnemyManager *em);
     void applyPlayerUpgrades(Player *p);
     void applyEnemyUpgrades(EnemyManager *em);
+    void applyEnemyUpgrade(Enemy *e);
     
     //Readies a random upgrade to apply (would be called on level up)
     void readyRandomUpgrade();

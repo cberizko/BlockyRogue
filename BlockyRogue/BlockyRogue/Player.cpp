@@ -13,8 +13,15 @@ Player::Player():Character()
               config["PLAYER_SHAPE_BASE_RADIUS"], 
               config["PLAYER_SHAPE_VARIANCE"]);
 
-    stats["health"] = config["PLAYER_MAX_HEALTH"];
+    //Stat Stuff
+    stats["health"] = config["PLAYER_MAX_HEALTH"]; //Actually current health
     stats["moveSpeed"] = config["PLAYER_MOVE_SPEED"];
+    stats["projectileDelay"] = config["PROJECTILE_DELAY"];
+    stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
+    stats["projectileRange"] = config["PROJECTILE_RANGE"];
+    stats["projectileDamage"] = config["PROJECTILE_DAMAGE"];
+    //=============
+    
 	Character::initBoundingBox();
 }
 

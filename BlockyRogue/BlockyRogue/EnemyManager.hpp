@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+class UpgradeManager;
 class EnemyManager
 {
 private:
@@ -15,8 +16,9 @@ private:
     double maxEnemies;
     double despawnRange;
 	int numEnemiesKilled;
+    UpgradeManager *upgradeManager;
 public:
-    EnemyManager(std::list<Projectile*> *proj);
+    EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj);
     ~EnemyManager();
 	int getEnemiesKilled();
 	void setEnemiesKilled(int enemiesKilled);
