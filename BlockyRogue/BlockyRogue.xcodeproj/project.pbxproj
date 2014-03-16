@@ -53,9 +53,9 @@
 		5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */; };
 		5BD1662D18D5B6710035C7B7 /* Trance - Candy Dance.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */; };
 		5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662E18D5B6CF0035C7B7 /* config.ini */; };
-		5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */; };
 		5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1663318D5CE180035C7B7 /* TriProjectile.png */; };
-		5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */; };
+		5BD1663A18D5DF310035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663818D5DF310035C7B7 /* EnemyCircle.cpp */; };
+		5BD1663D18D5DF380035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,11 +130,11 @@
 		5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "EnemyTriangle hurt.wav"; sourceTree = "<group>"; };
 		5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Trance - Candy Dance.wav"; sourceTree = "<group>"; };
 		5BD1662E18D5B6CF0035C7B7 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
-		5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
-		5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
 		5BD1663318D5CE180035C7B7 /* TriProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TriProjectile.png; sourceTree = "<group>"; };
-		5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyCircle.cpp; sourceTree = "<group>"; };
-		5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyCircle.hpp; sourceTree = "<group>"; };
+		5BD1663818D5DF310035C7B7 /* EnemyCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyCircle.cpp; path = BlockyRogue/EnemyCircle.cpp; sourceTree = "<group>"; };
+		5BD1663918D5DF310035C7B7 /* EnemyCircle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnemyCircle.hpp; path = BlockyRogue/EnemyCircle.hpp; sourceTree = "<group>"; };
+		5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoundManager.cpp; path = BlockyRogue/SoundManager.cpp; sourceTree = "<group>"; };
+		5BD1663C18D5DF380035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SoundManager.hpp; path = BlockyRogue/SoundManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				5B095BFB188B20E30058FB67 /* main.cpp */,
-				5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */,
-				5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */,
+				5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */,
+				5BD1663C18D5DF380035C7B7 /* SoundManager.hpp */,
 				5BB7E12818B296D600680237 /* Upgrades */,
 				5B12BDF6188CFBFB006D8C8E /* Objects */,
 				5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */,
@@ -244,6 +244,8 @@
 		5B095C3E188B3F4C0058FB67 /* Enemy */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1663818D5DF310035C7B7 /* EnemyCircle.cpp */,
+				5BD1663918D5DF310035C7B7 /* EnemyCircle.hpp */,
 				5BB7E11B18B2948400680237 /* EnemyTriangle.cpp */,
 				5BB7E11C18B2948400680237 /* EnemyTriangle.hpp */,
 				5B095C14188B21540058FB67 /* GameObject.cpp */,
@@ -254,8 +256,6 @@
 				5B12BDE3188CFBAB006D8C8E /* EnemyManager.hpp */,
 				5B928AA318A9147300DF7566 /* EnemySquare.cpp */,
 				5B928AA418A9147300DF7566 /* EnemySquare.hpp */,
-				5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */,
-				5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */,
 			);
 			name = Enemy;
 			sourceTree = "<group>";
@@ -446,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD1663A18D5DF310035C7B7 /* EnemyCircle.cpp in Sources */,
 				5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */,
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */,
@@ -459,10 +460,8 @@
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
 				5BB7E11D18B2948400680237 /* EnemyTriangle.cpp in Sources */,
 				5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */,
-				5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */,
 				5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */,
 				5B928AA818A9148800DF7566 /* TitleScreenScene.cpp in Sources */,
-				5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */,
 				5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */,
 				5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */,
 				5B095C2C188B21540058FB67 /* Player.cpp in Sources */,
@@ -471,6 +470,7 @@
 				5B928AA218A9145000DF7566 /* Character.cpp in Sources */,
 				5B928AA518A9147300DF7566 /* EnemySquare.cpp in Sources */,
 				5BB7E12018B2949000680237 /* EnemyProjectile.cpp in Sources */,
+				5BD1663D18D5DF380035C7B7 /* SoundManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
