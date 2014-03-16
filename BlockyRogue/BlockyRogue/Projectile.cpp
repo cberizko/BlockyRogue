@@ -71,7 +71,6 @@ Projectile::Projectile(sf::Vector2f position)
 	frameCount = 0;
 }
 
-
 sf::Vector2f Projectile::getPosition()
 {
 	return sprite.getPosition();

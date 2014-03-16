@@ -8,6 +8,8 @@
 #include "PlayerProjectile.hpp"
 #include "EnemyProjectile.hpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "ConfigurationHandler.hpp"
 #include <list>
 #include "EnemyManager.hpp"

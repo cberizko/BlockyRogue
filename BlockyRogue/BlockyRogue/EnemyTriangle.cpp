@@ -5,10 +5,12 @@ EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float
 	projectiles = proj;
 	coolDownTimer = 0;
     initShape(3, 50, 1);
+    /*
 	for(int i = 0; i < shape.getVertexCount(); i++)
 	{
 		shape[i].color = sf::Color::Green;
 	}
+    */
 	Character::initBoundingBox();
 }
 
@@ -29,10 +31,7 @@ void EnemyTriangle::update(float elapsed)
 			else
 				moveY = -initalIntersection.height;
 			boundingBox.move(moveX, moveY);
-			for(int i = 0; i < shape.getVertexCount(); i++)
-			{
-				shape[i].position += sf::Vector2f(moveX, moveY);
-			}
+            shape->update(sf::Vector2f(moveX,moveY));
 		}
 	}
 	if(coolDownTimer > 0)

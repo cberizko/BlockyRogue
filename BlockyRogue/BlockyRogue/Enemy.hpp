@@ -11,8 +11,8 @@ class Enemy: public Character
 		Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range);
         ~Enemy();
         void update(float elapsed);
+        void draw(sf::RenderWindow* window);
         void setHealth(double health);
-        void initShape(int verts, int radius, int variance);
         double getHealth();
 		bool bump;
 		void setBump();

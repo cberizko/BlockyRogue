@@ -9,7 +9,6 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
 	velocity = new sf::Vector2f();
 	player = p;
 	manager = e;
-	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     setPosition(v2f);
 
     stats["health"] = config["ENEMY_MAX_HEALTH"];
@@ -27,33 +26,22 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::initShape(int verts, int radius, int variance)
-{
-    shape = sf::VertexArray(sf::TrianglesFan, verts+1);
-
-    for(int i = 0; i < verts+1; i++)
-    {
-        //Equation of a Circle: (parametric coordinates)
-        //for a circle with origin (j, k) and radius r:
-        //x(t) = r cos(t) + j       y(t) = r sin(t) + k
-
-        int radius_offset = std::rand()%variance; 
-        double location = i*((2*PI)/verts);
-
-        shape[i].position = sf::Vector2f((radius+radius_offset)*std::cos(location)+sprite.getPosition().x, (radius+radius_offset)*std::sin(location)+sprite.getPosition().y);
-
-		//Uncomment to make the enemy an solid color.
-		//shape[i].color = sf::Color::Green;
-    }
-}
-
 void Enemy::update(float elapsed)
 {
+/*
 	Character::update(elapsed, bump);
+
 	if(player->getBounds().intersects(getBounds()))
 	{
 		//Do Something with collision
 	}
+*/
+}
+
+void Enemy::draw(sf::RenderWindow* window)
+{
+	window->draw(boundingBox);
+    window->draw(shape->getShape(sf::Color::Green));
 }
 
 void Enemy::setHealth(double h)

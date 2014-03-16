@@ -3,23 +3,26 @@
 
 EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p, EnemyManager* e, float range) : Enemy(v2f, p, e, range)
 {
-	initShape(config["ENEMY_SHAPE_STARTING_VERTICES"], 
-		config["ENEMY_SHAPE_BASE_RADIUS"], 
-		config["ENEMY_SHAPE_VARIANCE"]);
 	knockFrame = 0;
 	velocity = new sf::Vector2f();
-	Character::initBoundingBox();
+    initShape(config["ENEMY_SHAPE_STARTING_VERTICES"],
+              config["ENEMY_SHAPE_BASE_RADIUS"],
+              config["ENEMY_SHAPE_VARIANCE"],
+              v2f);
+	initBoundingBox();
 }
+
 EnemySquare::~EnemySquare()
 {
-	
 }
+
 void EnemySquare::update(float elapsed)
 {
+    sf::Vector2f direction = player->getPosition() - getPosition();
+	float distanceToPlayer = abs(sqrt(direction.x * direction.x + direction.y * direction.y));
+
 	velocity->x = 0;
 	velocity->y = 0;
-	sf::Vector2f direction = player->getPosition() - getPosition();
-	float distanceToPlayer = sqrt(direction.x * direction.x + direction.y * direction.y);
 	sf::FloatRect initalIntersection;
 	
     for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
@@ -36,21 +39,23 @@ void EnemySquare::update(float elapsed)
 			else
 				moveY = -initalIntersection.height;
 			boundingBox.move(moveX, moveY);
-			for(int i = 0; i < shape.getVertexCount(); i++)
-			{
-				shape[i].position += sf::Vector2f(moveX, moveY);
-			}
+
+            shape->update(sf::Vector2f(moveX, moveY));
 		}
 	}
     
     
 	//If inside aggro range.
-	if (abs(distanceToPlayer) < aggroRange)
+	if (distanceToPlayer < aggroRange)
 	{
 		float magnitude = distanceToPlayer;
 		direction.x /= magnitude;
 		direction.y /= magnitude;
-
+	
+        velocity->x = direction.x * stats["moveSpeed"];
+        velocity->y = direction.y * stats["moveSpeed"];
+        //shape->update(sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed));
+/*
 		if (bump)
 		{
 			velocity->x = -direction.x * stats["moveSpeed"];
@@ -61,9 +66,9 @@ void EnemySquare::update(float elapsed)
 			velocity->x = direction.x * stats["moveSpeed"];
 			velocity->y = direction.y * stats["moveSpeed"];
 		}
-
+*/
 		boundingBox.move(*velocity * elapsed);
-		bool collided = false;
+
 		sf::Vector2f movement;
 		movement.x = velocity->x * elapsed;
 		movement.y = velocity->y * elapsed;
@@ -108,17 +113,14 @@ void EnemySquare::update(float elapsed)
 				}
 			}
 		}
-		for(int i = 0; i < shape.getVertexCount(); i++)
-		{
-			shape[i].position += sf::Vector2f(movement.x, movement.y);
-		}
+        shape->update(sf::Vector2f(movement.x, movement.y));
 
-		if(!bump && player->getBounds().intersects(getBounds()))
+		if( player->getBounds().intersects(getBounds()))
 		{
             player->stats["health"] -= stats["projectileDamage"]/20;
 			player->hit(movement);
 		}
-
+/*
 		if (bump == true && knockFrame == 0)
 		{	//How many frames the knockback should last.
 			knockFrame = 100;}
@@ -130,6 +132,7 @@ void EnemySquare::update(float elapsed)
 		else
 		{	knockFrame--;
 			bump = false;}
+*/
 	}
 	Enemy::update(elapsed);
 }

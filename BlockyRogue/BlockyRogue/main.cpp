@@ -27,6 +27,7 @@ int main()
     {
          window.create(desktopResolution, "BlockyRogue!");
     }
+
 	sf::View view(sf::Vector2f(350, 300), sf::Vector2f(desktopResolution.width, desktopResolution.height));
 	window.setView(view);
     SceneManager sceneManager;

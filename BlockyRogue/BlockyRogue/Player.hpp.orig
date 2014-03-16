@@ -11,13 +11,17 @@ class Player: public Character
         Player();
         ~Player();
         void update(float elapsedTime);
+<<<<<<< HEAD
         void draw(sf::RenderWindow *window);
         sf::Vector2f getPosition();
+=======
+        void initShape(int verts, int radius, int variance);
 		void hit(sf::Vector2f direction);
 	protected:
 		sf::Vector2f* hitDirection;
 		float knockBackTime;
 		float knockBackTimer;
+>>>>>>> 2374492881e09db0957a5f8a48de6d399baca536
 };
 
 #endif

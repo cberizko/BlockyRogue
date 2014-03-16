@@ -115,6 +115,7 @@ void MainGameScene::update(float elapsedTime)
     }
     
     p->update(elapsedTime);
+    
     enemies->update(p, elapsedTime);
 	if(enemies->getEnemiesKilled() >= enemyKillsToLevel || sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 	{
@@ -138,6 +139,7 @@ void MainGameScene::update(float elapsedTime)
             upgradeManager->cancelUpgrade();
         }
 	}
+
 	std::ostringstream enemiesKillCounterString;
 	enemiesKillCounterString << "Enemies until level: " << enemies->getEnemiesKilled() << "/" << enemyKillsToLevel;
 	enemyKillCounterText.setString(enemiesKillCounterString.str());

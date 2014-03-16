@@ -7,13 +7,28 @@ Player::Player():Character()
 	knockBackTime = .5f;
 	hitDirection = new sf::Vector2f();
 	velocity = new sf::Vector2f();
+<<<<<<< HEAD
+    
+=======
+
+>>>>>>> 2374492881e09db0957a5f8a48de6d399baca536
     //Creates the players dynamic shape
     initShape(config["PLAYER_SHAPE_STARTING_VERTICES"], 
               config["PLAYER_SHAPE_BASE_RADIUS"], 
               config["PLAYER_SHAPE_VARIANCE"]);
 
+<<<<<<< HEAD
+    health = config["PLAYER_MAX_HEALTH"];
+    moveSpeed = config["PLAYER_MOVE_SPEED"];
+
 	initBoundingBox();
-    
+}
+
+void Player::draw(sf::RenderWindow* window)
+{
+	window->draw(boundingBox);
+    window->draw(shape->getShape(sf::Color::Red));
+=======
     //Stat Stuff
     stats["health"] = config["PLAYER_MAX_HEALTH"]; //Actually current health
     stats["moveSpeed"] = config["PLAYER_MOVE_SPEED"];
@@ -21,14 +36,10 @@ Player::Player():Character()
     stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
     stats["projectileRange"] = config["PROJECTILE_RANGE"];
     stats["projectileDamage"] = config["PROJECTILE_DAMAGE"];
-}
-
-void Player::draw(sf::RenderWindow* window)
-{
-	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color::Red));
+    //=============
     
 	Character::initBoundingBox();
+>>>>>>> 2374492881e09db0957a5f8a48de6d399baca536
 }
 
 Player::~Player()
@@ -50,46 +61,83 @@ void Player::update(float elapsedTime)
 {
 	velocity->x = 0.f;
 	velocity->y = 0.f;
+<<<<<<< HEAD
     sf::Vector2f moveBy;
 
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+        moveBy += sf::Vector2f(moveSpeed*elapsedTime, 0);
+		velocity->x = moveSpeed;
+=======
 	if(knockBackTimer > 0)
 	{
 		knockBackTimer -= elapsedTime;
-        /*
 		for(int i = 0; i < shape.getVertexCount(); i++)
 		{
 			shape[i].color = sf::Color::Blue;
-    		shape[i].position += *hitDirection * (float)stats["moveSpeed"] * elapsedTime;
+			shape[i].position += *hitDirection * (float)stats["moveSpeed"] * elapsedTime;
 		}
-        */
 		*velocity = *hitDirection * (float)stats["moveSpeed"];
+>>>>>>> 2374492881e09db0957a5f8a48de6d399baca536
 	}
 	else
 	{
+<<<<<<< HEAD
+        moveBy += sf::Vector2f(-moveSpeed*elapsedTime, 0);
+		velocity->x = -moveSpeed;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+        moveBy += sf::Vector2f(0, -moveSpeed*elapsedTime);
+		velocity->y = -moveSpeed;
+	}
+	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+        moveBy += sf::Vector2f(0, moveSpeed*elapsedTime);
+		velocity->y = moveSpeed;
+=======
+		for(int i = 0; i < shape.getVertexCount(); i++)
+		{
+			shape[i].color = sf::Color::Red;
+		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
+			for(int i = 0; i < shape.getVertexCount(); i++)
+			{
+				shape[i].position += sf::Vector2f(stats["moveSpeed"]*elapsedTime, 0);
+			}
 			velocity->x = stats["moveSpeed"];
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
+			for(int i = 0; i < shape.getVertexCount(); i++)
+			{
+				shape[i].position += sf::Vector2f(-stats["moveSpeed"]*elapsedTime, 0);
+			}
 			velocity->x = -stats["moveSpeed"];
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
+			for(int i = 0; i < shape.getVertexCount(); i++)
+			{
+				shape[i].position += sf::Vector2f(0, -stats["moveSpeed"]*elapsedTime);
+			}
 			velocity->y = -stats["moveSpeed"];
 		}
 		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
+			for(int i = 0; i < shape.getVertexCount(); i++)
+			{
+				shape[i].position += sf::Vector2f(0, stats["moveSpeed"]*elapsedTime);
+			}
 			velocity->y = stats["moveSpeed"];
 		}
-
-        sf::Vector2f moveBy= sf::Vector2f(velocity->x*elapsedTime, velocity->y*elapsedTime);
-        shape->update(moveBy);
+>>>>>>> 2374492881e09db0957a5f8a48de6d399baca536
 	}
 	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsedTime);
-    //shape->update(moveBy);
-    
+    shape->update(moveBy);
 }
 
 sf::Vector2f Player::getPosition()

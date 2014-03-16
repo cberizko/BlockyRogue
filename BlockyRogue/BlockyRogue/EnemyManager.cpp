@@ -33,6 +33,7 @@ void EnemyManager::update(Player *player, float elapsedTime)
         }
     }
     
+    
     despawn(player);
     spawn(player);
 }
@@ -48,10 +49,11 @@ void EnemyManager::draw(sf::RenderWindow* window)
 
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
+    //enemies.push_back(new EnemyTriangle(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
 	int i = std::rand() % 2;
-	if( i == 0)
-		enemies.push_back(new EnemyTriangle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
-	else
+	//if( i == 0)
+		//enemies.push_back(new EnemyTriangle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
+	//else
 		enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     upgradeManager->applyEnemyUpgrade(enemies.back());
 }
@@ -121,7 +123,6 @@ void EnemyManager::spawn(Player *player)
 
         addEnemy(sf::Vector2f(spawnX, spawnY), player);
     }
-    
 }
 
 std::list<Enemy*>* EnemyManager::getEnemyList()

@@ -5,17 +5,28 @@ Character::Character()
 {
 }
 
+void Character::initShape(int verts, int radius, int variance)
+{
+   shape = new SmartShape(verts, radius, variance); 
+}
+
+
+void Character::initShape(int verts, int radius, int variance, sf::Vector2f p)
+{
+   shape = new SmartShape(verts, radius, variance, p); 
+}
+
 void Character::initBoundingBox()
 {
 	boundingBox.setFillColor(sf::Color::Transparent);
 	boundingBox.setOutlineColor(sf::Color::White);
 	boundingBox.setOutlineThickness(3);
 	float top, bottom, left, right;
-	top = bottom = shape[0].position.y;
-	left = right = shape[0].position.x;
-	for(int i = 1; i < shape.getVertexCount(); i++)
+	top = bottom = shape->points[0]->position.y;
+	left = right = shape->points[0]->position.x;
+	for(int i = 1; i < shape->points.size(); i++)
 	{
-		sf::Vector2f position = shape[i].position;
+		sf::Vector2f position = shape->points[i]->position;
 		if(position.x > right)
 			right = position.x;
 		else if(position.x < left)
@@ -51,23 +62,13 @@ void Character::update(float elapsed)
 //Changing the enemy color becauase it was bumped
 void Character::update(float elapsed, bool bump)
 {
-	for(int i = 0; i < shape.getVertexCount(); i++)
-	{
-		if (bump == false)
-		{
-			shape[i].color = sf::Color::Green;
-		}
-		else
-		{
-			shape[i].color = sf::Color::Blue;
-		}
-	}
+    //TODO: Bump Color Change Here
 }
 
 void Character::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape);
+    window->draw(shape->getShape(sf::Color::Red));
 }
 
 sf::Vector2f Character::getPosition()
@@ -79,7 +80,6 @@ sf::Vector2f* Character::getVelocity()
 {
 	return velocity;
 }
-
 
 void Character::applyUpgrade(Upgrade upgrade)
 {

@@ -2,6 +2,8 @@
 #define _ENEMYMANAGER_HPP
 #include <SFML/Graphics.hpp>
 #include <list>
+#include "EnemySquare.hpp"
+#include "EnemyTriangle.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"
 #include "Projectile.hpp"
