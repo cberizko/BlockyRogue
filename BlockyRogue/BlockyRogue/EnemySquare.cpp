@@ -31,7 +31,6 @@ void EnemySquare::update(float elapsed)
 			else
 				moveY = -initalIntersection.height;
 			boundingBox.move(moveX, moveY);
-			std::cout << "STUCK BEFORE MOVE " << "X " << initalIntersection.width << "Y " << initalIntersection.height << std::endl;
 			for(int i = 0; i < shape.getVertexCount(); i++)
 			{
 				shape[i].position += sf::Vector2f(moveX, moveY);

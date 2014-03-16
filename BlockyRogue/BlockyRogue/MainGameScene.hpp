@@ -36,6 +36,8 @@ class MainGameScene: Scene
         EnemyManager *enemies;
         UpgradeManager *upgradeManager;
         sf::Clock clock;
+		sf::Sprite background;
+		sf::Texture backgroundTexture;
 };
 
 #endif
