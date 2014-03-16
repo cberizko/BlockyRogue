@@ -12,10 +12,10 @@ void PlayerProjectile::update(float elapsedTime)
 	std::list<Enemy*>* enemies = enemyManager->getEnemyList();
 
 	//Only check for moving shots, not for the explosions
-	if (explosion == true)
+	//Collision check code
+	for (std::list<Enemy*>::iterator it = enemies->begin(); it != enemies->end();++it)
 	{
-		//Collision check code
-		for (std::list<Enemy*>::iterator it = enemies->begin(); it != enemies->end();++it)
+		if((*it)->getBounds().intersects(this->getBounds()))
 		{
 			if((*it)->getBounds().intersects(this->getBounds()))
 			{
@@ -25,14 +25,6 @@ void PlayerProjectile::update(float elapsedTime)
 				dead = true;
 			}
 		}
-	}
-
-	//Keeps the bullet explosion on screen for some amount of frames
-	if (explosion == false)
-	{
-		frameCount++;
-		if (frameCount == 100)
-		{dead=true;}
 	}
 
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);

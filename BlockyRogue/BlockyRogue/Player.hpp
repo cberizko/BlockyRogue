@@ -12,6 +12,11 @@ class Player: public Character
         ~Player();
         void update(float elapsedTime);
         void initShape(int verts, int radius, int variance);
+		void hit(sf::Vector2f direction);
+	protected:
+		sf::Vector2f* hitDirection;
+		float knockBackTime;
+		float knockBackTimer;
 };
 
 #endif

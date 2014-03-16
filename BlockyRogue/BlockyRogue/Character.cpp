@@ -36,6 +36,7 @@ std::map<std::string, double> Character::getStats()
 
 Character::~Character()
 {
+	delete velocity;
 }
 
 sf::FloatRect Character::getBounds()

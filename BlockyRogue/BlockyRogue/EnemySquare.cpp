@@ -3,8 +3,12 @@
 
 EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p, EnemyManager* e, float range) : Enemy(v2f, p, e, range)
 {
+	initShape(config["ENEMY_SHAPE_STARTING_VERTICES"], 
+		config["ENEMY_SHAPE_BASE_RADIUS"], 
+		config["ENEMY_SHAPE_VARIANCE"]);
 	knockFrame = 0;
 	velocity = new sf::Vector2f();
+	Character::initBoundingBox();
 }
 EnemySquare::~EnemySquare()
 {
@@ -104,6 +108,11 @@ void EnemySquare::update(float elapsed)
 		for(int i = 0; i < shape.getVertexCount(); i++)
 		{
 			shape[i].position += sf::Vector2f(movement.x, movement.y);
+		}
+
+		if(!bump && player->getBounds().intersects(getBounds()))
+		{
+			player->hit(movement);
 		}
 
 		if (bump == true && knockFrame == 0)

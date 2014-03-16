@@ -21,7 +21,6 @@ class MainGameScene: Scene
         ~MainGameScene();
         void update(float elapsedTime);
         void draw(sf::RenderWindow* window, sf::View view);
-
         sf::VertexArray testShape;
 
     private:
@@ -32,7 +31,7 @@ class MainGameScene: Scene
 		int enemyKillsToLevel;
         float timeOut;
         Player *p;
-        std::list<Projectile*> projectiles;
+        std::list<Projectile*> *projectiles;
         EnemyManager *enemies;
         UpgradeManager *upgradeManager;
         sf::Clock clock;

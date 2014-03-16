@@ -1,10 +1,12 @@
 #include "EnemyManager.hpp"
 #include "UpgradeManager.hpp"
 #include "EnemySquare.hpp"
+#include "EnemyTriangle.hpp"
 #include <iostream>
 
-EnemyManager::EnemyManager(UpgradeManager *um)
+EnemyManager::EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj)
 {
+	projectiles = proj;
     maxEnemies = config["ENEMYMANAGER_MAX_ENEMIES"];
     despawnRange = config["ENEMYMANAGER_DESPAWN_RANGE"];
 	numEnemiesKilled = 0;
@@ -46,7 +48,11 @@ void EnemyManager::draw(sf::RenderWindow* window)
 
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
-    enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+	int i = std::rand() % 2;
+	if( i == 0)
+		enemies.push_back(new EnemyTriangle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
+	else
+		enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     upgradeManager->applyEnemyUpgrade(enemies.back());
 }
 

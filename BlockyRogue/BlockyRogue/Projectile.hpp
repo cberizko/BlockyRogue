@@ -9,7 +9,7 @@
 class Projectile: public GameObject
 {
     public:
-		enum Direction {LEFT, RIGHT, UP, DOWN};
+		enum Direction {LEFT, RIGHT, UP, DOWN, NONE};
 		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction, Character *own);
 		Projectile(sf::Vector2f position);
         virtual void update(float elapsedTime);

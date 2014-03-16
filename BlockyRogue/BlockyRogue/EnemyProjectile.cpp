@@ -20,6 +20,8 @@ void EnemyProjectile::update(float elapsed)
 		dead = true;
 	if(getBounds().intersects(player->getBounds()))
 	{
-		//Do something with collision
+		float magnitude = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
+		player->hit(velocity / magnitude);
+		dead = true;
 	}
 }
