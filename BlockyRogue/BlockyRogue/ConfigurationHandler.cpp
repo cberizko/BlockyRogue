@@ -1,5 +1,4 @@
 #include "ConfigurationHandler.hpp"
-#include "getResourcePath.hpp"
 
 ConfigurationHandler::ConfigurationHandler()
 {

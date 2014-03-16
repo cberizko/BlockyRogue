@@ -98,6 +98,7 @@
     <ClCompile Include="EnemySquare.cpp" />
     <ClCompile Include="EnemyTriangle.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="getResourcePath.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGameScene.cpp" />
@@ -107,6 +108,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TitleScreenScene.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
+    <ClCompile Include="UpgradeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.hpp" />
@@ -117,6 +120,7 @@
     <ClInclude Include="EnemySquare.hpp" />
     <ClInclude Include="EnemyTriangle.hpp" />
     <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="GameOverScreenScene.hpp" />
     <ClInclude Include="getResourcePath.hpp" />
     <ClInclude Include="MainGameScene.hpp" />
     <ClInclude Include="Player.hpp" />
@@ -126,6 +130,8 @@
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="SceneManager.hpp" />
     <ClInclude Include="TitleScreenScene.hpp" />
+    <ClInclude Include="Upgrade.hpp" />
+    <ClInclude Include="UpgradeManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlockyRogue.rc" />

@@ -7,6 +7,10 @@
 #include "Upgrade.hpp"
 #include "Player.hpp"
 #include "EnemyManager.hpp"
+#include "getResourcePath.hpp"
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
 class UpgradeManager
 {
@@ -39,12 +43,18 @@ public:
     void applyUpgrades(Player *p, EnemyManager *em);
     void applyPlayerUpgrades(Player *p);
     void applyEnemyUpgrades(EnemyManager *em);
+    void applyEnemyUpgrade(Enemy *e);
+    
+//  std::ostringstream displayPlayerUpgradesToApply();
+//  std::ostringstream displayEnemyUpgradesToApply();
     
     //Readies a random upgrade to apply (would be called on level up)
     void readyRandomUpgrade();
     void cancelUpgrade();
     
     //Todo: Add function to generate upgrades and to create upgrades from a list/ini
+    void generateRandomUpgrade();
+    void loadUpgrades();
 };
 
 #endif 

@@ -4,12 +4,13 @@
 #include <iostream>
 #include "getResourcePath.hpp"
 #include <cmath>
+#include "Character.hpp"
 
 class Projectile: public GameObject
 {
     public:
-		enum Direction {LEFT, RIGHT, UP, DOWN};
-		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction);
+		enum Direction {LEFT, RIGHT, UP, DOWN, NONE};
+		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction, Character *own);
 		Projectile(sf::Vector2f position);
         virtual void update(float elapsedTime);
 		void setVelocity(sf::Vector2f _velocity);
@@ -17,6 +18,7 @@ class Projectile: public GameObject
 		bool explosion;
 		int frameCount;
 		sf::Vector2f getPosition();
+        Character* owner;
 	protected:
     	sf::Vector2f velocity;
 		sf::Vector2f origin;

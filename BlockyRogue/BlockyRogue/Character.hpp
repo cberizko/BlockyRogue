@@ -3,7 +3,9 @@
 
 #include "GameObject.hpp"
 #include "SmartShape.hpp"
+#include "Upgrade.hpp"
 #include <cmath>
+#include <string>
 
 class Character: public GameObject
 {
@@ -21,10 +23,11 @@ class Character: public GameObject
 		sf::Vector2f* getVelocity();
 		sf::FloatRect getBounds();
 		void initBoundingBox();
+        void applyUpgrade(Upgrade upgrade);
+		std::map<std::string, double> stats;
+        std::map<std::string, double> getStats();
 
 	protected:
-		double health;
-        double moveSpeed;
         SmartShape* shape;
 		sf::Vector2f* velocity;
 		sf::RectangleShape boundingBox;

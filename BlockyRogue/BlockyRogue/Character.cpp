@@ -40,8 +40,14 @@ void Character::initBoundingBox()
 	boundingBox.setSize(sf::Vector2f(right - left, bottom - top));
 }
 
+std::map<std::string, double> Character::getStats()
+{
+    return stats;
+}
+
 Character::~Character()
 {
+	delete velocity;
 }
 
 sf::FloatRect Character::getBounds()
@@ -56,6 +62,7 @@ void Character::update(float elapsed)
 //Changing the enemy color becauase it was bumped
 void Character::update(float elapsed, bool bump)
 {
+    //TODO: Bump Color Change Here
 }
 
 void Character::draw(sf::RenderWindow* window)
@@ -72,4 +79,17 @@ sf::Vector2f Character::getPosition()
 sf::Vector2f* Character::getVelocity()
 {
 	return velocity;
+}
+
+void Character::applyUpgrade(Upgrade upgrade)
+{
+    if(upgrade.getMod().compare("+") == 0)
+        stats[upgrade.getType()] += upgrade.getAmount();
+    if(upgrade.getMod().compare("*") == 0)
+        stats[upgrade.getType()] *= upgrade.getAmount();
+    if(upgrade.getMod().compare("=") == 0)
+        stats[upgrade.getType()] = upgrade.getAmount();
+    
+    if(stats[upgrade.getType()] <= 0)
+        stats[upgrade.getType()] = 0.0001;
 }

@@ -1,7 +1,8 @@
 #include "Projectile.hpp"
 
-Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction)
+Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Character *own)
 {
+    owner = own;
 	sf::Vector2f offset;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     initGraphics("Projectile.png");
@@ -22,6 +23,8 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	case Projectile::DOWN:
 		offset = sf::Vector2f(-getBounds().width / 2, 0);
 		break;
+	default:
+		offset = sf::Vector2f(0,0);
 	};
 
 
@@ -31,14 +34,16 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 
 	//If the player is moving backwards, set the bullet speed to normal.
 	//The velocity checks needs to calculated with the actual player and shot speed.
-	if(velocity.x == 100)
-	{velocity.x = 300;}
-	else if(velocity.x == -100)
-	{velocity.x = -300;}
-	else if(velocity.y == 100)
-	{velocity.y = 300;}
-	else if(velocity.y == -100)
-	{velocity.y = -300;}
+	//velocity.x*=(owner->getStats()["projectileVelocity"]);
+    //velocity.y*=(owner->getStats()["projectileVelocity"]);
+    if(velocity.x == (config["PROJECTILE_BASE_VELOCITY"] - owner->stats["moveSpeed"]))
+	{velocity.x = config["PROJECTILE_BASE_VELOCITY"];}
+	else if(velocity.x == -(config["PROJECTILE_BASE_VELOCITY"] - owner->stats["moveSpeed"]))
+	{velocity.x = -config["PROJECTILE_BASE_VELOCITY"];}
+	else if(velocity.y == (config["PROJECTILE_BASE_VELOCITY"] - owner->stats["moveSpeed"]))
+	{velocity.y = config["PROJECTILE_BASE_VELOCITY"];}
+	else if(velocity.y == -(config["PROJECTILE_BASE_VELOCITY"] - owner->stats["moveSpeed"]))
+	{velocity.y = -config["PROJECTILE_BASE_VELOCITY"];}
 
 	setVelocity(velocity);
 

@@ -4,11 +4,11 @@
 #include "Character.hpp"
 #include "Player.hpp"
 #include <cmath>
-
+class EnemyManager;
 class Enemy: public Character
 {
     public:
-        Enemy(sf::Vector2f v2f, Player* p, float range);
+		Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range);
         ~Enemy();
         void update(float elapsed);
         void draw(sf::RenderWindow* window);
@@ -19,6 +19,7 @@ class Enemy: public Character
 		float aggroRange;
 	protected:
 		Player* player;
+		EnemyManager* manager;
 };
 
 #endif

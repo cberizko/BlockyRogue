@@ -4,10 +4,13 @@
 #include <list>
 #include "EnemySquare.hpp"
 #include "EnemyTriangle.hpp"
+#include "Enemy.hpp"
 #include "Player.hpp"
+#include "Projectile.hpp"
 #include <stdlib.h>
 #include <time.h>
 
+class UpgradeManager;
 class EnemyManager
 {
 private:
@@ -15,8 +18,9 @@ private:
     double maxEnemies;
     double despawnRange;
 	int numEnemiesKilled;
+    UpgradeManager *upgradeManager;
 public:
-    EnemyManager();
+    EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj);
     ~EnemyManager();
 	int getEnemiesKilled();
 	void setEnemiesKilled(int enemiesKilled);
@@ -26,7 +30,8 @@ public:
     void addEnemy(sf::Vector2f v2f, Player *p);
     void despawn(Player *player);
     void spawn(Player *player);
-    std::list<Enemy*> getEnemyList();
+    std::list<Enemy*>* getEnemyList();
+	std::list<Projectile*> *projectiles;
 };
 
 #endif

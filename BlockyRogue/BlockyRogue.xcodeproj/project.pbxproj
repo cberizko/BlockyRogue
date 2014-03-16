@@ -24,6 +24,7 @@
 		5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDEB188CFBAB006D8C8E /* Scene.cpp */; };
 		5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */; };
 		5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B12BDF8188CFC76006D8C8E /* Projectile.png */; };
+		5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5B5D359018C4A9F7004B02FD /* upgrades.ini */; };
 		5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */; };
 		5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B928A9E18A9144300DF7566 /* blocks.ttf */; };
 		5B928AA218A9145000DF7566 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B928AA018A9145000DF7566 /* Character.cpp */; };
@@ -34,6 +35,9 @@
 		5BB7E12018B2949000680237 /* EnemyProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E11E18B2949000680237 /* EnemyProjectile.cpp */; };
 		5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12218B2956F00680237 /* UpgradeManager.cpp */; };
 		5BB7E12718B296A800680237 /* Upgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12518B296A800680237 /* Upgrade.cpp */; };
+		5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */; };
+		5BD1660318D53EF50035C7B7 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660218D53EF50035C7B7 /* Background.png */; };
+		5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,7 @@
 		5B12BDED188CFBAB006D8C8E /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = BlockyRogue/SceneManager.cpp; sourceTree = "<group>"; };
 		5B12BDEE188CFBAB006D8C8E /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SceneManager.hpp; path = BlockyRogue/SceneManager.hpp; sourceTree = "<group>"; };
 		5B12BDF8188CFC76006D8C8E /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		5B5D359018C4A9F7004B02FD /* upgrades.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = upgrades.ini; sourceTree = "<group>"; };
 		5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProjectileDeath.png; sourceTree = "<group>"; };
 		5B928A9E18A9144300DF7566 /* blocks.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blocks.ttf; sourceTree = "<group>"; };
 		5B928AA018A9145000DF7566 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Character.cpp; path = BlockyRogue/Character.cpp; sourceTree = "<group>"; };
@@ -86,6 +91,10 @@
 		5BB7E12318B2956F00680237 /* UpgradeManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UpgradeManager.hpp; path = BlockyRogue/UpgradeManager.hpp; sourceTree = "<group>"; };
 		5BB7E12518B296A800680237 /* Upgrade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Upgrade.cpp; path = BlockyRogue/Upgrade.cpp; sourceTree = "<group>"; };
 		5BB7E12618B296A800680237 /* Upgrade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Upgrade.hpp; path = BlockyRogue/Upgrade.hpp; sourceTree = "<group>"; };
+		5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundNoStuff.png; sourceTree = "<group>"; };
+		5BD1660218D53EF50035C7B7 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverScreenScene.cpp; path = BlockyRogue/GameOverScreenScene.cpp; sourceTree = "<group>"; };
+		5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameOverScreenScene.hpp; path = BlockyRogue/GameOverScreenScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +136,7 @@
 		5B095BFD188B20E30058FB67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B5D359018C4A9F7004B02FD /* upgrades.ini */,
 				5B12BDDE188CFBAB006D8C8E /* config.ini */,
 				5B095C0C188B21540058FB67 /* Assets */,
 			);
@@ -146,6 +156,8 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660218D53EF50035C7B7 /* Background.png */,
+				5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */,
 				5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */,
 				5B12BDF8188CFC76006D8C8E /* Projectile.png */,
 				5B095C3C188B33C60058FB67 /* Enemy.png */,
@@ -216,6 +228,8 @@
 		5B12BDF7188CFC3C006D8C8E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */,
+				5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */,
 				5B928AA618A9148800DF7566 /* TitleScreenScene.cpp */,
 				5B928AA718A9148800DF7566 /* TitleScreenScene.hpp */,
 				5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */,
@@ -316,7 +330,10 @@
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
+				5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
+				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
+				5BD1660318D53EF50035C7B7 /* Background.png in Resources */,
 				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);
@@ -345,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */,
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
