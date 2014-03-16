@@ -21,6 +21,7 @@ public:
     sf::SoundBuffer playerHurtSound;
     sf::SoundBuffer playerDeadSound;
     sf::SoundBuffer enemyShootSound;
+    sf::SoundBuffer selectSound;
     sf::Music music;
 
 protected:

@@ -38,6 +38,10 @@ SoundManager::SoundManager()
 	{
         std::cout << "ERROR unable to load sound Enemy shoot.wav in EnemyProjectile.cpp."<< std::endl;
     }
+    if(!selectSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Select.wav"))
+	{
+        std::cout << "ERROR unable to load sound Select.wav in EnemyProjectile.cpp."<< std::endl;
+    }
 
 }
 
@@ -59,6 +63,8 @@ sf::SoundBuffer* SoundManager::getSoundBuffer(std::string name)
         return &playerDeadSound;
     if(!name.compare("enemyShoot"))
        return &enemyShootSound;
+    if(!name.compare("select"))
+        return &selectSound;
     
     
     //Return default shoot sound if fail

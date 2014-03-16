@@ -4,6 +4,8 @@
 #include "WinScreenScene.hpp"
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
+    upgradeSound.setBuffer(*soundManager.getSoundBuffer("select"));
+    upgradeSound.play();
     soundManager.music.play();
     soundManager.music.setLoop(true);
 	if(!blockyFont.loadFromFile(getResourcePath("Assets/Fonts/")+"blocks.ttf"))
