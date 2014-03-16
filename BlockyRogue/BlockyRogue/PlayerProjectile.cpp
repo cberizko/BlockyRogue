@@ -2,7 +2,7 @@
 
 PlayerProjectile::PlayerProjectile(sf::Vector2f position, 
 								   sf::Vector2f velocity, Projectile::Direction direction, 
-								   EnemyManager *em) : Projectile(position, velocity, direction)
+								   EnemyManager *em, Character *owner) : Projectile(position, velocity, direction, owner)
 {
 	enemyManager = em;
 }
@@ -20,7 +20,7 @@ void PlayerProjectile::update(float elapsedTime)
 			if((*it)->getBounds().intersects(this->getBounds()))
 			{
 				//Damage enemy by one damage
-				(*it)->setHealth((*it)->getHealth()-1);
+				(*it)->setHealth((*it)->getHealth()-(owner->getStats()["projectileDamage"]));
 				(*it)->setBump();
 				dead = true;
 			}
@@ -38,6 +38,6 @@ void PlayerProjectile::update(float elapsedTime)
 	sprite.move(velocity.x * elapsedTime, velocity.y * elapsedTime);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
-	if(distance >= config["PROJECTILE_RANGE"])
+	if(distance >= owner->getStats()["projectileRange"])
 		dead = true;
 }

@@ -1,12 +1,14 @@
 #include "EnemyManager.hpp"
+#include "UpgradeManager.hpp"
 #include "EnemySquare.hpp"
 #include <iostream>
 
-EnemyManager::EnemyManager()
+EnemyManager::EnemyManager(UpgradeManager *um)
 {
     maxEnemies = config["ENEMYMANAGER_MAX_ENEMIES"];
     despawnRange = config["ENEMYMANAGER_DESPAWN_RANGE"];
 	numEnemiesKilled = 0;
+    upgradeManager = um;
     srand(time(NULL));
 }
 
@@ -45,6 +47,7 @@ void EnemyManager::draw(sf::RenderWindow* window)
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
     enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+    upgradeManager->applyEnemyUpgrade(enemies.back());
 }
 
 void EnemyManager::despawn(Player *player)

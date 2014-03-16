@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+class UpgradeManager;
 class EnemyManager
 {
 private:
@@ -14,8 +15,9 @@ private:
     double maxEnemies;
     double despawnRange;
 	int numEnemiesKilled;
+    UpgradeManager *upgradeManager;
 public:
-    EnemyManager();
+    EnemyManager(UpgradeManager *um);
     ~EnemyManager();
 	int getEnemiesKilled();
 	void setEnemiesKilled(int enemiesKilled);

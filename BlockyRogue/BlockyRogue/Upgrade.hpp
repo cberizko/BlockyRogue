@@ -7,15 +7,17 @@
 class Upgrade
 {
 public:
-    Upgrade(std::string upgradeType, double upgradeAmount);
+    Upgrade(std::string upgradeType, double upgradeAmount, std::string upgradeMod);
     ~Upgrade();
     
     std::string getType();
     double getAmount();
+    std::string getMod();
     
 protected:
     std::string type;
     double amount;
+    std::string mod;
 
 };
 

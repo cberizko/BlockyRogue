@@ -1,7 +1,8 @@
 #include "Projectile.hpp"
 
-Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction)
+Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Character *own)
 {
+    owner = own;
 	sf::Vector2f offset;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
     initGraphics("Projectile.png");
@@ -31,7 +32,9 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 
 	//If the player is moving backwards, set the bullet speed to normal.
 	//The velocity checks needs to calculated with the actual player and shot speed.
-	if(velocity.x == 100)
+	//velocity.x*=(owner->getStats()["projectileVelocity"]);
+    //velocity.y*=(owner->getStats()["projectileVelocity"]);
+    if(velocity.x == 100)
 	{velocity.x = 300;}
 	else if(velocity.x == -100)
 	{velocity.x = -300;}

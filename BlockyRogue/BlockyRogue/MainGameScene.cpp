@@ -11,18 +11,18 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 	enemyKillCounterText.setCharacterSize(20);
     
     enemyUpgradeText.setFont(blockyFont);
-	enemyUpgradeText.setCharacterSize(90);
+	enemyUpgradeText.setCharacterSize(50);
     playerUpgradeText.setFont(blockyFont);
-	playerUpgradeText.setCharacterSize(90);
+	playerUpgradeText.setCharacterSize(50);
 
     timeOut = 0.f;
 
     p = new Player();
 
-    enemies = new EnemyManager();
-	enemyKillsToLevel = 15;
-    
     upgradeManager = new UpgradeManager();
+    enemies = new EnemyManager(upgradeManager);
+	enemyKillsToLevel = 1;
+    
 }
 
 MainGameScene::~MainGameScene()
@@ -50,29 +50,29 @@ void MainGameScene::update(float elapsedTime)
         {
 			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
-				Projectile::RIGHT, enemies));
-            timeOut = config["PROJECTILE_DELAY"];
+				Projectile::RIGHT, enemies, p));
+            timeOut = p->getStats()["projectileDelay"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
 			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x, 
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
-				Projectile::LEFT, enemies));
-            timeOut = config["PROJECTILE_DELAY"];
+				Projectile::LEFT, enemies, p));
+            timeOut = p->getStats()["projectileDelay"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
-				Projectile::UP, enemies));
-            timeOut = config["PROJECTILE_DELAY"];
+				Projectile::UP, enemies, p));
+            timeOut = p->getStats()["projectileDelay"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
-                Projectile::DOWN, enemies));
-            timeOut = config["PROJECTILE_DELAY"];
+                Projectile::DOWN, enemies, p));
+            timeOut = p->getStats()["projectileDelay"];
         }
     }
 

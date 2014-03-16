@@ -22,6 +22,8 @@ class Character: public GameObject
 		sf::FloatRect getBounds();
 		void initBoundingBox();
         void applyUpgrade(Upgrade upgrade);
+    
+        std::map<std::string, double> getStats();
 
 	protected:
         std::map<std::string, double> stats;
