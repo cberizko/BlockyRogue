@@ -1,7 +1,5 @@
 #include "EnemyProjectile.hpp"
-EnemyProjectile::EnemyProjectile(sf::Vector2f position, 
-								   sf::Vector2f velocity, Projectile::Direction direction, 
-								   Player *p, Character *own) : Projectile(position, velocity, direction, own)
+EnemyProjectile::EnemyProjectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Player *p, Character *own) : Projectile(position, velocity, direction, own, "TriProjectile.png")
 {
 	player = p;
 	if(!buffer.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy shoot.wav"))
