@@ -206,8 +206,8 @@ void UpgradeManager::generateRandomUpgrade()
     }
     if(uType == 3)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%5000)/10000)*-1, "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%5000)/10000)*-1, "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%500)/10000)*-1, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDelay", ((double)(rand()%500)/10000)*-1, "+"));
     }
     if(uType == 4)
     {
