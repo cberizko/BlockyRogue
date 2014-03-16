@@ -42,9 +42,8 @@ void EnemySquare::update(float elapsed)
 
             shape->update(sf::Vector2f(moveX, moveY));
 		}
-	}
-    
-    
+    }
+
 	//If inside aggro range.
 	if (distanceToPlayer < aggroRange)
 	{
@@ -131,8 +130,7 @@ void EnemySquare::update(float elapsed)
 		{   knockFrame--;}
 		else
 		{	knockFrame--;
-			bump = false;}
-*/
+			bump = false;}*/
 	}
 	Enemy::update(elapsed);
 }

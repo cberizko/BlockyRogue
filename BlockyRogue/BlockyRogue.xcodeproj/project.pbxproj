@@ -38,6 +38,8 @@
 		5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */; };
 		5BD1660318D53EF50035C7B7 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660218D53EF50035C7B7 /* Background.png */; };
 		5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */; };
+		5BD1660B18D57C190035C7B7 /* SmartPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660718D57C190035C7B7 /* SmartPoint.cpp */; };
+		5BD1660C18D57C190035C7B7 /* SmartShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660918D57C190035C7B7 /* SmartShape.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,10 @@
 		5BD1660218D53EF50035C7B7 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverScreenScene.cpp; path = BlockyRogue/GameOverScreenScene.cpp; sourceTree = "<group>"; };
 		5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameOverScreenScene.hpp; path = BlockyRogue/GameOverScreenScene.hpp; sourceTree = "<group>"; };
+		5BD1660718D57C190035C7B7 /* SmartPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartPoint.cpp; path = BlockyRogue/SmartPoint.cpp; sourceTree = "<group>"; };
+		5BD1660818D57C190035C7B7 /* SmartPoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SmartPoint.hpp; path = BlockyRogue/SmartPoint.hpp; sourceTree = "<group>"; };
+		5BD1660918D57C190035C7B7 /* SmartShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartShape.cpp; path = BlockyRogue/SmartShape.cpp; sourceTree = "<group>"; };
+		5BD1660A18D57C190035C7B7 /* SmartShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SmartShape.hpp; path = BlockyRogue/SmartShape.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,10 @@
 		5B12BDF6188CFBFB006D8C8E /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660718D57C190035C7B7 /* SmartPoint.cpp */,
+				5BD1660818D57C190035C7B7 /* SmartPoint.hpp */,
+				5BD1660918D57C190035C7B7 /* SmartShape.cpp */,
+				5BD1660A18D57C190035C7B7 /* SmartShape.hpp */,
 				5BB7E12118B294E500680237 /* Projectiles */,
 				5B928AA018A9145000DF7566 /* Character.cpp */,
 				5B928AA118A9145000DF7566 /* Character.hpp */,
@@ -368,6 +378,8 @@
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
 				5B12BDF5188CFBAB006D8C8E /* SceneManager.cpp in Sources */,
 				5BB7E11A18B2946F00680237 /* PlayerProjectile.cpp in Sources */,
+				5BD1660C18D57C190035C7B7 /* SmartShape.cpp in Sources */,
+				5BD1660B18D57C190035C7B7 /* SmartPoint.cpp in Sources */,
 				5B12BDF3188CFBAB006D8C8E /* Projectile.cpp in Sources */,
 				5B12BDF1188CFBAB006D8C8E /* EnemyManager.cpp in Sources */,
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
