@@ -8,6 +8,16 @@ TitleScreenScene::TitleScreenScene(): Scene("Title Screen")
     {
         std::cout << "ERROR unable to load font blocks.ttf in TitleScreenScene."<< std::endl;
     }
+    if(!backgroundTexture.loadFromFile(getResourcePath("Assets/Graphics/")+"TitleBackground.png"))
+    {
+        std::cout<<"ERROR: texture " << "TitleBackground.png" << "cannot be loaded!"<<std::endl;
+    }
+    else
+    {
+		background.setTexture(backgroundTexture);
+		background.setScale(.75f,.90f);
+        
+    }
     
     titleText.setFont(titleFont);
     subText.setFont(titleFont);
@@ -35,9 +45,13 @@ void TitleScreenScene::update(float elapsedTime)
 }
 
 void TitleScreenScene::draw(sf::RenderWindow* window, sf::View view)
-{   
+{
 	view.setCenter(sf::Vector2f(350, 300));
 	window->setView(view);
+    int xStart = ((view.getCenter().x - (view.getSize().x / 2.f)));
+	int yStart = ((view.getCenter().y - (view.getSize().y / 2.f)));
+    background.setPosition(xStart, yStart);
+    window->draw(background);
     window->draw(titleText); 
     window->draw(subText);
 
