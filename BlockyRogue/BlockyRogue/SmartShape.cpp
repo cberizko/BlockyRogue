@@ -51,7 +51,7 @@ SmartShape::~SmartShape()
 
 void SmartShape::addPoint()
 {
-    int seedPoint = (rand()%points.size());
+    int seedPoint = (rand()%points.size()-1);
     
     sf::Vector2f position = points[seedPoint]->position;
     position += sf::Vector2f(rand()%60, rand()%60);
