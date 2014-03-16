@@ -12,6 +12,10 @@ EnemyManager::EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj)
 	numEnemiesKilled = 0;
     upgradeManager = um;
     srand(time(NULL));
+	if(!enemyDeath.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy death.wav"))
+	{
+        std::cout << "ERROR unable to load sound Enemy death.wav in EnemyManager.cpp."<< std::endl;
+    }
 }
 
 EnemyManager::~EnemyManager()
@@ -27,6 +31,8 @@ void EnemyManager::update(Player *player, float elapsedTime)
 
         if((*it)->getHealth() <= 0)
         {
+			sound.setBuffer(enemyDeath);
+			sound.play();
             delete *it;
             it = enemies.erase(it);
 			numEnemiesKilled++;
