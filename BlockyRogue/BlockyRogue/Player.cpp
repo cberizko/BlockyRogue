@@ -34,7 +34,7 @@ Player::Player():Character()
 void Player::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color(255*(stats["health"]/config["PLAYER_MAX_HEALTH"]),0,0)));
+    window->draw(shape->getShape(sf::Color(255*(stats["health"]/stats["maxHealth"]),0,0)));
     
 	Character::initBoundingBox();
 }
