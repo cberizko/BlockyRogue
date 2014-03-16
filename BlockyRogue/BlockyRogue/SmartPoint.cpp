@@ -12,7 +12,7 @@ SmartPoint::SmartPoint(sf::Vector2f p, int v, sf::Vector2f o)
 
 void SmartPoint::update(sf::Vector2f moveBy)
 {
-    double tweenValue = .15;
+    double tweenValue = .10;
     positionOffset += velocity;
     position+=moveBy;
     origin  +=moveBy;
