@@ -54,7 +54,7 @@ void EnemySquare::update(float elapsed)
         velocity->x = direction.x * stats["moveSpeed"];
         velocity->y = direction.y * stats["moveSpeed"];
         //shape->update(sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed));
-/*
+
 		if (bump)
 		{
 			velocity->x = -direction.x * stats["moveSpeed"];
@@ -65,7 +65,7 @@ void EnemySquare::update(float elapsed)
 			velocity->x = direction.x * stats["moveSpeed"];
 			velocity->y = direction.y * stats["moveSpeed"];
 		}
-*/
+
 		boundingBox.move(*velocity * elapsed);
 
 		sf::Vector2f movement;
@@ -119,7 +119,7 @@ void EnemySquare::update(float elapsed)
             player->stats["health"] -= stats["projectileDamage"]/20;
 			player->hit(movement);
 		}
-/*
+
 		if (bump == true && knockFrame == 0)
 		{	//How many frames the knockback should last.
 			knockFrame = 100;}
@@ -130,7 +130,7 @@ void EnemySquare::update(float elapsed)
 		{   knockFrame--;}
 		else
 		{	knockFrame--;
-			bump = false;}*/
+			bump = false;}
 	}
 	Enemy::update(elapsed);
 }

@@ -62,7 +62,7 @@ void Player::update(float elapsedTime)
     		shape[i].position += *hitDirection * (float)stats["moveSpeed"] * elapsedTime;
 		}
         */
-		*velocity = *hitDirection * (float)stats["moveSpeed"];
+		*velocity += *hitDirection * (float)stats["moveSpeed"]*elapsedTime;
 	}
 	else
 	{
