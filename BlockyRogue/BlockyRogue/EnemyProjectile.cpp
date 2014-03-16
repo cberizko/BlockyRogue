@@ -10,6 +10,8 @@ EnemyProjectile::EnemyProjectile(sf::Vector2f position,
     }
 	fire.setBuffer(buffer);
 	fire.play();
+    range = own->stats["projectileRange"];
+    damage = own->stats["projectileDamage"];
 }
 
 EnemyProjectile::~EnemyProjectile()
@@ -21,12 +23,12 @@ void EnemyProjectile::update(float elapsed)
 	sprite.move(velocity.x * elapsed, velocity.y * elapsed);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
-	if(distance >= owner->stats["projectileRange"])
+	if(distance >= range)
 		dead = true;
 	if(getBounds().intersects(player->getBounds()))
 	{
 		float magnitude = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
-		player->hit(velocity / magnitude, (float)(owner->stats["projectileDamage"]));
+		player->hit(velocity / magnitude, (float)(damage));
 		dead = true;
 	}
 }

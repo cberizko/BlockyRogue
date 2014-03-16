@@ -182,11 +182,15 @@ void UpgradeManager::generateRandomUpgrade()
     {
         availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
         availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%200)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("moveSpeed", ((double)(rand()%200)/100), "*"));
     }
     if(uType == 1)
     {
         availablePlayerUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
         availableEnemyUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("health", ((double)(rand()%150)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("health", ((double)(rand()%150)/100), "*"));
     }
     if(uType == 2)
     {
@@ -202,6 +206,8 @@ void UpgradeManager::generateRandomUpgrade()
     {
         availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
         availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
     }
 }
 
