@@ -12,6 +12,7 @@ bool compByRad(SmartPoint* a, SmartPoint* b)
 SmartShape::SmartShape(int verts, int radius, int variance)
 {
     position = sf::Vector2f();
+    radius += (rand()%30)-10;
     for(int i = 0; i < verts+1; i++)
     {
         //Equation of a Circle: (parametric coordinates)
@@ -35,6 +36,7 @@ SmartShape::SmartShape(int verts, int radius, int variance)
 SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
 {
     position = p;
+    radius += (rand()%30)-10;
     for(int i = 0; i < verts+1; i++)
     {
         //Equation of a Circle: (parametric coordinates)
