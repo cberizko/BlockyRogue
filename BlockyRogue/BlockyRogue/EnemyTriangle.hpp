@@ -4,6 +4,7 @@
 #include "Enemy.hpp"
 #include "EnemyProjectile.hpp"
 #include <list>
+#include <SFML/Audio.hpp>
 class EnemyManager;
 class EnemyTriangle : public Enemy
 {
@@ -12,10 +13,13 @@ class EnemyTriangle : public Enemy
 		~EnemyTriangle();
 		void update(float elapsed);
         void draw(sf::RenderWindow* window);
+		void hit();
 	protected:
 		float coolDownTimer;
 		float coolDownTime;
 		std::list<Projectile*> *projectiles;
+		sf::Sound sound;
+		sf::SoundBuffer hurtSound;
 };
 
 #endif

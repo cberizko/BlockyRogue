@@ -22,7 +22,7 @@ void PlayerProjectile::update(float elapsedTime)
 				//Damage enemy by one damage
 				(*it)->setHealth((*it)->getHealth()-(owner->getStats()["projectileDamage"]));
 				(*it)->setBump();
-                
+				(*it)->hit();
 				dead = true;
 			}
 		}
