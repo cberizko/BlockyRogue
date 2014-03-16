@@ -226,9 +226,9 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
     
     //TODO - Pretty up display
     playerUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - playerUpgradeText.getGlobalBounds().width/2,
-        view.getCenter().y-90));
+        view.getCenter().y-180));
     enemyUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - enemyUpgradeText.getGlobalBounds().width/2,
-        view.getCenter().y+90));
+        view.getCenter().y+50));
 
 	window->draw(enemyKillCounterText);
     window->draw(playerUpgradeText);

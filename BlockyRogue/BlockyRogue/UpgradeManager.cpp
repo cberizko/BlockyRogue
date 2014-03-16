@@ -91,13 +91,10 @@ void UpgradeManager::readyRandomUpgrade()
     while(r >= 1)
     {
         r--;
-    if(availablePlayerUpgrades.size() <= 1 || availableEnemyUpgrades.size() <= 1)
-    {
-        for(int i = 0 ; i < rand()%20; i++)
+        for(int i = 0 ; i < 20; i++)
         {
             generateRandomUpgrade();
         }
-    }
     int enemyUpgrade = (rand() % availableEnemyUpgrades.size());
     int playerUpgrade = (rand() % availablePlayerUpgrades.size());
     
