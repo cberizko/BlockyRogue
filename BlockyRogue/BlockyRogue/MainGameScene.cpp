@@ -27,8 +27,8 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
     timeOut = 0.f;
 
     p = new Player();
-
-    enemies = new EnemyManager();
+	projectiles = new std::list<Projectile*>();
+	enemies = new EnemyManager(projectiles);
 	enemyKillsToLevel = 15;
     
     upgradeManager = new UpgradeManager();
@@ -40,7 +40,7 @@ MainGameScene::~MainGameScene()
     delete enemies;
    
     //Clean up all the projectiles!
-    while(!projectiles.empty()) delete projectiles.front(), projectiles.pop_front();
+    while(!projectiles->empty()) delete projectiles->front(), projectiles->pop_front();
 }
 
 void MainGameScene::update(float elapsedTime)
@@ -57,28 +57,28 @@ void MainGameScene::update(float elapsedTime)
     {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
+			projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
 				Projectile::RIGHT, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-			projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x, 
+			projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x, 
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
 				Projectile::LEFT, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+            projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
 				Projectile::UP, enemies));
             timeOut = config["PROJECTILE_DELAY"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            projectiles.push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
+            projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
                 Projectile::DOWN, enemies));
             timeOut = config["PROJECTILE_DELAY"];
@@ -90,7 +90,7 @@ void MainGameScene::update(float elapsedTime)
     // Update 
     //
     
-    for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();)
+    for (std::list<Projectile*>::iterator it = projectiles->begin(); it != projectiles->end();)
     {
         (*it)->update(elapsedTime);
         
@@ -101,10 +101,10 @@ void MainGameScene::update(float elapsedTime)
 			//if there is an overlap between the bullet and the enemy.
 			if((*it)->explosion)
 			{
-				projectiles.push_back(new Projectile(sf::Vector2f((*it)->getPosition().x+10, (*it)->getPosition().y+10)));
+				projectiles->push_back(new Projectile(sf::Vector2f((*it)->getPosition().x+10, (*it)->getPosition().y+10)));
 			}
             delete *it;
-            it = projectiles.erase(it);
+            it = projectiles->erase(it);
         }
         else
         {
@@ -193,7 +193,7 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
     p->draw(window);
     enemies->draw(window);
    
-    for (std::list<Projectile*>::iterator it = projectiles.begin(); it != projectiles.end();++it)
+    for (std::list<Projectile*>::iterator it = projectiles->begin(); it != projectiles->end();++it)
     {
         (*it)->draw(window);
     }

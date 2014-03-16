@@ -10,20 +10,13 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
 	player = p;
 	manager = e;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
-    initGraphics("Enemy.png");
     setPosition(v2f);
-    sprite.setScale(currentResolution.width / 1920.0, currentResolution.height / 1080.0);
-   
-    initShape(config["ENEMY_SHAPE_STARTING_VERTICES"], 
-              config["ENEMY_SHAPE_BASE_RADIUS"], 
-              config["ENEMY_SHAPE_VARIANCE"]);
 
     stats["health"] = config["ENEMY_MAX_HEALTH"];
     stats["moveSpeed"] = config["ENEMY_MOVE_SPEED"];
 
 	bump = false;
 	aggroRange = range;
-	Character::initBoundingBox();
 }
 
 Enemy::~Enemy()

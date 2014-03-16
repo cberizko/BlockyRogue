@@ -4,6 +4,7 @@
 #include <list>
 #include "Enemy.hpp"
 #include "Player.hpp"
+#include "Projectile.hpp"
 #include <stdlib.h>
 #include <time.h>
 
@@ -15,7 +16,7 @@ private:
     double despawnRange;
 	int numEnemiesKilled;
 public:
-    EnemyManager();
+    EnemyManager(std::list<Projectile*> *proj);
     ~EnemyManager();
 	int getEnemiesKilled();
 	void setEnemiesKilled(int enemiesKilled);
@@ -26,6 +27,7 @@ public:
     void despawn(Player *player);
     void spawn(Player *player);
     std::list<Enemy*>* getEnemyList();
+	std::list<Projectile*> *projectiles;
 };
 
 #endif

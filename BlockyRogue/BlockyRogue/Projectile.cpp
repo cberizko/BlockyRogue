@@ -22,6 +22,8 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	case Projectile::DOWN:
 		offset = sf::Vector2f(-getBounds().width / 2, 0);
 		break;
+	default:
+		offset = sf::Vector2f(0,0);
 	};
 
 

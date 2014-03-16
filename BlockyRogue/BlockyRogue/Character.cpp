@@ -31,6 +31,7 @@ void Character::initBoundingBox()
 
 Character::~Character()
 {
+	delete velocity;
 }
 
 sf::FloatRect Character::getBounds()
