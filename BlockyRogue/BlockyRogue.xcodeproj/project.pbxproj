@@ -57,6 +57,7 @@
 		5BD1663A18D5DF310035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663818D5DF310035C7B7 /* EnemyCircle.cpp */; };
 		5BD1663D18D5DF380035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663B18D5DF380035C7B7 /* SoundManager.cpp */; };
 		5BD1664018D5E67F0035C7B7 /* WinScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663E18D5E67F0035C7B7 /* WinScreenScene.cpp */; };
+		5BD1664218D600F70035C7B7 /* titleMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1664118D600F70035C7B7 /* titleMusic.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		5BD1663C18D5DF380035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SoundManager.hpp; path = BlockyRogue/SoundManager.hpp; sourceTree = "<group>"; };
 		5BD1663E18D5E67F0035C7B7 /* WinScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScreenScene.cpp; path = BlockyRogue/WinScreenScene.cpp; sourceTree = "<group>"; };
 		5BD1663F18D5E67F0035C7B7 /* WinScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = WinScreenScene.hpp; path = BlockyRogue/WinScreenScene.hpp; sourceTree = "<group>"; };
+		5BD1664118D600F70035C7B7 /* titleMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = titleMusic.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 		5BD1661118D59A170035C7B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1664118D600F70035C7B7 /* titleMusic.wav */,
 				5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */,
 				5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */,
 				5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */,
@@ -416,6 +419,7 @@
 				5BD1662218D59A170035C7B7 /* Player Hurt.wav in Resources */,
 				5BD1660E18D597360035C7B7 /* TitleBackground.png in Resources */,
 				5BD1662118D59A170035C7B7 /* Player Death.wav in Resources */,
+				5BD1664218D600F70035C7B7 /* titleMusic.wav in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
 				5BD1662518D59A170035C7B7 /* Upgrade.wav in Resources */,
 				5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */,

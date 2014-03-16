@@ -4,6 +4,7 @@
 #include "WinScreenScene.hpp"
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
+    soundManager.titleMusic.stop();
     upgradeSound.setBuffer(*soundManager.getSoundBuffer("select"));
     upgradeSound.play();
     soundManager.music.play();

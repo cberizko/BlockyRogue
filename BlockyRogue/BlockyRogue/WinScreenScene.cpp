@@ -4,6 +4,9 @@
 
 WinScreenScene::WinScreenScene(): Scene("Win Screen")
 {
+    soundManager.titleMusic.stop();
+    soundManager.titleMusic.play();
+    soundManager.titleMusic.setPlayingOffset(sf::seconds(3.0f));
     if(!titleFont.loadFromFile(getResourcePath("Assets/Fonts/")+"blocks.ttf"))
     {
         std::cout << "ERROR unable to load font blocks.ttf in TitleScreenScene."<< std::endl;
@@ -40,6 +43,7 @@ void WinScreenScene::update(float elapsedTime)
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
+        soundManager.titleMusic.stop();
 		SceneManager::popScene();
 		SceneManager::pushScene((Scene*) new MainGameScene());
     } 

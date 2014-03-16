@@ -23,6 +23,7 @@ public:
     sf::SoundBuffer enemyShootSound;
     sf::SoundBuffer selectSound;
     sf::Music music;
+    sf::Music titleMusic;
 
 protected:
 

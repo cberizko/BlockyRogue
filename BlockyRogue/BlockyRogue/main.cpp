@@ -53,6 +53,9 @@ int main()
 			{
 				if (event.key.code == sf::Keyboard::Escape)
 				{
+                    soundManager.titleMusic.stop();
+                    soundManager.titleMusic.play();
+                    soundManager.titleMusic.setPlayingOffset(sf::seconds(3.0f));
 					SceneManager::popScene();
 				}
 			}

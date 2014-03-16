@@ -6,6 +6,10 @@ SoundManager::SoundManager()
 	{
 		std::cout << "ERROR unable to load music Trance - Candy Dance.wav in MainGameScene.cpp." << std::endl;
 	}
+    if(!titleMusic.openFromFile(getResourcePath("Assets/Sounds/") + "titleMusic.wav"))
+	{
+		std::cout << "ERROR unable to load music titleMusic.wav in MainGameScene.cpp." << std::endl;
+	}
 	if(!playerShootSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player shoot.wav"))
 	{
         std::cout << "ERROR unable to load sound Player shoot.wav in MainGameScene.cpp."<< std::endl;
