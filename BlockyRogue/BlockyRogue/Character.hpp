@@ -2,6 +2,7 @@
 #define _CHARACTER_HPP
 
 #include "GameObject.hpp"
+#include "SmartShape.hpp"
 #include <cmath>
 
 class Character: public GameObject
@@ -15,6 +16,7 @@ class Character: public GameObject
         sf::Vector2f getPosition();
         void setHealth(double health);
         void initShape(int verts, int radius, int variance);
+        void initShape(int verts, int radius, int variance, sf::Vector2f p);
         double getHealth();
 		sf::Vector2f* getVelocity();
 		sf::FloatRect getBounds();
@@ -23,7 +25,7 @@ class Character: public GameObject
 	protected:
 		double health;
         double moveSpeed;
-        sf::VertexArray shape;
+        SmartShape* shape;
 		sf::Vector2f* velocity;
 		sf::RectangleShape boundingBox;
 };

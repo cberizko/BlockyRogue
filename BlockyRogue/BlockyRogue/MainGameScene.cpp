@@ -97,12 +97,14 @@ void MainGameScene::update(float elapsedTime)
     }
     
     p->update(elapsedTime);
+    
     enemies->update(p, elapsedTime);
 	if(enemies->getEnemiesKilled() >= enemyKillsToLevel)
 	{
 		enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
 		enemyKillsToLevel *= 2;
 	}
+
 	std::ostringstream enemiesKillCounterString;
 	enemiesKillCounterString << "Enemies until level: " << enemies->getEnemiesKilled() << "/" << enemyKillsToLevel;
 	enemyKillCounterText.setString(enemiesKillCounterString.str());

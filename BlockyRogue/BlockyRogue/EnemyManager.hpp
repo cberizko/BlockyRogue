@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "EnemySquare.hpp"
+#include "EnemyTriangle.hpp"
 #include "Player.hpp"
 #include <stdlib.h>
 #include <time.h>

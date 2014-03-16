@@ -11,7 +11,6 @@ class GameObject
     public:
         GameObject();
         virtual void update(float elapsed);
-        //SFML's sprite class can handle position and boundingbox collision!
         sf::Vector2f getPosition();
 		sf::Vector2f getScale();
 		sf::FloatRect getBounds();

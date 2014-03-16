@@ -16,6 +16,7 @@ EnemyManager::~EnemyManager()
 
 void EnemyManager::update(Player *player, float elapsedTime)
 {
+    
     for (std::list<Enemy*>::iterator it = enemies.begin(); it != enemies.end();++it)
     {
         (*it)->update(elapsedTime);
@@ -27,6 +28,7 @@ void EnemyManager::update(Player *player, float elapsedTime)
 			numEnemiesKilled++;
         }
     }
+    
     
     despawn(player);
     spawn(player);
@@ -43,7 +45,7 @@ void EnemyManager::draw(sf::RenderWindow* window)
 
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
-    enemies.push_back(new EnemySquare(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+    enemies.push_back(new EnemyTriangle(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
 }
 
 void EnemyManager::despawn(Player *player)
@@ -86,6 +88,7 @@ void EnemyManager::despawn(Player *player)
 
 void EnemyManager::spawn(Player *player)
 {
+    std::cout<<"EnemyManager::spawn()"<<std::endl;
     if(enemies.size() < maxEnemies)
     {
         sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
@@ -109,9 +112,10 @@ void EnemyManager::spawn(Player *player)
             spawnY = ((rand() % y)+viewY)-(x/2);
         }
 
+        std::cout<<"EnemyManager::spawn()::pushback"<<std::endl;
         enemies.push_back(new EnemySquare(sf::Vector2f(spawnX, spawnY), player, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     }
-    
+    std::cout<<"Done EnemyManager::spawn()"<<std::endl;
 }
 
 std::list<Enemy*> EnemyManager::getEnemyList()
