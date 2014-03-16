@@ -175,6 +175,14 @@ void UpgradeManager::generateRandomUpgrade()
      }
      */
     
+    if(rand()%100 <= 5)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("spreadShot", 99999, "="));
+    }
+    if(rand()%100 <= 7)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("spreadShot", -99999, "="));
+    }
     
     int uType = rand()%6;
     if(uType == 0)
@@ -248,7 +256,13 @@ std::string UpgradeManager::displayPlayerUpgradesToApply()
     playerUpgradeString << "Player Upgrades\n";
     for (std::list<Upgrade*>::iterator it = playerUpgradesToApply.begin(); it != playerUpgradesToApply.end();)
     {
-        playerUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
+        if((*(*it)).getAmount() == 99999)
+            playerUpgradeString << "Enable " << (*(*it)).getType() << "\n";
+        else if((*(*it)).getAmount() == -99999)
+            playerUpgradeString << "Disable " << (*(*it)).getType() << "\n";
+        else
+            playerUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
+        
         ++it;
     }
     return playerUpgradeString.str();
@@ -259,7 +273,12 @@ std::string UpgradeManager::displayEnemyUpgradesToApply()
     enemyUpgradeString << "Enemy Upgrades\n";
     for (std::list<Upgrade*>::iterator it = enemyUpgradesToApply.begin(); it != enemyUpgradesToApply.end();)
     {
-        enemyUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
+        if((*(*it)).getAmount() == 99999)
+            enemyUpgradeString << "Enable " << (*(*it)).getType() << "\n";
+        else if((*(*it)).getAmount() == -99999)
+            enemyUpgradeString << "Disable " << (*(*it)).getType() << "\n";
+        else
+            enemyUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
         ++it;
     }
     return enemyUpgradeString.str();

@@ -66,6 +66,19 @@ void MainGameScene::update(float elapsedTime)
 			projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::RIGHT, enemies, p));
+            
+            if(p->stats["spreadShot"] == 99999)
+            {
+                //Up/Right
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width,
+                                                                         p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], -config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::UP, enemies, p));
+                //Down/Right
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width,
+                                                                         p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::DOWN, enemies, p));
+            }
+            
             timeOut = p->getStats()["projectileDelay"];
             shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
             shootSound.play();
@@ -76,6 +89,19 @@ void MainGameScene::update(float elapsedTime)
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::LEFT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
+            
+            if(p->stats["spreadShot"] == 99999)
+            {
+                //Up/Left
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x,
+                                                                         p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], -config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::UP, enemies, p));
+                //Down/Left
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x,
+                                                                         p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::DOWN, enemies, p));
+            }
+            
             shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
             shootSound.play();
         }
@@ -84,6 +110,19 @@ void MainGameScene::update(float elapsedTime)
             projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]),
 				Projectile::UP, enemies, p));
+            
+            if(p->stats["spreadShot"] == 99999)
+            {
+                //Up/Left
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2,
+                                                                         p->getPosition().y), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], -config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::UP, enemies, p));
+                //Up/Right
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2,
+                                                                         p->getPosition().y), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], -config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::UP, enemies, p));
+            }
+            
             timeOut = p->getStats()["projectileDelay"];
             shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
             shootSound.play();
@@ -93,6 +132,19 @@ void MainGameScene::update(float elapsedTime)
             projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]),
                 Projectile::DOWN, enemies, p));
+            
+            if(p->stats["spreadShot"] == 99999)
+            {
+                //Down/Right
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2,
+                                                                         p->getPosition().y + p->getBounds().height), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::DOWN, enemies, p));
+                //Down/Left
+                projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2,
+                                                                         p->getPosition().y + p->getBounds().height), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], config["PROJECTILE_BASE_VELOCITY"]),
+                                                            Projectile::DOWN, enemies, p));
+            }
+            
             timeOut = p->getStats()["projectileDelay"];
 			shootSound.setBuffer(*soundManager.getSoundBuffer("playerShoot"));
             shootSound.play();
