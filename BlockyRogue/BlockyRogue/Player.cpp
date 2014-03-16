@@ -94,6 +94,6 @@ void Player::update(float elapsedTime)
 
 sf::Vector2f Player::getPosition()
 {
-    return shape->points[0]->position;
+    return boundingBox.getPosition();
 }
 

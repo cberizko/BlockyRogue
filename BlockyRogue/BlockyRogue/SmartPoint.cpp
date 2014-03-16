@@ -5,7 +5,7 @@ SmartPoint::SmartPoint(sf::Vector2f p, int v)
     position = p;
     variance = v;
     positionOffset = p;
-    velocity = sf::Vector2f((std::rand()%200)-100,(std::rand()%200)-100);
+    velocity = sf::Vector2f((std::rand()%100)-50,(std::rand()%100)-50);
 }
 
 void SmartPoint::update(sf::Vector2f moveBy)
