@@ -10,7 +10,7 @@ class Projectile: public GameObject
 {
     public:
 		enum Direction {LEFT, RIGHT, UP, DOWN, NONE};
-		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction, Character *own);
+		Projectile(sf::Vector2f position, sf::Vector2f velocity, Direction direction, Character *own, std::string spritePath);
 		Projectile(sf::Vector2f position);
         virtual void update(float elapsedTime);
 		void setVelocity(sf::Vector2f _velocity);
@@ -19,6 +19,7 @@ class Projectile: public GameObject
 		int frameCount;
 		sf::Vector2f getPosition();
         Character* owner;
+        std::string spritePath;
 	protected:
     	sf::Vector2f velocity;
 		sf::Vector2f origin;

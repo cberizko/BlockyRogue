@@ -26,9 +26,9 @@ class Character: public GameObject
         void applyUpgrade(Upgrade upgrade);
 		std::map<std::string, double> stats;
         std::map<std::string, double> getStats();
+        SmartShape* shape;
 
 	protected:
-        SmartShape* shape;
 		sf::Vector2f* velocity;
 		sf::RectangleShape boundingBox;
 };

@@ -2,9 +2,11 @@
 
 PlayerProjectile::PlayerProjectile(sf::Vector2f position, 
 								   sf::Vector2f velocity, Projectile::Direction direction, 
-								   EnemyManager *em, Character *owner) : Projectile(position, velocity, direction, owner)
+                                   EnemyManager *em, Character *owner) : Projectile(position, velocity, direction, owner, "Projectile.png")
 {
 	enemyManager = em;
+    
+    spritePath = "Projectile.png";
 }
 
 void PlayerProjectile::update(float elapsedTime)

@@ -1,11 +1,11 @@
 #include "Projectile.hpp"
 
-Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Character *own)
+Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile::Direction direction, Character *own, std::string spritePath)
 {
     owner = own;
 	sf::Vector2f offset;
 	sf::VideoMode currentResolution = sf::VideoMode::getDesktopMode();
-    initGraphics("Projectile.png");
+    initGraphics(spritePath);
 	sprite.setScale(currentResolution.width / 1920.0f, currentResolution.height / 1080.0f);
 
 	//Set offset of the projectile based on which side of the player it's spawning on
