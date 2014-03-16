@@ -1,5 +1,14 @@
 #include "SmartShape.hpp"
 
+#ifndef _COMPBYRAD
+#define _COMPBYRAD
+bool compByRad(SmartPoint* a, SmartPoint* b)
+{
+    return a->calculateRadians() < b->calculateRadians();
+}
+#endif
+
+
 SmartShape::SmartShape(int verts, int radius, int variance)
 {
     position = sf::Vector2f();
@@ -60,7 +69,6 @@ void SmartShape::addPoint()
     
     points.push_back(new SmartPoint(position,10, position));
 
-    std::sort(points.begin(), points.end(), SmartShape::sortPoints);
 }
 
 void SmartShape::removePoint()
@@ -78,6 +86,7 @@ void SmartShape::bouncePoints()
 
 void SmartShape::update(sf::Vector2f moveBy)
 {
+    std::sort(points.begin(), points.end(), compByRad);
     position+=moveBy;
     for(int i=0; i < points.size(); i++)
     {
@@ -103,5 +112,6 @@ sf::VertexArray SmartShape::getShape(sf::Color c)
 
 bool SmartShape::sortPoints(SmartPoint *a,SmartPoint *b)
 {
-    return (a->positionOffset.x > b->positionOffset.x);
+    std::cout<<"sortPoints Called"<<std::endl;
+    return (a->calculateRadians() < b->calculateRadians());
 }

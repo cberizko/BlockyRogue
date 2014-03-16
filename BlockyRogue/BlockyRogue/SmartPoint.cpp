@@ -1,4 +1,5 @@
 #include "SmartPoint.hpp"
+#include <iostream>
 
 SmartPoint::SmartPoint(sf::Vector2f p, int v, sf::Vector2f o)
 {
@@ -23,3 +24,11 @@ void SmartPoint::update(sf::Vector2f moveBy)
     positionOffset.x += (position.x - positionOffset.x)*tweenValue;
     positionOffset.y += (position.y - positionOffset.y)*tweenValue;
 }
+
+double SmartPoint::calculateRadians()
+{
+    double y = (position.y-origin.y);
+    double x = (position.x-origin.x);
+    return std::atan2(y,x);
+}
+
