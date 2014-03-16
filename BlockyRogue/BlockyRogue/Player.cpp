@@ -49,6 +49,7 @@ void Player::hit(sf::Vector2f direction, float damage)
 {
 	if(knockBackTimer <= 0)
 	{
+        shape->bouncePoints();
 		if(stats["health"] > 0)
 			sound.setBuffer(hurtSound);
 		else
