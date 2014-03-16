@@ -22,6 +22,7 @@ Player::Player():Character()
     stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
     stats["projectileRange"] = config["PROJECTILE_RANGE"];
     stats["projectileDamage"] = config["PROJECTILE_DAMAGE"];
+    stats["spreadShot"] = -99999+((2*config["PLAYER_SPREAD_SHOT"])*99999);
 }
 
 void Player::draw(sf::RenderWindow* window)
