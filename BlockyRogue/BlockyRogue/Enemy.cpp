@@ -60,4 +60,5 @@ double Enemy::getHealth()
 void Enemy::setBump()
 {
 	bump = true;
+    shape->bouncePoints();
 }

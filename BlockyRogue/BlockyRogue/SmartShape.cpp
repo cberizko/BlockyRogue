@@ -37,6 +37,14 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
     }
 }
 
+void SmartShape::bouncePoints()
+{
+    for(int i=0; i < points.size(); i++)
+    {
+        points[i]->positionOffset += sf::Vector2f((rand()%50)-25,(rand()%50)-25);
+    }
+}
+
 void SmartShape::update(sf::Vector2f moveBy)
 {
     for(int i=0; i < points.size(); i++)

@@ -15,6 +15,7 @@ class SmartShape
         sf::VertexArray getShape(sf::Color c);
 
         std::vector<SmartPoint*> points;
+        void bouncePoints();
 
     private:
         sf::VertexArray vertArray;
