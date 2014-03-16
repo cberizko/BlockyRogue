@@ -17,6 +17,7 @@ public:
     sf::SoundBuffer upgradeSound;
     sf::SoundBuffer squareHurtSound;
     sf::SoundBuffer triangleHurtSound;
+    sf::SoundBuffer circleHurtSound;
     sf::SoundBuffer playerHurtSound;
     sf::SoundBuffer playerDeadSound;
     sf::SoundBuffer enemyShootSound;

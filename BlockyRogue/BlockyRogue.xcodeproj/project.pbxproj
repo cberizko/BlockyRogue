@@ -55,6 +55,7 @@
 		5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662E18D5B6CF0035C7B7 /* config.ini */; };
 		5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */; };
 		5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1663318D5CE180035C7B7 /* TriProjectile.png */; };
+		5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,8 @@
 		5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
 		5BD1663318D5CE180035C7B7 /* TriProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TriProjectile.png; sourceTree = "<group>"; };
+		5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyCircle.cpp; sourceTree = "<group>"; };
+		5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyCircle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 				5B12BDE3188CFBAB006D8C8E /* EnemyManager.hpp */,
 				5B928AA318A9147300DF7566 /* EnemySquare.cpp */,
 				5B928AA418A9147300DF7566 /* EnemySquare.hpp */,
+				5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */,
+				5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */,
 			);
 			name = Enemy;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */,
 				5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */,
 				5B928AA818A9148800DF7566 /* TitleScreenScene.cpp in Sources */,
+				5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */,
 				5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */,
 				5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */,
 				5B095C2C188B21540058FB67 /* Player.cpp in Sources */,

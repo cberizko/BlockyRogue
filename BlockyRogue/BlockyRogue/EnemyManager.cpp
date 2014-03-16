@@ -2,6 +2,7 @@
 #include "UpgradeManager.hpp"
 #include "EnemySquare.hpp"
 #include "EnemyTriangle.hpp"
+#include "EnemyCircle.hpp"
 #include <iostream>
 
 EnemyManager::EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj)
@@ -61,11 +62,13 @@ void EnemyManager::draw(sf::RenderWindow* window)
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
     //enemies.push_back(new EnemyTriangle(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
-	int i = std::rand() % 2;
+	int i = std::rand() % 3;
 	if( i == 0)
 		enemies.push_back(new EnemyTriangle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
-	else
-		enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+	else if( i == 1)
+		enemies.push_back(new EnemyCircle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
+    else
+        enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     upgradeManager->applyEnemyUpgrade(enemies.back());
 }
 

@@ -22,6 +22,10 @@ SoundManager::SoundManager()
 	{
         std::cout << "ERROR unable to load sound EnemyTriangle hurt.mp3 in EnemyTriangle.wav."<< std::endl;
     }
+    if(!circleHurtSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy Circle hurt.wav"))
+	{
+        std::cout << "ERROR unable to load sound Enemy Circle hurt.mp3 in EnemyCircle.wav."<< std::endl;
+    }
     if(!playerHurtSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player Hurt.wav"))
 	{
         std::cout << "ERROR unable to load sound Player Hurt.wav in Player.cpp."<< std::endl;
@@ -47,6 +51,8 @@ sf::SoundBuffer* SoundManager::getSoundBuffer(std::string name)
         return &squareHurtSound;
     if(!name.compare("triangleHurt"))
         return &triangleHurtSound;
+    if(!name.compare("circleHurt"))
+        return &circleHurtSound;
     if(!name.compare("playerHurt"))
         return &playerHurtSound;
     if(!name.compare("playerDead"))
