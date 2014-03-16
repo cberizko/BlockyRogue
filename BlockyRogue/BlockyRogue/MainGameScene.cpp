@@ -46,6 +46,7 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
     upgradeManager = new UpgradeManager();
     enemies = new EnemyManager(upgradeManager, projectiles);
 	enemyKillsToLevel = 1;
+    selectUpgrade = false;
     
 }
 
@@ -138,15 +139,21 @@ void MainGameScene::update(float elapsedTime)
     p->update(elapsedTime);
     
     enemies->update(p, elapsedTime);
-	if(enemies->getEnemiesKilled() >= enemyKillsToLevel || sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	if(!selectUpgrade && (enemies->getEnemiesKilled() >= enemyKillsToLevel || sf::Keyboard::isKeyPressed(sf::Keyboard::F)))
 	{
         enemies->setEnemiesKilled(enemyKillsToLevel);
-        
+        p->stats["health"] += p->stats["maxHealth"]/10;
         std::list<Upgrade*> uta = upgradeManager->getPlayerUpgradesToApply();
         if(uta.size() == 0)
             upgradeManager->readyRandomUpgrade();
+        sUpgrade.setBuffer(upgradeSound);
+        sUpgrade.play();
+        selectUpgrade = true;
+    }
+    if(selectUpgrade)
+    {
         
-        
+        enemies->setEnemiesKilled(enemyKillsToLevel);
         //Apply Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         {
@@ -156,12 +163,14 @@ void MainGameScene::update(float elapsedTime)
             p->stats["health"] = p->stats["maxHealth"];
             sound.setBuffer(upgradeSound);
             sound.play();
+            selectUpgrade = false;
         }
         //Reject Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         {
             enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
             upgradeManager->cancelUpgrade();
+            selectUpgrade = false;
         }
 	}
 
