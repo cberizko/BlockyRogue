@@ -17,6 +17,8 @@ class GameOverScreenScene: Scene
         sf::Font titleFont;
         sf::Text titleText;
         sf::Text subText;
+        sf::Sprite background;
+        sf::Texture backgroundTexture;
 };
 
 #endif
