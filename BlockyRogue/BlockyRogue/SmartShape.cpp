@@ -2,6 +2,7 @@
 
 SmartShape::SmartShape(int verts, int radius, int variance)
 {
+    position = sf::Vector2f();
     for(int i = 0; i < verts+1; i++)
     {
         //Equation of a Circle: (parametric coordinates)
@@ -13,16 +14,17 @@ SmartShape::SmartShape(int verts, int radius, int variance)
         int radius_offset = std::rand()%variance; 
         double location = i*((2*PI)/verts);
 
-        sf::Vector2f position = sf::Vector2f((radius+radius_offset)*std::cos(location)
+        sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location)
                                             ,(radius+radius_offset)*std::sin(location));
 
-        points.push_back(new SmartPoint(position, radius_offset)); 
+        points.push_back(new SmartPoint(pointOffset, radius_offset)); 
     }
 }
 
 
 SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
 {
+    position = p;
     for(int i = 0; i < verts+1; i++)
     {
         //Equation of a Circle: (parametric coordinates)
@@ -33,10 +35,10 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
         int radius_offset = std::rand()%variance; 
         double location = i*((2*PI)/verts);
 
-        sf::Vector2f position = sf::Vector2f((radius+radius_offset)*std::cos(location) 
+        sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location) 
                                             ,(radius+radius_offset)*std::sin(location));
 
-        points.push_back(new SmartPoint(position+p, radius_offset)); 
+        points.push_back(new SmartPoint(pointOffset+position, radius_offset)); 
     }
 }
 
@@ -58,6 +60,8 @@ void SmartShape::addPoint()
     position += sf::Vector2f(rand()%60, rand()%60);
     
     points.push_back(new SmartPoint(position,10));
+
+    std::sort(points.begin(), points.end(), SmartShape::sortPoints);
 }
 
 void SmartShape::bouncePoints()
@@ -70,6 +74,7 @@ void SmartShape::bouncePoints()
 
 void SmartShape::update(sf::Vector2f moveBy)
 {
+    position+=moveBy;
     for(int i=0; i < points.size(); i++)
     {
         points[i]->update(moveBy);
@@ -90,4 +95,9 @@ sf::VertexArray SmartShape::getShape(sf::Color c)
     vertArray[0].color = sf::Color::White;
 
     return vertArray;
+}
+
+bool SmartShape::sortPoints(SmartPoint *a,SmartPoint *b)
+{
+    return (a->positionOffset.x > b->positionOffset.x);
 }

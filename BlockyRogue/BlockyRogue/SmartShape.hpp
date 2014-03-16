@@ -19,7 +19,10 @@ class SmartShape
         void addPoint();
         void bouncePoints();
 
+        bool static sortPoints(SmartPoint *a, SmartPoint *b);
+
     private:
+        sf::Vector2f position;
         sf::VertexArray vertArray;
 };
 
