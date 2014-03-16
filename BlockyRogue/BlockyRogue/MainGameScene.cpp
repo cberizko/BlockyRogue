@@ -29,6 +29,8 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 	enemyUpgradeText.setCharacterSize(50);
     playerUpgradeText.setFont(blockyFont);
 	playerUpgradeText.setCharacterSize(50);
+    chooseUpgradeText.setFont(blockyFont);
+	chooseUpgradeText.setCharacterSize(50);
 
     timeOut = 0.f;
 
@@ -231,15 +233,19 @@ void MainGameScene::update(float elapsedTime)
     
     
     std::ostringstream playerUpgradeString;
+    std::ostringstream chooseUpgradeString;
     std::list<Upgrade*> puta = upgradeManager->getPlayerUpgradesToApply();
     if(puta.size() > 0)
     {
         playerUpgradeString << upgradeManager->displayPlayerUpgradesToApply();
+        chooseUpgradeString << "Q to Accept             E to Reject";
     }else
     {
         playerUpgradeString << "";
+        chooseUpgradeString << "";
     }
 	playerUpgradeText.setString(playerUpgradeString.str());
+    chooseUpgradeText.setString(chooseUpgradeString.str());
     
     std::ostringstream enemyUpgradeString;
     std::list<Upgrade*> euta = upgradeManager->getEnemyUpgradesToApply();
@@ -301,10 +307,14 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
         view.getCenter().y-180));
     enemyUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - enemyUpgradeText.getGlobalBounds().width/2,
         view.getCenter().y+50));
+    
+    chooseUpgradeText.setPosition(sf::Vector2f(view.getCenter().x - chooseUpgradeText.getGlobalBounds().width/2,
+                                              view.getCenter().y+300));
 
 	window->draw(enemyKillCounterText);
     window->draw(playerUpgradeText);
     window->draw(enemyUpgradeText);
+    window->draw(chooseUpgradeText);
     window->setView(view);
     window->display();
     window->clear(sf::Color(0, 0, 0, 255));

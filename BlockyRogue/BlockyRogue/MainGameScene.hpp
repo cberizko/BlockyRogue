@@ -31,6 +31,7 @@ class MainGameScene: Scene
 		sf::Text enemyKillCounterText;
         sf::Text playerUpgradeText;
         sf::Text enemyUpgradeText;
+        sf::Text chooseUpgradeText;
 		int enemyKillsToLevel;
         float timeOut;
         Player *p;

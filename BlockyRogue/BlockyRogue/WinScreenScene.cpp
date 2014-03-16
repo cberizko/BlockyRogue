@@ -26,7 +26,7 @@ WinScreenScene::WinScreenScene(): Scene("Win Screen")
     subText.setCharacterSize(60);
 
     titleText.setString("YOU WIN!");
-    subText.setString("");
+    subText.setString("Press Space to Play Again!");
 
 	titleText.setPosition(-titleText.getGlobalBounds().width / 2.f,-200);
 	subText.setPosition(-subText.getGlobalBounds().width / 2.f,0);
