@@ -9,6 +9,7 @@
 #include "Projectile.hpp"
 #include <stdlib.h>
 #include <time.h>
+#include <SFML/Audio.hpp>
 
 class UpgradeManager;
 class EnemyManager
@@ -19,6 +20,8 @@ private:
     double despawnRange;
 	int numEnemiesKilled;
     UpgradeManager *upgradeManager;
+	sf::Sound sound;
+	sf::SoundBuffer enemyDeath;
 public:
     EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj);
     ~EnemyManager();

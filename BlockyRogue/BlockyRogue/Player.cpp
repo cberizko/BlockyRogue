@@ -33,9 +33,9 @@ Player::Player():Character()
 
 void Player::draw(sf::RenderWindow* window)
 {
-	window->draw(boundingBox);
+	//window->draw(boundingBox);
 
-        window->draw(shape->getShape(sf::Color(255*(stats["health"]/stats["maxHealth"]),255*(knockBackTimer/knockBackTime), 255*(knockBackTimer/knockBackTime))));
+    window->draw(shape->getShape(sf::Color(255*(stats["health"]/stats["maxHealth"]),255*(knockBackTimer/knockBackTime), 255*(knockBackTimer/knockBackTime))));
     
 	Character::initBoundingBox();
 }
@@ -49,6 +49,7 @@ void Player::hit(sf::Vector2f direction, float damage)
 {
 	if(knockBackTimer <= 0)
 	{
+        shape->bouncePoints();
 		if(stats["health"] > 0)
 			sound.setBuffer(hurtSound);
 		else

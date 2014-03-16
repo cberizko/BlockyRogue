@@ -88,7 +88,8 @@ void UpgradeManager::applyEnemyUpgrade(Enemy *e)
 void UpgradeManager::readyRandomUpgrade()
 {
     int r = 1;
-    while(r >= 1)
+    int count = 0;
+    while(r >= 1 && count < 5)
     {
         r--;
         for(int i = 0 ; i < 20; i++)
@@ -129,7 +130,8 @@ void UpgradeManager::readyRandomUpgrade()
         }
     }
         r = (rand()%100);
-        if(r >= 25){ r = 0; }
+        if(r >= 25){ r = 0; }else{r = 1;}
+        count++;
     }
 }
 
@@ -174,7 +176,7 @@ void UpgradeManager::generateRandomUpgrade()
      */
     
     
-    int uType = rand()%5;
+    int uType = rand()%6;
     if(uType == 0)
     {
         availablePlayerUpgrades.push_back(new Upgrade("moveSpeed", (rand()%200)-100, "+"));
@@ -205,6 +207,13 @@ void UpgradeManager::generateRandomUpgrade()
         availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%10)-5), "+"));
         availablePlayerUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
         availableEnemyUpgrades.push_back(new Upgrade("projectileDamage", ((double)(rand()%200)/100), "*"));
+    }
+    if(uType == 5)
+    {
+        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%10)-5), "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("meleeDamage", ((double)(rand()%200)/100), "*"));
     }
 }
 

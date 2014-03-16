@@ -42,16 +42,16 @@
 		5BD1660C18D57C190035C7B7 /* SmartShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660918D57C190035C7B7 /* SmartShape.cpp */; };
 		5BD1660E18D597360035C7B7 /* TitleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660D18D597360035C7B7 /* TitleBackground.png */; };
 		5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660F18D599C50035C7B7 /* GameOverBackground.png */; };
-		5BD1661C18D59A170035C7B7 /* Enemy Circle hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661218D59A170035C7B7 /* Enemy Circle hurt.mp3 */; };
 		5BD1661D18D59A170035C7B7 /* Enemy death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661318D59A170035C7B7 /* Enemy death.wav */; };
 		5BD1661E18D59A170035C7B7 /* Enemy shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661418D59A170035C7B7 /* Enemy shoot.wav */; };
-		5BD1661F18D59A170035C7B7 /* Enemy Square hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661518D59A170035C7B7 /* Enemy Square hurt.mp3 */; };
-		5BD1662018D59A170035C7B7 /* EnemyTriangle hurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661618D59A170035C7B7 /* EnemyTriangle hurt.mp3 */; };
 		5BD1662118D59A170035C7B7 /* Player Death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661718D59A170035C7B7 /* Player Death.wav */; };
 		5BD1662218D59A170035C7B7 /* Player Hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661818D59A170035C7B7 /* Player Hurt.wav */; };
 		5BD1662318D59A170035C7B7 /* Player shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661918D59A170035C7B7 /* Player shoot.wav */; };
 		5BD1662418D59A170035C7B7 /* Select.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661A18D59A170035C7B7 /* Select.wav */; };
 		5BD1662518D59A170035C7B7 /* Upgrade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1661B18D59A170035C7B7 /* Upgrade.wav */; };
+		5BD1662918D5A6F70035C7B7 /* Enemy Circle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */; };
+		5BD1662A18D5A6F70035C7B7 /* Enemy Square hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */; };
+		5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,16 +115,16 @@
 		5BD1660A18D57C190035C7B7 /* SmartShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SmartShape.hpp; path = BlockyRogue/SmartShape.hpp; sourceTree = "<group>"; };
 		5BD1660D18D597360035C7B7 /* TitleBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleBackground.png; sourceTree = "<group>"; };
 		5BD1660F18D599C50035C7B7 /* GameOverBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverBackground.png; sourceTree = "<group>"; };
-		5BD1661218D59A170035C7B7 /* Enemy Circle hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Enemy Circle hurt.mp3"; sourceTree = "<group>"; };
 		5BD1661318D59A170035C7B7 /* Enemy death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy death.wav"; sourceTree = "<group>"; };
 		5BD1661418D59A170035C7B7 /* Enemy shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy shoot.wav"; sourceTree = "<group>"; };
-		5BD1661518D59A170035C7B7 /* Enemy Square hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Enemy Square hurt.mp3"; sourceTree = "<group>"; };
-		5BD1661618D59A170035C7B7 /* EnemyTriangle hurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "EnemyTriangle hurt.mp3"; sourceTree = "<group>"; };
 		5BD1661718D59A170035C7B7 /* Player Death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Player Death.wav"; sourceTree = "<group>"; };
 		5BD1661818D59A170035C7B7 /* Player Hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Player Hurt.wav"; sourceTree = "<group>"; };
 		5BD1661918D59A170035C7B7 /* Player shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Player shoot.wav"; sourceTree = "<group>"; };
 		5BD1661A18D59A170035C7B7 /* Select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Select.wav; sourceTree = "<group>"; };
 		5BD1661B18D59A170035C7B7 /* Upgrade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Upgrade.wav; sourceTree = "<group>"; };
+		5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy Circle hurt.wav"; sourceTree = "<group>"; };
+		5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy Square hurt.wav"; sourceTree = "<group>"; };
+		5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "EnemyTriangle hurt.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,11 +314,11 @@
 		5BD1661118D59A170035C7B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				5BD1661218D59A170035C7B7 /* Enemy Circle hurt.mp3 */,
+				5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */,
+				5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */,
+				5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */,
 				5BD1661318D59A170035C7B7 /* Enemy death.wav */,
 				5BD1661418D59A170035C7B7 /* Enemy shoot.wav */,
-				5BD1661518D59A170035C7B7 /* Enemy Square hurt.mp3 */,
-				5BD1661618D59A170035C7B7 /* EnemyTriangle hurt.mp3 */,
 				5BD1661718D59A170035C7B7 /* Player Death.wav */,
 				5BD1661818D59A170035C7B7 /* Player Hurt.wav */,
 				5BD1661918D59A170035C7B7 /* Player shoot.wav */,
@@ -384,9 +384,8 @@
 				5BD1661E18D59A170035C7B7 /* Enemy shoot.wav in Resources */,
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
-				5BD1662018D59A170035C7B7 /* EnemyTriangle hurt.mp3 in Resources */,
+				5BD1662918D5A6F70035C7B7 /* Enemy Circle hurt.wav in Resources */,
 				5BD1661D18D59A170035C7B7 /* Enemy death.wav in Resources */,
-				5BD1661F18D59A170035C7B7 /* Enemy Square hurt.mp3 in Resources */,
 				5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
 				5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */,
@@ -396,12 +395,13 @@
 				5BD1662118D59A170035C7B7 /* Player Death.wav in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
 				5BD1662518D59A170035C7B7 /* Upgrade.wav in Resources */,
+				5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */,
 				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
 				5BD1662418D59A170035C7B7 /* Select.wav in Resources */,
+				5BD1662A18D5A6F70035C7B7 /* Enemy Square hurt.wav in Resources */,
 				5BD1660318D53EF50035C7B7 /* Background.png in Resources */,
 				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
-				5BD1661C18D59A170035C7B7 /* Enemy Circle hurt.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

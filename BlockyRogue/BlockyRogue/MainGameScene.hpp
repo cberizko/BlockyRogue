@@ -42,6 +42,7 @@ class MainGameScene: Scene
 		sf::Texture backgroundTexture;
 		sf::Sound sound;
 		sf::SoundBuffer playerShootSound;
+        sf::SoundBuffer upgradeSound;
 };
 
 #endif

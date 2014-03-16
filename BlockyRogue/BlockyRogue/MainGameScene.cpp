@@ -20,6 +20,10 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 	{
         std::cout << "ERROR unable to load sound Player shoot.wav in MainGameScene.cpp."<< std::endl;
     }
+    if(!upgradeSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Upgrade.wav"))
+	{
+        std::cout << "ERROR unable to load sound Upgrade.wav in MainGameScene.cpp."<< std::endl;
+    }
 
 	enemyKillCounterText.setFont(blockyFont);
 	enemyKillCounterText.setCharacterSize(20);
@@ -137,6 +141,7 @@ void MainGameScene::update(float elapsedTime)
         if(uta.size() == 0)
             upgradeManager->readyRandomUpgrade();
         
+        
         //Apply Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         {
@@ -144,6 +149,8 @@ void MainGameScene::update(float elapsedTime)
             enemyKillsToLevel *= 2;
             upgradeManager->applyUpgrades(p, enemies);
             p->stats["health"] = p->stats["maxHealth"];
+            sound.setBuffer(upgradeSound);
+            sound.play();
         }
         //Reject Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))

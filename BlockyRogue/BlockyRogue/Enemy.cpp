@@ -18,6 +18,7 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
     stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
     stats["projectileRange"] = config["ENEMY_PROJECTILE_RANGE"];
     stats["projectileDamage"] = config["ENEMY_PROJECTILE_DAMAGE"];
+    stats["meleeDamage"] = config["ENEMY_MELEE_DAMAGE"];
 
 	bump = false;
 	aggroRange = range;
@@ -43,7 +44,7 @@ void Enemy::update(float elapsed)
 
 void Enemy::draw(sf::RenderWindow* window)
 {
-	window->draw(boundingBox);
+	//window->draw(boundingBox);
     window->draw(shape->getShape(sf::Color(0,255*(stats["health"]/stats["maxHealth"]),0)));
 }
 
