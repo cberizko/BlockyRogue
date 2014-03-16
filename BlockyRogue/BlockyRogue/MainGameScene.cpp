@@ -6,6 +6,15 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
     {
         std::cout << "ERROR unable to load font blocks.ttf in MainGameScene."<< std::endl;
     }
+	if(!backgroundTexture.loadFromFile(getResourcePath("Assets/Graphics/")+"BackgroundNoStuff.png"))
+    {
+        std::cout<<"ERROR: texture " << "BackgroundNoStuff.png" << "cannot be loaded!"<<std::endl;
+    }
+    else
+    {
+		background.setTexture(backgroundTexture);
+		background.setScale(.25f,.25f);
+    }
 
 	enemyKillCounterText.setFont(blockyFont);
 	enemyKillCounterText.setCharacterSize(20);
@@ -160,6 +169,26 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
     //==================================================================
     // Draw 
     //
+	view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
+	//loop over tiles in background and draw
+	int xStart = ((view.getCenter().x - (view.getSize().x / 2.f)) / 200);
+	int yStart = ((view.getCenter().y - (view.getSize().y / 2.f)) / 200);
+	xStart -= 1;
+	xStart *= 200;
+	yStart -= 1;
+	yStart *= 200;
+	std::cout << "X " << xStart << " Y " << yStart << std::endl;
+	int xTimes = (view.getSize().x / 200) + 3;
+	int yTimes = (view.getSize().x / 200) + 3;
+
+	for(int i = 0; i < xTimes; i++)
+	{
+		for(int j = 0; j < yTimes; j++)
+		{
+			background.setPosition(xStart + 200 * i,yStart + 200 * j);
+			window->draw(background);
+		}
+	}
     
     p->draw(window);
     enemies->draw(window);
@@ -168,8 +197,6 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
     {
         (*it)->draw(window);
     }
-
-    view.setCenter(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, p->getPosition().y + p->getBounds().height / 2));
 
 	enemyKillCounterText.setPosition(sf::Vector2f(view.getCenter().x + view.getSize().x / 2 - enemyKillCounterText.getGlobalBounds().width,
 		view.getCenter().y - view.getSize().y / 2));
