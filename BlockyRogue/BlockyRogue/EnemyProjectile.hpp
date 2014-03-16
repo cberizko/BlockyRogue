@@ -3,6 +3,7 @@
 
 #include "Projectile.hpp"
 #include "Player.hpp"
+#include <SFML/Audio.hpp>
 
 class EnemyProjectile : public Projectile
 {
@@ -14,6 +15,8 @@ class EnemyProjectile : public Projectile
 		void update(float elapsed);
 	private:
 		Player *player;
+		sf::Sound fire;
+		sf::SoundBuffer buffer;
 };
 
 #endif

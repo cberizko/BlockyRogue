@@ -1,10 +1,15 @@
 #include "EnemyProjectile.hpp"
-
 EnemyProjectile::EnemyProjectile(sf::Vector2f position, 
 								   sf::Vector2f velocity, Projectile::Direction direction, 
 								   Player *p, Character *own) : Projectile(position, velocity, direction, own)
 {
 	player = p;
+	if(!buffer.loadFromFile(getResourcePath("Assets/Sounds/")+"Enemy shoot.wav"))
+	{
+        std::cout << "ERROR unable to load sound Enemy shoot.wav in EnemyProjectile.cpp."<< std::endl;
+    }
+	fire.setBuffer(buffer);
+	fire.play();
 }
 
 EnemyProjectile::~EnemyProjectile()
@@ -21,8 +26,7 @@ void EnemyProjectile::update(float elapsed)
 	if(getBounds().intersects(player->getBounds()))
 	{
 		float magnitude = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
-        player->stats["health"] -= owner->stats["projectileDamage"];
-		player->hit(velocity / magnitude);
+		player->hit(velocity / magnitude, (float)(owner->stats["projectileDamage"]));
 		dead = true;
 	}
 }

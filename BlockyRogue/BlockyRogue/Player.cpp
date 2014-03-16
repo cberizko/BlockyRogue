@@ -37,13 +37,14 @@ Player::~Player()
 	delete hitDirection;
 }
 
-void Player::hit(sf::Vector2f direction)
+void Player::hit(sf::Vector2f direction, float damage)
 {
 	if(knockBackTimer <= 0)
 	{
 		knockBackTimer = knockBackTime;
 		hitDirection->x = direction.x;
 		hitDirection->y = direction.y;
+		stats["health"] -= damage;
 	}
 }
 
