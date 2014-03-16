@@ -13,6 +13,10 @@ public:
 	~EnemySquare();
 	void update(float elapsed);
 	int knockFrame;
+	void hit();
+private:
+	sf::Sound sound;
+	sf::SoundBuffer hurtSound;
 };
 
 #endif

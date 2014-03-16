@@ -16,6 +16,7 @@ class Enemy: public Character
         double getHealth();
 		bool bump;
 		void setBump();
+		virtual void hit() = 0;
 		float aggroRange;
 	protected:
 		Player* player;
