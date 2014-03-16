@@ -10,6 +10,8 @@ EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float
 	{
         std::cout << "ERROR unable to load sound EnemyTriangle hurt.mp3 in EnemyTriangle.wav."<< std::endl;
     }
+
+    color = sf::Color::Blue;
 }
 
 void EnemyTriangle::hit()

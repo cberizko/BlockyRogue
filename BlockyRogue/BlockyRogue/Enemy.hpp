@@ -21,6 +21,7 @@ class Enemy: public Character
 	protected:
 		Player* player;
 		EnemyManager* manager;
+        sf::Color color;
 };
 
 #endif
