@@ -10,6 +10,9 @@ EnemyCircle::EnemyCircle(sf::Vector2f v2f, Player* p, EnemyManager* e, float ran
     initShape(config["ENEMY_CIRCLE_STARTING_VERTICES"],config["ENEMY_CIRCLE_BASE_RADIUS"],
               config["ENEMY_CIRCLE_VARIANCE"],v2f);
 	initBoundingBox();
+    stats["maxHealth"] = config["ENEMY_CIRCLE_MAX_HEALTH"];
+    stats["health"] = config["ENEMY_CIRCLE_MAX_HEALTH"];
+    stats["moveSpeed"] = config["ENEMY_CIRCLE_MOVE_SPEED"];
 	color = sf::Color::Yellow;
 }
 
