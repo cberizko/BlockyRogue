@@ -4,13 +4,7 @@ EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float
 {
 	projectiles = proj;
 	coolDownTimer = 0;
-    initShape(3, 50, 1);
-    /*
-	for(int i = 0; i < shape.getVertexCount(); i++)
-	{
-		shape[i].color = sf::Color::Green;
-	}
-    */
+    initShape(3, 50, 1, v2f);
 	Character::initBoundingBox();
 }
 
