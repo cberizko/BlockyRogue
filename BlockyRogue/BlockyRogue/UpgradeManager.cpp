@@ -94,8 +94,8 @@ void UpgradeManager::readyRandomUpgrade()
             generateRandomUpgrade();
         }
     }
-    int enemyUpgrade = (rand() % availableEnemyUpgrades.size());
-    int playerUpgrade = (rand() % availablePlayerUpgrades.size());
+    int enemyUpgrade = (rand() % availableEnemyUpgrades.size()-1);
+    int playerUpgrade = (rand() % availablePlayerUpgrades.size()-1);
     
     int i = 0;
     for (std::list<Upgrade*>::iterator et = availableEnemyUpgrades.begin(); et != availableEnemyUpgrades.end();)

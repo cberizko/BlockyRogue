@@ -21,7 +21,7 @@ Player::Player():Character()
     stats["projectileDelay"] = config["PROJECTILE_DELAY"];
     stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
     stats["projectileRange"] = config["PROJECTILE_RANGE"];
-    stats["projectileDamage"] = 1;
+    stats["projectileDamage"] = config["PROJECTILE_DAMAGE"];
     //=============
     
 	Character::initBoundingBox();
