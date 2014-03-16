@@ -26,7 +26,7 @@ EnemyManager::~EnemyManager()
 
 void EnemyManager::upgradeMaxEnemies()
 {
-    maxEnemies += 10;
+    maxEnemies += config["ENEMYMANAGER_MAX_GROWTH"];
 }
 
 void EnemyManager::update(Player *player, float elapsedTime)

@@ -13,6 +13,11 @@ EnemyCircle::EnemyCircle(sf::Vector2f v2f, Player* p, EnemyManager* e, float ran
     stats["maxHealth"] = config["ENEMY_CIRCLE_MAX_HEALTH"];
     stats["health"] = config["ENEMY_CIRCLE_MAX_HEALTH"];
     stats["moveSpeed"] = config["ENEMY_CIRCLE_MOVE_SPEED"];
+    stats["projectileDelay"] = config["ENEMY_CIRCLE_PROJECTILE_DELAY"];
+    stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
+    stats["projectileRange"] = config["ENEMY_CIRCLE_PROJECTILE_RANGE"];
+    stats["projectileDamage"] = config["ENEMY_CIRCLE_PROJECTILE_DAMAGE"];
+    stats["meleeDamage"] = config["ENEMY_CIRCLE_MELEE_DAMAGE"];
 	color = sf::Color::Yellow;
 }
 
@@ -64,7 +69,7 @@ void EnemyCircle::update(float elapsed)
 		if(distanceToPlayer < aggroRange)
 		{
 			projectiles->push_back(new EnemyProjectile(boundingBox.getPosition() + sf::Vector2f(boundingBox.getSize().x / 2, boundingBox.getSize().y / 2),
-                                                       normalizedDir * (float)config["ENEMY_PROJECTILE_BASE_VELOCITY"]*(float)stats["projectileVelocity"], Projectile::NONE, player, this));
+                                                       normalizedDir * (float)config["ENEMY_CIRCLE_PROJECTILE_BASE_VELOCITY"]*(float)stats["projectileVelocity"], Projectile::NONE, player, this));
 			coolDownTimer = stats["projectileDelay"];
 		}
 	}
