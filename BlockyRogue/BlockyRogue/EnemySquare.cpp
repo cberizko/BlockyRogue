@@ -21,7 +21,8 @@ void EnemySquare::update(float elapsed)
 	sf::Vector2f direction = player->getPosition() - getPosition();
 	float distanceToPlayer = sqrt(direction.x * direction.x + direction.y * direction.y);
 	sf::FloatRect initalIntersection;
-	for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
+	
+    for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
 	{
 		if((*it)->getBounds().intersects(getBounds(), initalIntersection) && (*it) != this)
 		{
@@ -41,6 +42,8 @@ void EnemySquare::update(float elapsed)
 			}
 		}
 	}
+    
+    
 	//If inside aggro range.
 	if (abs(distanceToPlayer) < aggroRange)
 	{

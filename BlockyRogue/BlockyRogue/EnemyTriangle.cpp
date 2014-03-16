@@ -3,7 +3,6 @@
 EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float range, std::list<Projectile*> *proj) : Enemy(v2f, p, e, range)
 {
 	projectiles = proj;
-	coolDownTime = 2.f;
 	coolDownTimer = 0;
     initShape(3, 50, 1);
 	for(int i = 0; i < shape.getVertexCount(); i++)
@@ -46,8 +45,8 @@ void EnemyTriangle::update(float elapsed)
 		if(distanceToPlayer < aggroRange)
 		{
 			projectiles->push_back(new EnemyProjectile(boundingBox.getPosition() + sf::Vector2f(boundingBox.getSize().x / 2, boundingBox.getSize().y / 2), 
-				normalizedDir * (float)config["PROJECTILE_BASE_VELOCITY"], Projectile::NONE, player, this));
-			coolDownTimer = coolDownTime;
+				normalizedDir * (float)config["ENEMY_PROJECTILE_BASE_VELOCITY"]*(float)stats["projectileVelocity"], Projectile::NONE, player, this));
+			coolDownTimer = stats["projectileDelay"];
 		}
 	}
 	

@@ -60,28 +60,28 @@ void MainGameScene::update(float elapsedTime)
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
 			projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width, 
-				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
+				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::RIGHT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
 			projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x, 
-                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0) + *p->getVelocity(),
+                p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::LEFT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-                p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
+                p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]),
 				Projectile::UP, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             projectiles->push_back(new PlayerProjectile(sf::Vector2f(p->getPosition().x + p->getBounds().width / 2, 
-            p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]) + *p->getVelocity(),
+            p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]),
                 Projectile::DOWN, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
         }
@@ -147,7 +147,7 @@ void MainGameScene::update(float elapsedTime)
     std::list<Upgrade*> puta = upgradeManager->getPlayerUpgradesToApply();
     if(puta.size() > 0)
     {
-        playerUpgradeString = upgradeManager->displayPlayerUpgradesToApply();
+        playerUpgradeString << upgradeManager->displayPlayerUpgradesToApply();
     }else
     {
         playerUpgradeString << "";
@@ -158,7 +158,7 @@ void MainGameScene::update(float elapsedTime)
     std::list<Upgrade*> euta = upgradeManager->getEnemyUpgradesToApply();
     if(euta.size() > 0)
     {
-        enemyUpgradeString = upgradeManager->displayEnemyUpgradesToApply();
+        enemyUpgradeString << upgradeManager->displayEnemyUpgradesToApply();
     }else
     {
         enemyUpgradeString << "";
@@ -184,7 +184,7 @@ void MainGameScene::draw(sf::RenderWindow* window, sf::View view)
 	xStart *= 200;
 	yStart -= 1;
 	yStart *= 200;
-	std::cout << "X " << xStart << " Y " << yStart << std::endl;
+	//std::cout << "X " << xStart << " Y " << yStart << std::endl;
 	int xTimes = (view.getSize().x / 200) + 3;
 	int yTimes = (view.getSize().x / 200) + 3;
 

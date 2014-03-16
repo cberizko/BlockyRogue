@@ -45,8 +45,8 @@ public:
     void applyEnemyUpgrades(EnemyManager *em);
     void applyEnemyUpgrade(Enemy *e);
     
-    std::ostringstream displayPlayerUpgradesToApply();
-    std::ostringstream displayEnemyUpgradesToApply();
+    std::string displayPlayerUpgradesToApply();
+    std::string displayEnemyUpgradesToApply();
     
     //Readies a random upgrade to apply (would be called on level up)
     void readyRandomUpgrade();

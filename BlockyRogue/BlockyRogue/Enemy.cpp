@@ -14,10 +14,10 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
 
     stats["health"] = config["ENEMY_MAX_HEALTH"];
     stats["moveSpeed"] = config["ENEMY_MOVE_SPEED"];
-    stats["projectileDelay"] = config["PROJECTILE_DELAY"];
+    stats["projectileDelay"] = config["ENEMY_PROJECTILE_DELAY"];
     stats["projectileVelocity"] = 3; //TODO: Fix projectile velocity
-    stats["projectileRange"] = config["PROJECTILE_RANGE"];
-    stats["projectileDamage"] = config["PROJECTILE_DAMAGE"];
+    stats["projectileRange"] = config["ENEMY_PROJECTILE_RANGE"];
+    stats["projectileDamage"] = config["ENEMY_PROJECTILE_DAMAGE"];
 
 	bump = false;
 	aggroRange = range;

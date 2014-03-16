@@ -230,7 +230,7 @@ void UpgradeManager::loadUpgrades()
     configFile.close();
 }
 
-std::ostringstream UpgradeManager::displayPlayerUpgradesToApply()
+std::string UpgradeManager::displayPlayerUpgradesToApply()
 {
     std::ostringstream playerUpgradeString;
     playerUpgradeString << "Player Upgrades\n";
@@ -239,9 +239,9 @@ std::ostringstream UpgradeManager::displayPlayerUpgradesToApply()
         playerUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
         ++it;
     }
-    return playerUpgradeString;
+    return playerUpgradeString.str();
 }
-std::ostringstream UpgradeManager::displayEnemyUpgradesToApply()
+std::string UpgradeManager::displayEnemyUpgradesToApply()
 {
     std::ostringstream enemyUpgradeString;
     enemyUpgradeString << "Enemy Upgrades\n";
@@ -250,7 +250,7 @@ std::ostringstream UpgradeManager::displayEnemyUpgradesToApply()
         enemyUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
         ++it;
     }
-    return enemyUpgradeString;
+    return enemyUpgradeString.str();
 }
 
 

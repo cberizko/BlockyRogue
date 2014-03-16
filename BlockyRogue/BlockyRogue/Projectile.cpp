@@ -31,7 +31,7 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	sprite.setPosition(position + offset);
 	origin = position;
 
-
+/*
 	//If the player is moving backwards, set the bullet speed to normal.
 	//The velocity checks needs to calculated with the actual player and shot speed.
 	//velocity.x*=(owner->getStats()["projectileVelocity"]);
@@ -44,7 +44,7 @@ Projectile::Projectile(sf::Vector2f position, sf::Vector2f velocity, Projectile:
 	{velocity.y = config["PROJECTILE_BASE_VELOCITY"];}
 	else if(velocity.y == -(config["PROJECTILE_BASE_VELOCITY"] - owner->stats["moveSpeed"]))
 	{velocity.y = -config["PROJECTILE_BASE_VELOCITY"];}
-
+*/
 	setVelocity(velocity);
 
 	dead = false;
