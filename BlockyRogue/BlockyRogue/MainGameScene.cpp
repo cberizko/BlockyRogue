@@ -48,7 +48,7 @@ void MainGameScene::update(float elapsedTime)
     //==================================================================
     // Capture Input 
     //
-
+    
     if(timeOut > 0) //If shot is still on cool down
     {
         timeOut -= elapsedTime;
@@ -114,7 +114,7 @@ void MainGameScene::update(float elapsedTime)
     
     p->update(elapsedTime);
     enemies->update(p, elapsedTime);
-	if(enemies->getEnemiesKilled() >= enemyKillsToLevel)
+	if(enemies->getEnemiesKilled() >= enemyKillsToLevel || sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 	{
         enemies->setEnemiesKilled(enemyKillsToLevel);
         
@@ -145,7 +145,7 @@ void MainGameScene::update(float elapsedTime)
     std::list<Upgrade*> puta = upgradeManager->getPlayerUpgradesToApply();
     if(puta.size() > 0)
     {
-	playerUpgradeString << "Player Upgrade: " << ((Upgrade*)puta.front())->getType() << " " << ((Upgrade*)puta.front())->getAmount();
+        playerUpgradeString = upgradeManager->displayPlayerUpgradesToApply();
     }else
     {
         playerUpgradeString << "";
@@ -156,7 +156,7 @@ void MainGameScene::update(float elapsedTime)
     std::list<Upgrade*> euta = upgradeManager->getEnemyUpgradesToApply();
     if(euta.size() > 0)
     {
-	enemyUpgradeString << "Enemy Upgrade: " << ((Upgrade*)euta.front())->getType() << " " << ((Upgrade*)euta.front())->getAmount();
+        enemyUpgradeString = upgradeManager->displayEnemyUpgradesToApply();
     }else
     {
         enemyUpgradeString << "";

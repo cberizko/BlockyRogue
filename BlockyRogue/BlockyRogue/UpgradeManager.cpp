@@ -87,6 +87,10 @@ void UpgradeManager::applyEnemyUpgrade(Enemy *e)
 //Readies a random upgrade for both the player and enemies to be applied
 void UpgradeManager::readyRandomUpgrade()
 {
+    int r = 1;
+    while(r >= 1)
+    {
+        r--;
     if(availablePlayerUpgrades.size() <= 1 || availableEnemyUpgrades.size() <= 1)
     {
         for(int i = 0 ; i < rand()%20; i++)
@@ -94,8 +98,8 @@ void UpgradeManager::readyRandomUpgrade()
             generateRandomUpgrade();
         }
     }
-    int enemyUpgrade = (rand() % availableEnemyUpgrades.size()-1);
-    int playerUpgrade = (rand() % availablePlayerUpgrades.size()-1);
+    int enemyUpgrade = (rand() % availableEnemyUpgrades.size());
+    int playerUpgrade = (rand() % availablePlayerUpgrades.size());
     
     int i = 0;
     for (std::list<Upgrade*>::iterator et = availableEnemyUpgrades.begin(); et != availableEnemyUpgrades.end();)
@@ -126,6 +130,9 @@ void UpgradeManager::readyRandomUpgrade()
             ++it;
             i++;
         }
+    }
+        r = (rand()%100);
+        if(r >= 25){ r = 0; }
     }
 }
 
@@ -221,6 +228,29 @@ void UpgradeManager::loadUpgrades()
         }
     }
     configFile.close();
+}
+
+std::ostringstream UpgradeManager::displayPlayerUpgradesToApply()
+{
+    std::ostringstream playerUpgradeString;
+    playerUpgradeString << "Player Upgrades\n";
+    for (std::list<Upgrade*>::iterator it = playerUpgradesToApply.begin(); it != playerUpgradesToApply.end();)
+    {
+        playerUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
+        ++it;
+    }
+    return playerUpgradeString;
+}
+std::ostringstream UpgradeManager::displayEnemyUpgradesToApply()
+{
+    std::ostringstream enemyUpgradeString;
+    enemyUpgradeString << "Enemy Upgrades\n";
+    for (std::list<Upgrade*>::iterator it = enemyUpgradesToApply.begin(); it != enemyUpgradesToApply.end();)
+    {
+        enemyUpgradeString << (*(*it)).getType() << " " << (*(*it)).getMod() << " " << (*(*it)).getAmount() << "\n";
+        ++it;
+    }
+    return enemyUpgradeString;
 }
 
 
