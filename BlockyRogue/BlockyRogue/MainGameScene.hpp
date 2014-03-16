@@ -14,6 +14,7 @@
 #include <list>
 #include "EnemyManager.hpp"
 #include "UpgradeManager.hpp"
+#include <SFML/Audio.hpp>
 
 
 class MainGameScene: Scene
@@ -39,6 +40,8 @@ class MainGameScene: Scene
         sf::Clock clock;
 		sf::Sprite background;
 		sf::Texture backgroundTexture;
+		sf::Sound sound;
+		sf::SoundBuffer playerShootSound;
 };
 
 #endif

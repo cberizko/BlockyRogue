@@ -3,6 +3,7 @@
 #include "Character.hpp"
 #include "SmartShape.hpp"
 #include <cmath>
+#include <SFML/Audio.hpp>
 
 
 class Player: public Character
@@ -18,6 +19,9 @@ class Player: public Character
 		sf::Vector2f* hitDirection;
 		float knockBackTime;
 		float knockBackTimer;
+		sf::Sound sound;
+		sf::SoundBuffer hurtSound;
+		sf::SoundBuffer deadSound;
 };
 
 #endif

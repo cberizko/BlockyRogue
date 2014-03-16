@@ -4,6 +4,7 @@
 #include "Enemy.hpp"
 #include <iostream>
 #include <cmath>
+#include <SFML/Audio.hpp>
 class EnemyManager;
 class EnemySquare : public Enemy
 {

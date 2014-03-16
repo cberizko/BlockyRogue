@@ -16,6 +16,10 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 		background.setTexture(backgroundTexture);
 		background.setScale(.25f,.25f);
     }
+	if(!playerShootSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player shoot.wav"))
+	{
+        std::cout << "ERROR unable to load sound Player shoot.wav in MainGameScene.cpp."<< std::endl;
+    }
 
 	enemyKillCounterText.setFont(blockyFont);
 	enemyKillCounterText.setCharacterSize(20);
@@ -63,6 +67,8 @@ void MainGameScene::update(float elapsedTime)
 				p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::RIGHT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
+			sound.setBuffer(playerShootSound);
+			sound.play();
         } 
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
@@ -70,6 +76,8 @@ void MainGameScene::update(float elapsedTime)
                 p->getPosition().y + p->getBounds().height / 2), sf::Vector2f(-config["PROJECTILE_BASE_VELOCITY"], 0),
 				Projectile::LEFT, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
+			sound.setBuffer(playerShootSound);
+			sound.play();
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
@@ -77,6 +85,8 @@ void MainGameScene::update(float elapsedTime)
                 p->getPosition().y), sf::Vector2f(0, -config["PROJECTILE_BASE_VELOCITY"]),
 				Projectile::UP, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
+			sound.setBuffer(playerShootSound);
+			sound.play();
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
@@ -84,6 +94,8 @@ void MainGameScene::update(float elapsedTime)
             p->getPosition().y + p->getBounds().height), sf::Vector2f(0, config["PROJECTILE_BASE_VELOCITY"]),
                 Projectile::DOWN, enemies, p));
             timeOut = p->getStats()["projectileDelay"];
+			sound.setBuffer(playerShootSound);
+			sound.play();
         }
     }
 

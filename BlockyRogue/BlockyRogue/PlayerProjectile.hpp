@@ -3,6 +3,7 @@
 
 #include "Projectile.hpp"
 #include "EnemyManager.hpp"
+#include <SFML/Audio.hpp>
 
 class PlayerProjectile : public Projectile
 {
