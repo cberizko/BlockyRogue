@@ -40,6 +40,8 @@
 		5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */; };
 		5BD1660B18D57C190035C7B7 /* SmartPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660718D57C190035C7B7 /* SmartPoint.cpp */; };
 		5BD1660C18D57C190035C7B7 /* SmartShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660918D57C190035C7B7 /* SmartShape.cpp */; };
+		5BD1660E18D597360035C7B7 /* TitleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660D18D597360035C7B7 /* TitleBackground.png */; };
+		5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660F18D599C50035C7B7 /* GameOverBackground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		5BD1660818D57C190035C7B7 /* SmartPoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SmartPoint.hpp; path = BlockyRogue/SmartPoint.hpp; sourceTree = "<group>"; };
 		5BD1660918D57C190035C7B7 /* SmartShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartShape.cpp; path = BlockyRogue/SmartShape.cpp; sourceTree = "<group>"; };
 		5BD1660A18D57C190035C7B7 /* SmartShape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SmartShape.hpp; path = BlockyRogue/SmartShape.hpp; sourceTree = "<group>"; };
+		5BD1660D18D597360035C7B7 /* TitleBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleBackground.png; sourceTree = "<group>"; };
+		5BD1660F18D599C50035C7B7 /* GameOverBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverBackground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660F18D599C50035C7B7 /* GameOverBackground.png */,
+				5BD1660D18D597360035C7B7 /* TitleBackground.png */,
 				5BD1660218D53EF50035C7B7 /* Background.png */,
 				5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */,
 				5B928A9B18A9143B00DF7566 /* ProjectileDeath.png */,
@@ -339,8 +345,10 @@
 				5B095C3D188B33C60058FB67 /* Enemy.png in Resources */,
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
+				5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
 				5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */,
+				5BD1660E18D597360035C7B7 /* TitleBackground.png in Resources */,
 				5B928A9C18A9143B00DF7566 /* ProjectileDeath.png in Resources */,
 				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
 				5BD1660318D53EF50035C7B7 /* Background.png in Resources */,
