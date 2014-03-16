@@ -10,6 +10,7 @@ class SmartShape
     public:
         SmartShape(int verts, int radius, int variance);
         SmartShape(int verts, int radius, int variance, sf::Vector2f p);
+        ~SmartShape();
 
         void update(sf::Vector2f moveBy);
         sf::VertexArray getShape(sf::Color c);

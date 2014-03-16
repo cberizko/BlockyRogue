@@ -40,6 +40,15 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
     }
 }
 
+SmartShape::~SmartShape()
+{
+    while(!points.empty())
+    {
+        delete points.back();
+        points.pop_back();
+    }
+}
+
 void SmartShape::addPoint()
 {
     int seedPoint = (rand()%points.size());
