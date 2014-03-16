@@ -43,6 +43,7 @@ class MainGameScene: Scene
 		sf::Sound sound;
 		sf::SoundBuffer playerShootSound;
         sf::SoundBuffer upgradeSound;
+		sf::Music music;
 };
 
 #endif

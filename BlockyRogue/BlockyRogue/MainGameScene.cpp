@@ -16,6 +16,11 @@ MainGameScene::MainGameScene(): Scene("Main Game Scene")
 		background.setTexture(backgroundTexture);
 		background.setScale(.25f,.25f);
     }
+	if(!music.openFromFile(getResourcePath("Assets/Sounds/") + "Trance - Candy Dance.wav"))
+	{
+		std::cout << "ERROR unable to load music Trance - Candy Dance.wav in MainGameScene.cpp." << std::endl;
+	}
+	music.play();
 	if(!playerShootSound.loadFromFile(getResourcePath("Assets/Sounds/")+"Player shoot.wav"))
 	{
         std::cout << "ERROR unable to load sound Player shoot.wav in MainGameScene.cpp."<< std::endl;
