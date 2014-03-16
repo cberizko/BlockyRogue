@@ -13,7 +13,7 @@ class Player: public Character
         void update(float elapsedTime);
         void draw(sf::RenderWindow *window);
         sf::Vector2f getPosition();
-		void hit(sf::Vector2f direction);
+		void hit(sf::Vector2f direction, float damage);
 	protected:
 		sf::Vector2f* hitDirection;
 		float knockBackTime;
