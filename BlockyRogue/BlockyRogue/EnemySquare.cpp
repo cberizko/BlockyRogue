@@ -112,6 +112,7 @@ void EnemySquare::update(float elapsed)
 
 		if(!bump && player->getBounds().intersects(getBounds()))
 		{
+            player->stats["health"] -= stats["projectileDamage"]/20;
 			player->hit(movement);
 		}
 

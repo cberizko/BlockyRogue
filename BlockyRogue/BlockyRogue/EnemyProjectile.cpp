@@ -16,11 +16,12 @@ void EnemyProjectile::update(float elapsed)
 	sprite.move(velocity.x * elapsed, velocity.y * elapsed);
 	sf::Vector2f moved = sprite.getPosition() - origin;
 	float distance = sqrtf(moved.x * moved.x + moved.y * moved.y);
-	if(distance >= config["PROJECTILE_RANGE"])
+	if(distance >= owner->stats["projectileRange"])
 		dead = true;
 	if(getBounds().intersects(player->getBounds()))
 	{
 		float magnitude = sqrtf(velocity.x * velocity.x + velocity.y * velocity.y);
+        player->stats["health"] -= owner->stats["projectileDamage"];
 		player->hit(velocity / magnitude);
 		dead = true;
 	}

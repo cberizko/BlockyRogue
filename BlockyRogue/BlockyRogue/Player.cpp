@@ -35,7 +35,6 @@ void Player::hit(sf::Vector2f direction)
 	if(knockBackTimer <= 0)
 	{
 		knockBackTimer = knockBackTime;
-		stats["health"] -= 1;
 		hitDirection->x = direction.x;
 		hitDirection->y = direction.y;
 	}

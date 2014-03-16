@@ -37,6 +37,7 @@
 		5BB7E12718B296A800680237 /* Upgrade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7E12518B296A800680237 /* Upgrade.cpp */; };
 		5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */; };
 		5BD1660318D53EF50035C7B7 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1660218D53EF50035C7B7 /* Background.png */; };
+		5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,8 @@
 		5BB7E12618B296A800680237 /* Upgrade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Upgrade.hpp; path = BlockyRogue/Upgrade.hpp; sourceTree = "<group>"; };
 		5BD1660018D53EEE0035C7B7 /* BackgroundNoStuff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundNoStuff.png; sourceTree = "<group>"; };
 		5BD1660218D53EF50035C7B7 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverScreenScene.cpp; path = BlockyRogue/GameOverScreenScene.cpp; sourceTree = "<group>"; };
+		5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GameOverScreenScene.hpp; path = BlockyRogue/GameOverScreenScene.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 		5B12BDF7188CFC3C006D8C8E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1660418D55F7F0035C7B7 /* GameOverScreenScene.cpp */,
+				5BD1660518D55F7F0035C7B7 /* GameOverScreenScene.hpp */,
 				5B928AA618A9148800DF7566 /* TitleScreenScene.cpp */,
 				5B928AA718A9148800DF7566 /* TitleScreenScene.hpp */,
 				5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */,
@@ -357,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD1660618D55F7F0035C7B7 /* GameOverScreenScene.cpp in Sources */,
 				5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */,
 				5BB7E12418B2956F00680237 /* UpgradeManager.cpp in Sources */,
 				5B095BFC188B20E30058FB67 /* main.cpp in Sources */,
