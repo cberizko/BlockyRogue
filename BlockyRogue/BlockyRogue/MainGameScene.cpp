@@ -212,7 +212,6 @@ void MainGameScene::update(float elapsedTime)
             upgradeSound.setBuffer(*soundManager.getSoundBuffer("upgrade"));
             upgradeSound.play();
             selectUpgrade = false;
-            p->shape->removePoint();
             enemies->upgradeMaxEnemies();
         }
         //Reject Upgrade
