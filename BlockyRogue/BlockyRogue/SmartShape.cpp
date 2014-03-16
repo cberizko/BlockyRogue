@@ -63,6 +63,11 @@ void SmartShape::addPoint()
     std::sort(points.begin(), points.end(), SmartShape::sortPoints);
 }
 
+void SmartShape::removePoint()
+{
+    points.pop_back();
+}
+
 void SmartShape::bouncePoints()
 {
     for(int i=0; i < points.size(); i++)

@@ -17,6 +17,7 @@ class SmartShape
 
         std::vector<SmartPoint*> points;
         void addPoint();
+        void removePoint();
         void bouncePoints();
 
         bool static sortPoints(SmartPoint *a, SmartPoint *b);

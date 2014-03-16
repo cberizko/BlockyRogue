@@ -164,6 +164,8 @@ void MainGameScene::update(float elapsedTime)
             sound.setBuffer(upgradeSound);
             sound.play();
             selectUpgrade = false;
+            p->shape->removePoint();
+
         }
         //Reject Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
