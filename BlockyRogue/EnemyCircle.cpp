@@ -1,33 +1,33 @@
-#include "EnemySquare.hpp"
+#include "EnemyCircle.hpp"
 #include "EnemyManager.hpp"
 
-EnemySquare::EnemySquare(sf::Vector2f v2f, Player* p, EnemyManager* e, float range) : Enemy(v2f, p, e, range)
+EnemyCircle::EnemyCircle(sf::Vector2f v2f, Player* p, EnemyManager* e, float range, std::list<Projectile*> *proj) : Enemy(v2f, p, e, range)
 {
+	projectiles = proj;
+	coolDownTimer = 0;
 	knockFrame = 0;
 	velocity = new sf::Vector2f();
-    initShape(config["ENEMY_SHAPE_STARTING_VERTICES"],
-              config["ENEMY_SHAPE_BASE_RADIUS"],
-              config["ENEMY_SHAPE_VARIANCE"],
-              v2f);
+    initShape(config["ENEMY_CIRCLE_STARTING_VERTICES"],config["ENEMY_CIRCLE_BASE_RADIUS"],
+              config["ENEMY_CIRCLE_VARIANCE"],v2f);
 	initBoundingBox();
-	
+	color = sf::Color::Yellow;
 }
 
-EnemySquare::~EnemySquare()
+EnemyCircle::~EnemyCircle()
 {
 }
 
-void EnemySquare::hit()
+void EnemyCircle::hit()
 {
-	sound.setBuffer(*soundManager.getSoundBuffer("squareHurt"));
+	sound.setBuffer(*soundManager.getSoundBuffer("circleHurt"));
 	sound.play();
 }
 
-void EnemySquare::update(float elapsed)
+void EnemyCircle::update(float elapsed)
 {
     sf::Vector2f direction = player->getPosition() - getPosition();
 	float distanceToPlayer = abs(sqrt(direction.x * direction.x + direction.y * direction.y));
-
+    
 	velocity->x = 0;
 	velocity->y = 0;
 	sf::FloatRect initalIntersection;
@@ -46,22 +46,37 @@ void EnemySquare::update(float elapsed)
 			else
 				moveY = -initalIntersection.height;
 			boundingBox.move(moveX, moveY);
-
+            
             shape->update(sf::Vector2f(moveX, moveY));
 		}
     }
-
+    
+    if(coolDownTimer > 0)
+		coolDownTimer -= elapsed;
+	else
+	{
+		sf::Vector2f direction = player->getPosition() - getPosition();
+		float distanceToPlayer = sqrt(direction.x * direction.x + direction.y * direction.y);
+		sf::Vector2f normalizedDir = direction / distanceToPlayer;
+		if(distanceToPlayer < aggroRange)
+		{
+			projectiles->push_back(new EnemyProjectile(boundingBox.getPosition() + sf::Vector2f(boundingBox.getSize().x / 2, boundingBox.getSize().y / 2),
+                                                       normalizedDir * (float)config["ENEMY_PROJECTILE_BASE_VELOCITY"]*(float)stats["projectileVelocity"], Projectile::NONE, player, this));
+			coolDownTimer = stats["projectileDelay"];
+		}
+	}
+    
 	//If inside aggro range.
 	if (distanceToPlayer < aggroRange)
 	{
 		float magnitude = distanceToPlayer;
 		direction.x /= magnitude;
 		direction.y /= magnitude;
-	
+        
         velocity->x = direction.x * stats["moveSpeed"];
         velocity->y = direction.y * stats["moveSpeed"];
         //shape->update(sf::Vector2f(direction.x * moveSpeed*elapsed, direction.y * moveSpeed * elapsed));
-
+        
 		if (bump)
 		{
 			velocity->x = -direction.x * stats["moveSpeed"];
@@ -72,9 +87,9 @@ void EnemySquare::update(float elapsed)
 			velocity->x = direction.x * stats["moveSpeed"];
 			velocity->y = direction.y * stats["moveSpeed"];
 		}
-
+        
 		boundingBox.move(*velocity * elapsed);
-
+        
 		sf::Vector2f movement;
 		movement.x = velocity->x * elapsed;
 		movement.y = velocity->y * elapsed;
@@ -120,16 +135,16 @@ void EnemySquare::update(float elapsed)
 			}
 		}
         shape->update(sf::Vector2f(movement.x, movement.y));
-
+        
 		if( player->getBounds().intersects(getBounds()))
 		{
 			player->hit(movement, (float)(stats["meleeDamage"]));
 		}
-
+        
 		if (bump == true && knockFrame == 0)
 		{	//How many frames the knockback should last.
 			knockFrame = 100;}
-
+        
 		if (knockFrame == 0)
 		{		}
 		else if (knockFrame != 1)

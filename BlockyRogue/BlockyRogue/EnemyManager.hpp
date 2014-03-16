@@ -35,6 +35,7 @@ public:
     void spawn(Player *player);
     std::list<Enemy*>* getEnemyList();
 	std::list<Projectile*> *projectiles;
+    void upgradeMaxEnemies();
 };
 
 #endif

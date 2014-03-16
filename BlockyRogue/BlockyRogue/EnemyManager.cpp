@@ -2,6 +2,7 @@
 #include "UpgradeManager.hpp"
 #include "EnemySquare.hpp"
 #include "EnemyTriangle.hpp"
+#include "EnemyCircle.hpp"
 #include <iostream>
 
 EnemyManager::EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj)
@@ -21,6 +22,11 @@ EnemyManager::EnemyManager(UpgradeManager *um, std::list<Projectile*> *proj)
 EnemyManager::~EnemyManager()
 {
     while(!enemies.empty()) delete enemies.front(), enemies.pop_front();
+}
+
+void EnemyManager::upgradeMaxEnemies()
+{
+    maxEnemies += 10;
 }
 
 void EnemyManager::update(Player *player, float elapsedTime)
@@ -56,11 +62,13 @@ void EnemyManager::draw(sf::RenderWindow* window)
 void EnemyManager::addEnemy(sf::Vector2f v2f, Player* p)
 {
     //enemies.push_back(new EnemyTriangle(v2f, p, config["ENEMY_SQUARE_AGGRO_RANGE"]));
-	int i = std::rand() % 2;
+	int i = std::rand() % 3;
 	if( i == 0)
 		enemies.push_back(new EnemyTriangle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
-	else
-		enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
+	else if( i == 1)
+		enemies.push_back(new EnemyCircle(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"], projectiles));
+    else
+        enemies.push_back(new EnemySquare(v2f, p, this, config["ENEMY_SQUARE_AGGRO_RANGE"]));
     upgradeManager->applyEnemyUpgrade(enemies.back());
 }
 
@@ -124,7 +132,7 @@ void EnemyManager::spawn(Player *player)
             x = (int)((sWidth/2)*despawnRange)*2;
             y = (int)((sHeight/2)*despawnRange)*2;
             spawnX = ((rand() % x)+viewX)-(x/2);
-            spawnY = ((rand() % y)+viewY)-(x/2);
+            spawnY = ((rand() % y)+viewY)-(y/2);
         }
 
         addEnemy(sf::Vector2f(spawnX, spawnY), player);

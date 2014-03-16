@@ -18,9 +18,10 @@ SmartShape::SmartShape(int verts, int radius, int variance)
         //for a circle with origin (j, k) and radius r:
         //x(t) = r cos(t) + j       y(t) = r sin(t) + k
 
-        radius += (rand()%10)-5;
-
-        int radius_offset = std::rand()%variance; 
+        //radius += (rand()%10)-5;
+        int radius_offset = 0;
+        if(variance > 0)
+            radius_offset = std::rand()%variance;
         double location = i*((2*PI)/verts);
 
         sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location)
@@ -40,8 +41,10 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
         //for a circle with origin (j, k) and radius r:
         //x(t) = r cos(t) + j       y(t) = r sin(t) + k
 
-        radius += (rand()%10)-5;
-        int radius_offset = std::rand()%variance; 
+        //radius += (rand()%10)-5;
+        int radius_offset = 0;
+        if(variance > 0)
+            radius_offset = std::rand()%variance;
         double location = i*((2*PI)/verts);
 
         sf::Vector2f pointOffset = sf::Vector2f((radius+radius_offset)*std::cos(location) 

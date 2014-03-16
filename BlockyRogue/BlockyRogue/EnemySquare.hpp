@@ -16,7 +16,6 @@ public:
 	void hit();
 private:
 	sf::Sound sound;
-	sf::SoundBuffer hurtSound;
 };
 
 #endif

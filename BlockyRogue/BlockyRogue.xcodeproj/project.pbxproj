@@ -53,6 +53,9 @@
 		5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */; };
 		5BD1662D18D5B6710035C7B7 /* Trance - Candy Dance.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */; };
 		5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662E18D5B6CF0035C7B7 /* config.ini */; };
+		5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */; };
+		5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1663318D5CE180035C7B7 /* TriProjectile.png */; };
+		5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +130,11 @@
 		5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "EnemyTriangle hurt.wav"; sourceTree = "<group>"; };
 		5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Trance - Candy Dance.wav"; sourceTree = "<group>"; };
 		5BD1662E18D5B6CF0035C7B7 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
+		5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
+		5BD1663318D5CE180035C7B7 /* TriProjectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TriProjectile.png; sourceTree = "<group>"; };
+		5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyCircle.cpp; sourceTree = "<group>"; };
+		5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyCircle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 		5B095C0D188B21540058FB67 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1663318D5CE180035C7B7 /* TriProjectile.png */,
 				5BD1660F18D599C50035C7B7 /* GameOverBackground.png */,
 				5BD1660D18D597360035C7B7 /* TitleBackground.png */,
 				5BD1660218D53EF50035C7B7 /* Background.png */,
@@ -205,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				5B095BFB188B20E30058FB67 /* main.cpp */,
+				5BD1663018D5C22F0035C7B7 /* SoundManager.cpp */,
+				5BD1663118D5C22F0035C7B7 /* SoundManager.hpp */,
 				5BB7E12818B296D600680237 /* Upgrades */,
 				5B12BDF6188CFBFB006D8C8E /* Objects */,
 				5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */,
@@ -243,6 +254,8 @@
 				5B12BDE3188CFBAB006D8C8E /* EnemyManager.hpp */,
 				5B928AA318A9147300DF7566 /* EnemySquare.cpp */,
 				5B928AA418A9147300DF7566 /* EnemySquare.hpp */,
+				5BD1663518D5D5CC0035C7B7 /* EnemyCircle.cpp */,
+				5BD1663618D5D5CC0035C7B7 /* EnemyCircle.hpp */,
 			);
 			name = Enemy;
 			sourceTree = "<group>";
@@ -387,6 +400,7 @@
 				5BD1661E18D59A170035C7B7 /* Enemy shoot.wav in Resources */,
 				5B928A9F18A9144300DF7566 /* blocks.ttf in Resources */,
 				5B095C28188B21540058FB67 /* icon.png in Resources */,
+				5BD1663418D5CE180035C7B7 /* TriProjectile.png in Resources */,
 				5BD1662918D5A6F70035C7B7 /* Enemy Circle hurt.wav in Resources */,
 				5BD1661D18D59A170035C7B7 /* Enemy death.wav in Resources */,
 				5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */,
@@ -445,8 +459,10 @@
 				5B095BF9188B20E30058FB67 /* ResourcePath.mm in Sources */,
 				5BB7E11D18B2948400680237 /* EnemyTriangle.cpp in Sources */,
 				5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */,
+				5BD1663218D5C22F0035C7B7 /* SoundManager.cpp in Sources */,
 				5B12BDF4188CFBAB006D8C8E /* Scene.cpp in Sources */,
 				5B928AA818A9148800DF7566 /* TitleScreenScene.cpp in Sources */,
+				5BD1663718D5D5CC0035C7B7 /* EnemyCircle.cpp in Sources */,
 				5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */,
 				5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */,
 				5B095C2C188B21540058FB67 /* Player.cpp in Sources */,
