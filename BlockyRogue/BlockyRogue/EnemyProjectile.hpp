@@ -14,6 +14,8 @@ class EnemyProjectile : public Projectile
 		void update(float elapsed);
 	private:
 		Player *player;
+        double range;
+        double damage;
 };
 
 #endif
