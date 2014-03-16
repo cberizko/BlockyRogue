@@ -41,9 +41,11 @@ class MainGameScene: Scene
 		sf::Sprite background;
 		sf::Texture backgroundTexture;
 		sf::Sound sound;
+        sf::Sound sUpgrade;
 		sf::SoundBuffer playerShootSound;
         sf::SoundBuffer upgradeSound;
 		sf::Music music;
+        bool selectUpgrade;
 };
 
 #endif

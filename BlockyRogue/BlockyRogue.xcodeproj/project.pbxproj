@@ -16,7 +16,6 @@
 		5B095C33188B29410058FB67 /* getResourcePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C31188B29410058FB67 /* getResourcePath.cpp */; };
 		5B095C3B188B33BB0058FB67 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B095C39188B33BB0058FB67 /* Enemy.cpp */; };
 		5B095C3D188B33C60058FB67 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B095C3C188B33C60058FB67 /* Enemy.png */; };
-		5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5B12BDDE188CFBAB006D8C8E /* config.ini */; };
 		5B12BDF0188CFBAB006D8C8E /* ConfigurationHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */; };
 		5B12BDF1188CFBAB006D8C8E /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDE2188CFBAB006D8C8E /* EnemyManager.cpp */; };
 		5B12BDF2188CFBAB006D8C8E /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B12BDE6188CFBAB006D8C8E /* MainGameScene.cpp */; };
@@ -52,6 +51,8 @@
 		5BD1662918D5A6F70035C7B7 /* Enemy Circle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */; };
 		5BD1662A18D5A6F70035C7B7 /* Enemy Square hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */; };
 		5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */; };
+		5BD1662D18D5B6710035C7B7 /* Trance - Candy Dance.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */; };
+		5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1662E18D5B6CF0035C7B7 /* config.ini */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +69,6 @@
 		5B095C31188B29410058FB67 /* getResourcePath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = getResourcePath.cpp; path = BlockyRogue/getResourcePath.cpp; sourceTree = "<group>"; };
 		5B095C39188B33BB0058FB67 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = BlockyRogue/Enemy.cpp; sourceTree = "<group>"; };
 		5B095C3C188B33C60058FB67 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
-		5B12BDDE188CFBAB006D8C8E /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
 		5B12BDDF188CFBAB006D8C8E /* ConfigurationHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConfigurationHandler.cpp; path = BlockyRogue/ConfigurationHandler.cpp; sourceTree = "<group>"; };
 		5B12BDE0188CFBAB006D8C8E /* ConfigurationHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ConfigurationHandler.hpp; path = BlockyRogue/ConfigurationHandler.hpp; sourceTree = "<group>"; };
 		5B12BDE1188CFBAB006D8C8E /* Enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Enemy.hpp; path = BlockyRogue/Enemy.hpp; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 		5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy Circle hurt.wav"; sourceTree = "<group>"; };
 		5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Enemy Square hurt.wav"; sourceTree = "<group>"; };
 		5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "EnemyTriangle hurt.wav"; sourceTree = "<group>"; };
+		5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Trance - Candy Dance.wav"; sourceTree = "<group>"; };
+		5BD1662E18D5B6CF0035C7B7 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +168,8 @@
 		5B095BFD188B20E30058FB67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1662E18D5B6CF0035C7B7 /* config.ini */,
 				5B5D359018C4A9F7004B02FD /* upgrades.ini */,
-				5B12BDDE188CFBAB006D8C8E /* config.ini */,
 				5B095C0C188B21540058FB67 /* Assets */,
 			);
 			name = Resources;
@@ -314,6 +316,7 @@
 		5BD1661118D59A170035C7B7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				5BD1662C18D5B6710035C7B7 /* Trance - Candy Dance.wav */,
 				5BD1662618D5A6F70035C7B7 /* Enemy Circle hurt.wav */,
 				5BD1662718D5A6F70035C7B7 /* Enemy Square hurt.wav */,
 				5BD1662818D5A6F70035C7B7 /* EnemyTriangle hurt.wav */,
@@ -389,6 +392,7 @@
 				5BD1661018D599C50035C7B7 /* GameOverBackground.png in Resources */,
 				5B12BDF9188CFC76006D8C8E /* Projectile.png in Resources */,
 				5BD1660118D53EEE0035C7B7 /* BackgroundNoStuff.png in Resources */,
+				5BD1662F18D5B6CF0035C7B7 /* config.ini in Resources */,
 				5BD1662318D59A170035C7B7 /* Player shoot.wav in Resources */,
 				5BD1662218D59A170035C7B7 /* Player Hurt.wav in Resources */,
 				5BD1660E18D597360035C7B7 /* TitleBackground.png in Resources */,
@@ -398,9 +402,9 @@
 				5BD1662B18D5A6F70035C7B7 /* EnemyTriangle hurt.wav in Resources */,
 				5B5D359118C4A9F7004B02FD /* upgrades.ini in Resources */,
 				5BD1662418D59A170035C7B7 /* Select.wav in Resources */,
+				5BD1662D18D5B6710035C7B7 /* Trance - Candy Dance.wav in Resources */,
 				5BD1662A18D5A6F70035C7B7 /* Enemy Square hurt.wav in Resources */,
 				5BD1660318D53EF50035C7B7 /* Background.png in Resources */,
-				5B12BDEF188CFBAB006D8C8E /* config.ini in Resources */,
 				5B095C21188B21540058FB67 /* Player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

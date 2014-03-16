@@ -4,7 +4,7 @@
 
 Player::Player():Character()
 {
-	knockBackTime = .5f;
+	knockBackTime = config["PLAYER_KNOCKBACK_TIME"];
 	hitDirection = new sf::Vector2f();
 	velocity = new sf::Vector2f();
     //Creates the players dynamic shape
@@ -78,7 +78,7 @@ void Player::update(float elapsedTime)
     		shape[i].position += *hitDirection * (float)stats["moveSpeed"] * elapsedTime;
 		}
         */
-		shape->update(*hitDirection * (float)stats["moveSpeed"]*elapsedTime);
+		shape->update(*hitDirection * 260.0f*elapsedTime);
 	}
 	else
 	{
