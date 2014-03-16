@@ -11,6 +11,7 @@ Enemy::Enemy(sf::Vector2f v2f, Player* p, EnemyManager* e, float range):Characte
 	manager = e;
     setPosition(v2f);
 
+    stats["maxHealth"] = config["ENEMY_MAX_HEALTH"];
     stats["health"] = config["ENEMY_MAX_HEALTH"];
     stats["moveSpeed"] = config["ENEMY_MOVE_SPEED"];
     stats["projectileDelay"] = config["ENEMY_PROJECTILE_DELAY"];
@@ -28,6 +29,8 @@ Enemy::~Enemy()
 
 void Enemy::update(float elapsed)
 {
+    
+    Character::update(elapsed);
 /*
 	Character::update(elapsed, bump);
 
@@ -41,7 +44,7 @@ void Enemy::update(float elapsed)
 void Enemy::draw(sf::RenderWindow* window)
 {
 	window->draw(boundingBox);
-    window->draw(shape->getShape(sf::Color(0,255*(stats["health"]/config["ENEMY_MAX_HEALTH"]),0)));
+    window->draw(shape->getShape(sf::Color(0,255*(stats["health"]/stats["maxHealth"]),0)));
 }
 
 void Enemy::setHealth(double h)

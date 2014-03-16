@@ -57,11 +57,14 @@ sf::FloatRect Character::getBounds()
 
 void Character::update(float elapsed)
 {
+    if(stats["health"] > stats["maxHealth"])
+        stats["maxHealth"] = stats["health"];
 }
 
 //Changing the enemy color becauase it was bumped
 void Character::update(float elapsed, bool bump)
 {
+    update(elapsed);
     //TODO: Bump Color Change Here
 }
 

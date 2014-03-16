@@ -15,6 +15,7 @@ Player::Player():Character()
 	initBoundingBox();
     
     //Stat Stuff
+    stats["maxHealth"] = config["PLAYER_MAX_HEALTH"];
     stats["health"] = config["PLAYER_MAX_HEALTH"]; //Actually current health
     stats["moveSpeed"] = config["PLAYER_MOVE_SPEED"];
     stats["projectileDelay"] = config["PROJECTILE_DELAY"];
@@ -89,7 +90,7 @@ void Player::update(float elapsedTime)
 	}
 	boundingBox.setPosition(boundingBox.getPosition() + *velocity * elapsedTime);
     shape->update(moveBy);
-    
+    Character::update(elapsedTime);
 }
 
 sf::Vector2f Player::getPosition()

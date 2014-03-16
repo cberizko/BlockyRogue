@@ -10,6 +10,7 @@ EnemyTriangle::EnemyTriangle(sf::Vector2f v2f, Player* p, EnemyManager* e, float
 
 void EnemyTriangle::update(float elapsed)
 {
+    Enemy::update(elapsed);
 	sf::FloatRect initalIntersection;
 	for (std::list<Enemy*>::iterator it = manager->getEnemyList()->begin(); it != manager->getEnemyList()->end();++it)
 	{
