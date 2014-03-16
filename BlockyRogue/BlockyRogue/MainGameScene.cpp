@@ -143,6 +143,7 @@ void MainGameScene::update(float elapsedTime)
             enemies->setEnemiesKilled(enemies->getEnemiesKilled() - enemyKillsToLevel);
             enemyKillsToLevel *= 2;
             upgradeManager->applyUpgrades(p, enemies);
+            p->stats["health"] = p->stats["maxHealth"];
         }
         //Reject Upgrade
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))

@@ -187,10 +187,10 @@ void UpgradeManager::generateRandomUpgrade()
     }
     if(uType == 1)
     {
-        availablePlayerUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
-        availableEnemyUpgrades.push_back(new Upgrade("health", (rand()%10)-5, "+"));
-        availablePlayerUpgrades.push_back(new Upgrade("health", ((double)(rand()%150)/100), "*"));
-        availableEnemyUpgrades.push_back(new Upgrade("health", ((double)(rand()%150)/100), "*"));
+        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", (rand()%10)-5, "+"));
+        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", (rand()%10)-5, "+"));
+        availablePlayerUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%150)/100), "*"));
+        availableEnemyUpgrades.push_back(new Upgrade("maxHealth", ((double)(rand()%150)/100), "*"));
     }
     if(uType == 2)
     {
