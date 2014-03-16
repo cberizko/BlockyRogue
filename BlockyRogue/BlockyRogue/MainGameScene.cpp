@@ -1,5 +1,6 @@
 #include "MainGameScene.hpp"
-
+#include "SceneManager.hpp"
+#include "GameOverScreenScene.hpp"
 MainGameScene::MainGameScene(): Scene("Main Game Scene")
 {
 	if(!blockyFont.loadFromFile(getResourcePath("Assets/Fonts/")+"blocks.ttf"))
@@ -163,6 +164,11 @@ void MainGameScene::update(float elapsedTime)
         enemyUpgradeString << "";
     }
 	enemyUpgradeText.setString(enemyUpgradeString.str());
+	if(p->stats["health"] <= 0)
+	{
+		SceneManager::popScene();
+		SceneManager::pushScene((Scene*)new GameOverScreenScene());
+	}
 }
 
 void MainGameScene::draw(sf::RenderWindow* window, sf::View view)

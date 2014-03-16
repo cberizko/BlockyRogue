@@ -32,10 +32,13 @@ Player::~Player()
 
 void Player::hit(sf::Vector2f direction)
 {
-	knockBackTimer = knockBackTime;
-	stats["health"] -= 1;
-	hitDirection->x = direction.x;
-	hitDirection->y = direction.y;
+	if(knockBackTimer <= 0)
+	{
+		knockBackTimer = knockBackTime;
+		stats["health"] -= 1;
+		hitDirection->x = direction.x;
+		hitDirection->y = direction.y;
+	}
 }
 
 void Player::update(float elapsedTime)
