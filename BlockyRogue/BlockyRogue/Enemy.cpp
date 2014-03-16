@@ -61,4 +61,5 @@ void Enemy::setBump()
 {
 	bump = true;
     shape->bouncePoints();
+    shape->addPoint();
 }

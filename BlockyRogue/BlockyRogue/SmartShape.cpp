@@ -8,6 +8,8 @@ SmartShape::SmartShape(int verts, int radius, int variance)
         //for a circle with origin (j, k) and radius r:
         //x(t) = r cos(t) + j       y(t) = r sin(t) + k
 
+        radius += (rand()%10)-5;
+
         int radius_offset = std::rand()%variance; 
         double location = i*((2*PI)/verts);
 
@@ -27,6 +29,7 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
         //for a circle with origin (j, k) and radius r:
         //x(t) = r cos(t) + j       y(t) = r sin(t) + k
 
+        radius += (rand()%10)-5;
         int radius_offset = std::rand()%variance; 
         double location = i*((2*PI)/verts);
 
@@ -37,11 +40,27 @@ SmartShape::SmartShape(int verts, int radius, int variance, sf::Vector2f p)
     }
 }
 
+void SmartShape::addPoint()
+{
+    int seedPoint = (rand()%points.size());
+    
+    sf::Vector2f position = points[seedPoint]->position;
+    position += sf::Vector2f(rand()%60, rand()%60);
+    
+    for(auto p = points.begin(); p != points.end(); p++)
+    {
+        if(*p == points.at(seedPoint))
+        {
+            points.insert(p, new SmartPoint(position,10));
+        }
+    }
+}
+
 void SmartShape::bouncePoints()
 {
     for(int i=0; i < points.size(); i++)
     {
-        points[i]->positionOffset += sf::Vector2f((rand()%50)-25,(rand()%50)-25);
+        points[i]->positionOffset += sf::Vector2f((rand()%70)-35,(rand()%70)-35);
     }
 }
 
